@@ -1,0 +1,13 @@
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  the request url is  /
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  Handler crashed with error can't find templatefile in the path:views/index.tpl
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  D:/Go/src/runtime/asm_amd64.s:522
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  D:/Go/src/runtime/panic.go:513
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  E:/GO/src/github.com/astaxie/beego/template.go:73
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  E:/GO/src/github.com/astaxie/beego/controller.go:283
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  E:/GO/src/github.com/astaxie/beego/controller.go:234
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  E:/GO/src/github.com/astaxie/beego/controller.go:214
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  E:/GO/src/github.com/astaxie/beego/router.go:863
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  D:/Go/src/net/http/server.go:2741
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  D:/Go/src/net/http/server.go:1847
+2018/11/21 18:32:32.220 [C] [asm_amd64.s:522]  D:/Go/src/runtime/asm_amd64.s:1333
+2018/11/21 18:32:32.220 [server.go:2977]  [HTTP] http: multiple response.WriteHeader calls
