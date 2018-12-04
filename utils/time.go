@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"strconv"
 	"time"
 )
@@ -36,4 +37,14 @@ func TimeStringRangeToInt (str1 string, str2 string) []int {
 		t1 = TimeStringToInt(tm.Format("2006-01-02"))
 	}
 	return timetmp
+}
+
+func TimeIntToString(it int) string {
+	if st, err := time.Parse("20060102", strconv.Itoa(it)); nil == err {
+		return st.Format("2006-01-02")
+	} else {
+		// 错误
+		fmt.Println("错误")
+		return ""
+	}
 }

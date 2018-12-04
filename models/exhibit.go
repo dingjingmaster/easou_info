@@ -215,10 +215,10 @@ func QueryInfo(request *ExhibitRequest, response *Response) {
 					}
 					for _, itime1 := range timeRange {
 						if y, ok := tmp[itime1]; ok {
-							line.X = append(line.X, itime1)
+							line.X = append(line.X, utils.TimeIntToString(itime1))
 							line.Y = append(line.Y, y)
 						} else {
-							line.X = append(line.X, itime1)
+							line.X = append(line.X, utils.TimeIntToString(itime1))
 							line.Y = append(line.Y, 0)
 						}
 					}
