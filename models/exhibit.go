@@ -122,7 +122,7 @@ func getSql(request *ExhibitRequest) ([]SqlInfo, error) {
 				}
 			case "uptime":
 				for _, tg := range request.Target {
-					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_" + request.Weidu + " WHERE "
+					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_update WHERE "
 					for _, module := range request.Module {
 						for _, fee := range request.Fee {
 							for _, uptime := range request.Uptime {

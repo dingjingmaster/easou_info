@@ -8,7 +8,14 @@ import (
 func main() {
 
 	/* 配置 */
-	beego.AppPath = "E:/GO/src/easou_info/"
+	if ok, _ := beego.AppConfig.Bool("service::debug"); ok {
+		beego.AppPath = "E:/GO/src/easou_info/"
+		beego.SetStaticPath("/", "E:/easou-web/dist/")
+	} else {
+		beego.AppPath = "/data/wapage/web/item_info/"
+		beego.SetStaticPath("/", "/data/wapage/web/item_info//dist/")
+	}
+
 	beego.BConfig.RouterCaseSensitive = true  // 是否开启区分大小写
 	beego.BConfig.ServerName = "easou_info"   // 服务器名称
 	beego.BConfig.RecoverPanic = true         // 是否异常恢复
@@ -26,8 +33,6 @@ func main() {
 	beego.BConfig.Listen.ServerTimeOut = 0 // 设置 HTTP 的超时时间，默认是 0，不超时。
 	beego.BConfig.Listen.EnableHTTP = true // 是否启用HTTP监听
 
-	// 静态文件路径配置
-	beego.SetStaticPath("/", "E:/easou-web/dist/")
 	/* 开始运行 */
 	beego.Run()
 }
