@@ -1,0 +1,28 @@
+FROM mysql:5.7.24
+
+ENV GOROOT /data/env/go
+ENV GOPATH /data/release/web
+ENV PATH $GOROOT/bin:$PATH
+ENV MYSQL_ROOT_PASSWORD "123456"
+
+ADD sources.list  /etc/apt/sources.list
+
+###
+# 基础安装
+RUN apt-get update \
+    && apt-get install -y --allow-unauthenticated curl wget gcc g++ make git vim tar 
+
+###
+# go 环境安装
+RUN mkdir /data/env/go -p \
+    mkdir /data/release/web/ -p \
+    && cd /data/env/go/ \
+    && wget http://10.26.22.185:9000/psop/soft/go1.11.2.linux-amd64.tar.gz \
+    && tar -zxf go1.11.2.linux-amd64.tar.gz \
+    && rm ./*.tar.gz \
+    && mv ./go/* ./ \
+    && rm -fr ./go/
+    
+
+CMD ["mysqld"]
+
