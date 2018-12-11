@@ -12,8 +12,8 @@ func main() {
 		beego.AppPath = "E:/GO/src/easou_info/"
 		beego.SetStaticPath("/", "E:/easou-web/dist/")
 	} else {
-		beego.AppPath = "/data/wapage/web/item_info/"
-		beego.SetStaticPath("/", "/data/wapage/web/item_info//dist/")
+		beego.AppPath = "/data/release/web/"
+		beego.SetStaticPath("/", "/data/release/web/dist/")
 	}
 
 	beego.BConfig.RouterCaseSensitive = true  // 是否开启区分大小写
