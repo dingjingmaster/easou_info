@@ -931,29 +931,28 @@
     <table id="235" parent="5" name="item_exhibit_classify1"/>
     <table id="236" parent="5" name="item_exhibit_classify2"/>
     <table id="237" parent="5" name="item_exhibit_fee"/>
-    <table id="238" parent="5" name="item_exhibit_info"/>
-    <table id="239" parent="5" name="item_exhibit_intime"/>
-    <table id="240" parent="5" name="item_exhibit_status"/>
-    <table id="241" parent="5" name="item_exhibit_strategy"/>
-    <table id="242" parent="5" name="item_exhibit_summary"/>
-    <table id="243" parent="5" name="item_exhibit_update"/>
-    <table id="244" parent="5" name="item_exhibit_view"/>
-    <column id="245" parent="234" name="id">
+    <table id="238" parent="5" name="item_exhibit_intime"/>
+    <table id="239" parent="5" name="item_exhibit_status"/>
+    <table id="240" parent="5" name="item_exhibit_strategy"/>
+    <table id="241" parent="5" name="item_exhibit_summary"/>
+    <table id="242" parent="5" name="item_exhibit_update"/>
+    <table id="243" parent="5" name="item_exhibit_view"/>
+    <column id="244" parent="234" name="id">
       <Position>1</Position>
       <Comment>主键，包含所有信息的简写</Comment>
-      <DataType>varchar(128)|0s</DataType>
+      <DataType>varchar(1024)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="234" name="module">
+    <column id="245" parent="234" name="module">
       <Position>2</Position>
-      <Comment>1.书架推荐 2.书架-猜你喜欢 3.免费-免费推荐 4.免费-猜你喜欢 5.包月瀑布流 6.封面页-类别推荐 7.封面页-读本书的人还看过 8.封面页-读本书的人还看过更多 9.搜索结果页-热搜TOP榜 10.搜索结果页-猜你喜欢 11.章末页-读本书的人还看过 12.精选-女频瀑布流 13.精选-完结佳作 14.精选-完结瀑布流 15.精选-排行瀑布流 16.精选-根据阅读书籍推荐 17.精选-根据阅读分类推荐 18.精选-瀑布流 19。精选-热门推荐 20.精选-男频瀑布流 21.精选-精品必读 22.退出拦截推荐</Comment>
+      <Comment>1.书架推荐 2.书架-猜你喜欢 3.免费-免费推荐 4.免费-猜你喜欢 5.包月瀑布流 6.封面页-类别推荐 7.封面页-读本书的人还看过 8.封面页-读本书的人还看过更多 9.搜索结果页-热搜TOP榜 10.搜索结果页-猜你喜欢 11.章末页-读本书的人还看过 12.精选-女频瀑布流 13.精选-完结佳作 14.精选-完结瀑布流 15.精选-排行瀑布流 16.精选-根据阅读书籍推荐 17.精选-根据阅读分类推荐 18.精选-瀑布流 19.精选-热门推荐 20.精选-男频瀑布流 21.精选-精品必读 22.退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="234" name="areaLevel">
+    <column id="246" parent="234" name="areaLevel">
       <Position>3</Position>
       <Comment>1.一类地区 2.二类地区 3.三类地区 4.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -961,7 +960,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="234" name="userLevel">
+    <column id="247" parent="234" name="userLevel">
       <Position>4</Position>
       <Comment>1.普通用户 2.特殊用户 3.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -969,7 +968,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="234" name="userNewOld">
+    <column id="248" parent="234" name="userNewOld">
       <Position>5</Position>
       <Comment>1.新用户 2.老用户 3.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -977,7 +976,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="234" name="userFee">
+    <column id="249" parent="234" name="userFee">
       <Position>6</Position>
       <Comment>1.纯免费 2.潜在付费 3.轻度付费 4.中度付费 5.重度付费 6.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -985,7 +984,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="234" name="itemFee">
+    <column id="250" parent="234" name="itemFee">
       <Position>7</Position>
       <Comment>1.免费 2.付费 3.包月 4.限免 5.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -993,7 +992,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="234" name="strategy">
+    <column id="251" parent="234" name="strategy">
       <Position>8</Position>
       <Comment>1.一级同分类 2.二级同分类 3.内容相似 4.同作者 5.同分类 6.实时流 7.流行度 8.物品协同 9.用户协同 10.近期协同 11.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1001,7 +1000,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="234" name="status">
+    <column id="252" parent="234" name="status">
       <Position>9</Position>
       <Comment>1.连载 2.完结 3.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1009,7 +1008,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="234" name="view">
+    <column id="253" parent="234" name="view">
       <Position>10</Position>
       <Comment>1.[0,10) 2.[10, 100) 3.[100,1000) 4.[1000,10000) 5.[10000,100000) 6.[100000,1000000) 7.[1000000,10000000) 8.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1017,7 +1016,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="234" name="intime">
+    <column id="254" parent="234" name="intime">
       <Position>11</Position>
       <Comment>1.1月内入库 2.1~3月内入库 3.3~12月内入库 4.12~99月内入库 5.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1025,7 +1024,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="234" name="recNum">
+    <column id="255" parent="234" name="recNum">
       <Position>12</Position>
       <Comment>推荐量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1033,7 +1032,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="234" name="clkNum">
+    <column id="256" parent="234" name="clkNum">
       <Position>13</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1041,7 +1040,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="234" name="subNum">
+    <column id="257" parent="234" name="subNum">
       <Position>14</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1049,7 +1048,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="234" name="redNum1">
+    <column id="258" parent="234" name="redNum1">
       <Position>15</Position>
       <Comment>阅读量1(订阅后次日阅读量)</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1057,7 +1056,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="234" name="redNum2">
+    <column id="259" parent="234" name="redNum2">
       <Position>16</Position>
       <Comment>阅读量2(订阅后第二日阅读量)</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1065,7 +1064,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="234" name="timeStamp">
+    <column id="260" parent="234" name="timeStamp">
       <Position>17</Position>
       <Comment>时间戳</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1073,19 +1072,19 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="262" parent="234" name="PRIMARY">
+    <key id="261" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="263" parent="235" name="dzid">
+    <column id="262" parent="235" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="235" name="dspNum">
+    <column id="263" parent="235" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1093,7 +1092,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="235" name="clkNum">
+    <column id="264" parent="235" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1101,7 +1100,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="235" name="srbNum">
+    <column id="265" parent="235" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1109,7 +1108,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="235" name="redNum">
+    <column id="266" parent="235" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1117,7 +1116,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="235" name="rteNum">
+    <column id="267" parent="235" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1125,7 +1124,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="235" name="clkDsp">
+    <column id="268" parent="235" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -1133,7 +1132,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="235" name="subClk">
+    <column id="269" parent="235" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -1141,7 +1140,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="235" name="subDsp">
+    <column id="270" parent="235" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -1149,7 +1148,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="235" name="redSub">
+    <column id="271" parent="235" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -1157,7 +1156,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="235" name="redDsp">
+    <column id="272" parent="235" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -1165,7 +1164,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="235" name="retent">
+    <column id="273" parent="235" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -1173,7 +1172,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="235" name="rteDsp">
+    <column id="274" parent="235" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -1181,7 +1180,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="235" name="feeCate">
+    <column id="275" parent="235" name="feeCate">
       <Position>14</Position>
       <Comment>付费类型: 1免费 2付费 3包月 4公版 5限免</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1189,7 +1188,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="235" name="classify1Cate">
+    <column id="276" parent="235" name="classify1Cate">
       <Position>15</Position>
       <Comment>一级分类: 1男频 2女频 3包月 4出版 5其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1197,7 +1196,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="235" name="typeCate">
+    <column id="277" parent="235" name="typeCate">
       <Position>16</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1205,26 +1204,26 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="235" name="timeStamp">
+    <column id="278" parent="235" name="timeStamp">
       <Position>17</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="280" parent="235" name="PRIMARY">
+    <key id="279" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="281" parent="236" name="dzid">
+    <column id="280" parent="236" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="236" name="dspNum">
+    <column id="281" parent="236" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1232,7 +1231,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="236" name="clkNum">
+    <column id="282" parent="236" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1240,7 +1239,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="236" name="srbNum">
+    <column id="283" parent="236" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1248,7 +1247,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="236" name="redNum">
+    <column id="284" parent="236" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1256,7 +1255,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="236" name="rteNum">
+    <column id="285" parent="236" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1264,7 +1263,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="236" name="clkDsp">
+    <column id="286" parent="236" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -1272,7 +1271,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="236" name="subClk">
+    <column id="287" parent="236" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -1280,7 +1279,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="236" name="subDsp">
+    <column id="288" parent="236" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -1288,7 +1287,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="236" name="redSub">
+    <column id="289" parent="236" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -1296,7 +1295,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="236" name="redDsp">
+    <column id="290" parent="236" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -1304,7 +1303,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="236" name="retent">
+    <column id="291" parent="236" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -1312,7 +1311,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="236" name="rteDsp">
+    <column id="292" parent="236" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -1320,7 +1319,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="236" name="feeCate">
+    <column id="293" parent="236" name="feeCate">
       <Position>14</Position>
       <Comment>付费类型: 1免费 2付费 3包月 4公版 5限免</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1328,7 +1327,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="236" name="classify2Cate">
+    <column id="294" parent="236" name="classify2Cate">
       <Position>15</Position>
       <Comment>一级分类: 1现代言情 2现代都市 3玄幻奇幻 4古代言情 5幻想言情 6武侠仙侠 7历史军事 8科幻小说 9浪漫青春 10二次元 11游戏竞技 12灵异悬疑 13女生悬疑 14同人小说 15现代文学 16短篇 17经典名著 18其他</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1336,7 +1335,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="236" name="typeCate">
+    <column id="295" parent="236" name="typeCate">
       <Position>16</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1344,26 +1343,26 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="236" name="timeStamp">
+    <column id="296" parent="236" name="timeStamp">
       <Position>17</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="298" parent="236" name="PRIMARY">
+    <key id="297" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="299" parent="237" name="dzid">
+    <column id="298" parent="237" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="237" name="dspNum">
+    <column id="299" parent="237" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1371,7 +1370,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="237" name="clkNum">
+    <column id="300" parent="237" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1379,7 +1378,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="237" name="srbNum">
+    <column id="301" parent="237" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1387,7 +1386,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="237" name="redNum">
+    <column id="302" parent="237" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1395,7 +1394,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="237" name="rteNum">
+    <column id="303" parent="237" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1403,7 +1402,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="237" name="clkDsp">
+    <column id="304" parent="237" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -1411,7 +1410,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="237" name="subClk">
+    <column id="305" parent="237" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -1419,7 +1418,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="237" name="subDsp">
+    <column id="306" parent="237" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -1427,7 +1426,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="237" name="redSub">
+    <column id="307" parent="237" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -1435,7 +1434,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="237" name="redDsp">
+    <column id="308" parent="237" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -1443,7 +1442,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="237" name="retent">
+    <column id="309" parent="237" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -1451,7 +1450,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="237" name="rteDsp">
+    <column id="310" parent="237" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -1459,7 +1458,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="237" name="feeCate">
+    <column id="311" parent="237" name="feeCate">
       <Position>14</Position>
       <Comment>付费类型: 1免费 2付费 3包月 4公版 5限免</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1467,7 +1466,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="237" name="typeCate">
+    <column id="312" parent="237" name="typeCate">
       <Position>15</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1475,166 +1474,26 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="237" name="timeStamp">
+    <column id="313" parent="237" name="timeStamp">
       <Position>16</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="315" parent="237" name="PRIMARY">
+    <key id="314" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="316" parent="238" name="id">
-      <Position>1</Position>
-      <Comment>主键，包含所有信息的简写</Comment>
-      <DataType>varchar(128)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="317" parent="238" name="module">
-      <Position>2</Position>
-      <Comment>1.书架推荐 2.书架-猜你喜欢 3.免费-免费推荐 4.免费-猜你喜欢 5.包月瀑布流 6.封面页-类别推荐 7.封面页-读本书的人还看过 8.封面页-读本书的人还看过更多 9.搜索结果页-热搜TOP榜 10.搜索结果页-猜你喜欢 11.章末页-读本书的人还看过 12.精选-女频瀑布流 13.精选-完结佳作 14.精选-完结瀑布流 15.精选-排行瀑布流 16.精选-根据阅读书籍推荐 17.精选-根据阅读分类推荐 18.精选-瀑布流 19。精选-热门推荐 20.精选-男频瀑布流 21.精选-精品必读 22.退出拦截推荐</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="318" parent="238" name="areaLevel">
-      <Position>3</Position>
-      <Comment>1.一类地区 2.二类地区 3.三类地区 4.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="319" parent="238" name="userLevel">
-      <Position>4</Position>
-      <Comment>1.普通用户 2.特殊用户 3.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="320" parent="238" name="userNewOld">
-      <Position>5</Position>
-      <Comment>1.新用户 2.老用户 3.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="321" parent="238" name="userFee">
-      <Position>6</Position>
-      <Comment>1.纯免费 2.潜在付费 3.轻度付费 4.中度付费 5.重度付费 6.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="322" parent="238" name="itemFee">
-      <Position>7</Position>
-      <Comment>1.免费 2.付费 3.包月 4.限免 5.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="323" parent="238" name="strategy">
-      <Position>8</Position>
-      <Comment>1.一级同分类 2.二级同分类 3.内容相似 4.同作者 5.同分类 6.实时流 7.流行度 8.物品协同 9.用户协同 10.近期协同 11.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="324" parent="238" name="status">
-      <Position>9</Position>
-      <Comment>1.连载 2.完结 3.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="325" parent="238" name="view">
-      <Position>10</Position>
-      <Comment>1.[0,10) 2.[10, 100) 3.[100,1000) 4.[1000,10000) 5.[10000,100000) 6.[100000,1000000) 7.[1000000,10000000) 8.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="326" parent="238" name="intime">
-      <Position>11</Position>
-      <Comment>1.1月内入库 2.1~3月内入库 3.3~12月内入库 4.12~99月内入库 5.其它</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="327" parent="238" name="recNum">
-      <Position>12</Position>
-      <Comment>推荐量</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="328" parent="238" name="clkNum">
-      <Position>13</Position>
-      <Comment>点击量</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="329" parent="238" name="subNum">
-      <Position>14</Position>
-      <Comment>订阅量</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="330" parent="238" name="redNum1">
-      <Position>15</Position>
-      <Comment>阅读量1(订阅后次日阅读量)</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="331" parent="238" name="redNum2">
-      <Position>16</Position>
-      <Comment>阅读量2(订阅后第二日阅读量)</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="332" parent="238" name="timeStamp">
-      <Position>17</Position>
-      <Comment>时间戳</Comment>
-      <DataType>int(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="333" parent="238" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="334" parent="239" name="dzid">
+    <column id="315" parent="238" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="239" name="dspNum">
+    <column id="316" parent="238" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1642,7 +1501,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="239" name="clkNum">
+    <column id="317" parent="238" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1650,7 +1509,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="239" name="srbNum">
+    <column id="318" parent="238" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1658,7 +1517,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="239" name="redNum">
+    <column id="319" parent="238" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1666,7 +1525,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="239" name="rteNum">
+    <column id="320" parent="238" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1674,7 +1533,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="239" name="clkDsp">
+    <column id="321" parent="238" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -1682,7 +1541,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="239" name="subClk">
+    <column id="322" parent="238" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -1690,7 +1549,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="239" name="subDsp">
+    <column id="323" parent="238" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -1698,7 +1557,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="239" name="redSub">
+    <column id="324" parent="238" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -1706,7 +1565,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="239" name="redDsp">
+    <column id="325" parent="238" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -1714,7 +1573,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="345" parent="239" name="retent">
+    <column id="326" parent="238" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -1722,7 +1581,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="239" name="rteDsp">
+    <column id="327" parent="238" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -1730,7 +1589,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="239" name="feeCate">
+    <column id="328" parent="238" name="feeCate">
       <Position>14</Position>
       <Comment>付费类型: 1免费 2付费 3包月 4公版 5限免</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1738,7 +1597,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="239" name="intimeCate">
+    <column id="329" parent="238" name="intimeCate">
       <Position>15</Position>
       <Comment>入库时间类型: 1小于1月 2介于1-3月 3介于3-12月 4介于12-99月</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1746,7 +1605,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="239" name="typeCate">
+    <column id="330" parent="238" name="typeCate">
       <Position>16</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1754,26 +1613,26 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="239" name="timeStamp">
+    <column id="331" parent="238" name="timeStamp">
       <Position>17</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="351" parent="239" name="PRIMARY">
+    <key id="332" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="352" parent="240" name="dzid">
+    <column id="333" parent="239" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="240" name="dspNum">
+    <column id="334" parent="239" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1781,7 +1640,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="354" parent="240" name="clkNum">
+    <column id="335" parent="239" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1789,7 +1648,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="240" name="srbNum">
+    <column id="336" parent="239" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1797,7 +1656,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="240" name="redNum">
+    <column id="337" parent="239" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1805,7 +1664,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="240" name="rteNum">
+    <column id="338" parent="239" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1813,7 +1672,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="240" name="clkDsp">
+    <column id="339" parent="239" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -1821,7 +1680,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="240" name="subClk">
+    <column id="340" parent="239" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -1829,7 +1688,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="360" parent="240" name="subDsp">
+    <column id="341" parent="239" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -1837,7 +1696,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="240" name="redSub">
+    <column id="342" parent="239" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -1845,7 +1704,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="240" name="redDsp">
+    <column id="343" parent="239" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -1853,7 +1712,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="363" parent="240" name="retent">
+    <column id="344" parent="239" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -1861,7 +1720,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="364" parent="240" name="rteDsp">
+    <column id="345" parent="239" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -1869,7 +1728,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="240" name="feeCate">
+    <column id="346" parent="239" name="feeCate">
       <Position>14</Position>
       <Comment>付费类型: 1免费 2付费 3包月 4公版 5限免</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1877,7 +1736,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="240" name="statusCate">
+    <column id="347" parent="239" name="statusCate">
       <Position>15</Position>
       <Comment>状态类型: 1连载 2完结</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1885,7 +1744,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="367" parent="240" name="typeCate">
+    <column id="348" parent="239" name="typeCate">
       <Position>16</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1893,26 +1752,26 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="368" parent="240" name="timeStamp">
+    <column id="349" parent="239" name="timeStamp">
       <Position>17</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="369" parent="240" name="PRIMARY">
+    <key id="350" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="370" parent="241" name="dzid">
+    <column id="351" parent="240" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="241" name="dspNum">
+    <column id="352" parent="240" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1920,7 +1779,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="241" name="clkNum">
+    <column id="353" parent="240" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1928,7 +1787,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="241" name="srbNum">
+    <column id="354" parent="240" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1936,7 +1795,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="241" name="redNum">
+    <column id="355" parent="240" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1944,7 +1803,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="241" name="rteNum">
+    <column id="356" parent="240" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1952,7 +1811,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="241" name="clkDsp">
+    <column id="357" parent="240" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -1960,7 +1819,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="241" name="subClk">
+    <column id="358" parent="240" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -1968,7 +1827,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="241" name="subDsp">
+    <column id="359" parent="240" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -1976,7 +1835,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="379" parent="241" name="redSub">
+    <column id="360" parent="240" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -1984,7 +1843,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="380" parent="241" name="redDsp">
+    <column id="361" parent="240" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -1992,7 +1851,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="241" name="retent">
+    <column id="362" parent="240" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -2000,7 +1859,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="382" parent="241" name="rteDsp">
+    <column id="363" parent="240" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -2008,7 +1867,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="383" parent="241" name="feeCate">
+    <column id="364" parent="240" name="feeCate">
       <Position>14</Position>
       <Comment>付费类型: 1免费 2付费 3包月 4公版 5限免</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2016,7 +1875,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="384" parent="241" name="strategyCate">
+    <column id="365" parent="240" name="strategyCate">
       <Position>15</Position>
       <Comment>策略类型: 1实时流 2用户协同 3冷启动 4流行度 5物品协同 6同分类 7订阅模型 8阅读模型 9内容相似 10阅读同分类 11一级同分类 12无策略</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2024,7 +1883,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="385" parent="241" name="typeCate">
+    <column id="366" parent="240" name="typeCate">
       <Position>16</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2032,26 +1891,26 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="386" parent="241" name="timeStamp">
+    <column id="367" parent="240" name="timeStamp">
       <Position>17</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="387" parent="241" name="PRIMARY">
+    <key id="368" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="388" parent="242" name="dzid">
+    <column id="369" parent="241" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="389" parent="242" name="dspNum">
+    <column id="370" parent="241" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2059,7 +1918,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="390" parent="242" name="clkNum">
+    <column id="371" parent="241" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2067,7 +1926,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="391" parent="242" name="srbNum">
+    <column id="372" parent="241" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2075,7 +1934,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="392" parent="242" name="redNum">
+    <column id="373" parent="241" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2083,7 +1942,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="242" name="rteNum">
+    <column id="374" parent="241" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2091,7 +1950,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="394" parent="242" name="clkDsp">
+    <column id="375" parent="241" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -2099,7 +1958,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="242" name="subClk">
+    <column id="376" parent="241" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -2107,7 +1966,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="242" name="subDsp">
+    <column id="377" parent="241" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -2115,7 +1974,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="397" parent="242" name="redSub">
+    <column id="378" parent="241" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -2123,7 +1982,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="398" parent="242" name="redDsp">
+    <column id="379" parent="241" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -2131,7 +1990,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="399" parent="242" name="retent">
+    <column id="380" parent="241" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -2139,7 +1998,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="400" parent="242" name="rteDsp">
+    <column id="381" parent="241" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -2147,7 +2006,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="401" parent="242" name="typeCate">
+    <column id="382" parent="241" name="typeCate">
       <Position>14</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2155,26 +2014,26 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="402" parent="242" name="timeStamp">
+    <column id="383" parent="241" name="timeStamp">
       <Position>15</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="403" parent="242" name="PRIMARY">
+    <key id="384" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="404" parent="243" name="dzid">
+    <column id="385" parent="242" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="405" parent="243" name="dspNum">
+    <column id="386" parent="242" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2182,7 +2041,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="406" parent="243" name="clkNum">
+    <column id="387" parent="242" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2190,7 +2049,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="407" parent="243" name="srbNum">
+    <column id="388" parent="242" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2198,7 +2057,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="408" parent="243" name="redNum">
+    <column id="389" parent="242" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2206,7 +2065,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="409" parent="243" name="rteNum">
+    <column id="390" parent="242" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2214,7 +2073,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="410" parent="243" name="clkDsp">
+    <column id="391" parent="242" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -2222,7 +2081,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="411" parent="243" name="subClk">
+    <column id="392" parent="242" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -2230,7 +2089,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="412" parent="243" name="subDsp">
+    <column id="393" parent="242" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -2238,7 +2097,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="413" parent="243" name="redSub">
+    <column id="394" parent="242" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -2246,7 +2105,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="414" parent="243" name="redDsp">
+    <column id="395" parent="242" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -2254,7 +2113,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="415" parent="243" name="retent">
+    <column id="396" parent="242" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -2262,7 +2121,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="416" parent="243" name="rteDsp">
+    <column id="397" parent="242" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -2270,7 +2129,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="417" parent="243" name="feeCate">
+    <column id="398" parent="242" name="feeCate">
       <Position>14</Position>
       <Comment>付费类型: 1免费 2付费 3包月 4公版 5限免</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2278,7 +2137,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="418" parent="243" name="updateCate">
+    <column id="399" parent="242" name="updateCate">
       <Position>15</Position>
       <Comment>入库时间类型: 1小于1月 2介于1-3月 3介于3-12月 4介于12-99月</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2286,7 +2145,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="419" parent="243" name="typeCate">
+    <column id="400" parent="242" name="typeCate">
       <Position>16</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2294,26 +2153,26 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="420" parent="243" name="timeStamp">
+    <column id="401" parent="242" name="timeStamp">
       <Position>17</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="421" parent="243" name="PRIMARY">
+    <key id="402" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="422" parent="244" name="dzid">
+    <column id="403" parent="243" name="dzid">
       <Position>1</Position>
       <Comment>主键 模块名+时间戳</Comment>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="423" parent="244" name="dspNum">
+    <column id="404" parent="243" name="dspNum">
       <Position>2</Position>
       <Comment>展现量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2321,7 +2180,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="424" parent="244" name="clkNum">
+    <column id="405" parent="243" name="clkNum">
       <Position>3</Position>
       <Comment>点击量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2329,7 +2188,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="425" parent="244" name="srbNum">
+    <column id="406" parent="243" name="srbNum">
       <Position>4</Position>
       <Comment>订阅量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2337,7 +2196,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="426" parent="244" name="redNum">
+    <column id="407" parent="243" name="redNum">
       <Position>5</Position>
       <Comment>阅读量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2345,7 +2204,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="427" parent="244" name="rteNum">
+    <column id="408" parent="243" name="rteNum">
       <Position>6</Position>
       <Comment>留存量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2353,7 +2212,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="428" parent="244" name="clkDsp">
+    <column id="409" parent="243" name="clkDsp">
       <Position>7</Position>
       <Comment>点展比</Comment>
       <DataType>float|0s</DataType>
@@ -2361,7 +2220,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="429" parent="244" name="subClk">
+    <column id="410" parent="243" name="subClk">
       <Position>8</Position>
       <Comment>订点比</Comment>
       <DataType>float|0s</DataType>
@@ -2369,7 +2228,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="430" parent="244" name="subDsp">
+    <column id="411" parent="243" name="subDsp">
       <Position>9</Position>
       <Comment>订展比</Comment>
       <DataType>float|0s</DataType>
@@ -2377,7 +2236,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="431" parent="244" name="redSub">
+    <column id="412" parent="243" name="redSub">
       <Position>10</Position>
       <Comment>阅订比</Comment>
       <DataType>float|0s</DataType>
@@ -2385,7 +2244,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="432" parent="244" name="redDsp">
+    <column id="413" parent="243" name="redDsp">
       <Position>11</Position>
       <Comment>阅展比</Comment>
       <DataType>float|0s</DataType>
@@ -2393,7 +2252,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="433" parent="244" name="retent">
+    <column id="414" parent="243" name="retent">
       <Position>12</Position>
       <Comment>留存率</Comment>
       <DataType>float|0s</DataType>
@@ -2401,7 +2260,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="434" parent="244" name="rteDsp">
+    <column id="415" parent="243" name="rteDsp">
       <Position>13</Position>
       <Comment>留展比</Comment>
       <DataType>float|0s</DataType>
@@ -2409,7 +2268,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="435" parent="244" name="feeCate">
+    <column id="416" parent="243" name="feeCate">
       <Position>14</Position>
       <Comment>付费类型: 1免费 2付费 3包月 4公版 5限免</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2417,7 +2276,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="436" parent="244" name="viewCate">
+    <column id="417" parent="243" name="viewCate">
       <Position>15</Position>
       <Comment>订阅量类型: 1介于0到10 2介于10到100 3介于100到1000 4介于1000到1w 5介于1w到10w 6介于10w到100w 7介于100w到1000万</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2425,7 +2284,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="437" parent="244" name="typeCate">
+    <column id="418" parent="243" name="typeCate">
       <Position>16</Position>
       <Comment>类型: 1书架推荐 2免费-猜你喜欢 3章末页-读本书还看过 4封面页-读本书还看过 5书架-猜你喜欢 6精选-瀑布流 7封面页-读本书人看过更多 8包月-瀑布流 9封面页-类别推荐 10封面页-作者推荐 11精选-完结瀑布流 12免费-包月推荐 13精选-男频瀑布流 14精选-排行瀑布流 15精选-女频瀑布流 16根据阅读推荐 17退出拦截推荐</Comment>
       <DataType>int(12)|0s</DataType>
@@ -2433,14 +2292,14 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="438" parent="244" name="timeStamp">
+    <column id="419" parent="243" name="timeStamp">
       <Position>17</Position>
       <Comment>时间戳20180110</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="439" parent="244" name="PRIMARY">
+    <key id="420" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dzid</ColNames>
       <Primary>1</Primary>

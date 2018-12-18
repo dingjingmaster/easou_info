@@ -431,30 +431,21 @@ def get_sql(arr, timeStamp):
               module, areaLevel, userLevel, userNewOld, userFee, itemFee, \
               strategy, status, view, intime, \
               recNum, clkNum, subNum, redNum1, redNum2, timeStamp)\
-              VALUES('%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d');" %\
+              VALUES('%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d');" % \
               (id, \
               module_trans_to_num(arr[0]), area_level_trans_to_num(arr[1]), \
               user_level_trans_to_num(arr[2]), user_nd_trans_to_num(arr[3]), \
               user_fee_trans_to_num(arr[4]), item_fee_trans_to_num(arr[5]), \
               strategy_trans_to_num(arr[6]), status_trans_to_num(arr[7]), \
               view_trans_to_num(arr[8]), intime_trans_to_num(arr[9]), \
-              int(arr[10]), int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]),\
-              str(timeStamp)
+              int(arr[10]), int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(timeStamp)
     return sql
-
 
 # inject mysql
 def inject_mysql(txtpath, cursor, times):
     fr = open(txtpath, "r")
     timeStamp = int(times)
     for line in fr.readlines():
-        sql = ""
-        id = ""
-        recNum = 0
-        clkNum = 0
-        subNum = 0
-        redNum1 = 0
-        redNum2 = 0
         line = line.strip('\n')
         arr = line.split("\t")
         if len(arr) != 15:
@@ -480,7 +471,6 @@ if __name__ == '__main__':
     #db = MySQLdb.connect(ip, user, passwd, 'item_exhibit');
     db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
     cursor = db.cursor()
-
     inject_mysql(exhibitPath, cursor, time)
     db.close()                                                                          # 关闭数据库
 
