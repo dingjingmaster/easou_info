@@ -438,7 +438,7 @@ def get_sql(arr, timeStamp):
               user_fee_trans_to_num(arr[4]), item_fee_trans_to_num(arr[5]), \
               strategy_trans_to_num(arr[6]), status_trans_to_num(arr[7]), \
               view_trans_to_num(arr[8]), intime_trans_to_num(arr[9]), \
-              int(arr[10]), int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(timeStamp)
+              int(arr[10]), int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(timeStamp))
     return sql
 
 # inject mysql
