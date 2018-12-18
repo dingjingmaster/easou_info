@@ -1,8 +1,9 @@
 FROM mysql:5.7.24
 
 ENV GOROOT /data/env/go
+ENV WEB /data/release/web/
 ENV GOPATH /data/release/web
-ENV PATH $GOROOT/bin:$PATH
+ENV PATH ${WEB}:$GOROOT/bin:$PATH
 ENV MYSQL_ROOT_PASSWORD "123456"
 
 ADD sources.list  /etc/apt/sources.list
@@ -28,7 +29,8 @@ COPY go/main /data/release/web/main
  
 ###
 # 复制源码
-    
+RUN cd $WEB \
+    && main > /dev/null
 
 CMD ["mysqld"]
 
