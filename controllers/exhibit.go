@@ -1,10 +1,8 @@
 package controllers
 
 import (
-	"easou_info/models"
 	"fmt"
 	"github.com/astaxie/beego"
-	"github.com/json-iterator/go"
 )
 
 type ExhibitSelectControl struct {
@@ -19,19 +17,20 @@ type ExhibitSelectControl struct {
  *		4. 返回数据
  */
 func (ts *ExhibitSelectControl) Post() {
-	request := models.ExhibitRequest{}
-	response := models.Response{}
-	var json = jsoniter.ConfigCompatibleWithStandardLibrary
-	if err := json.Unmarshal(ts.Ctx.Input.RequestBody, &request); nil == err {
-		models.QueryInfo(&request, &response)
-	} else {
-		// 错误处理
-		response.Status = false
-		response.Rrror = "请求的 json 解析失败..."
-	}
-	if respString, err := json.Marshal(response); nil == err {
-		ts.Ctx.WriteString(string(respString))
-	} else {
-		fmt.Printf("\n错误: %s \n %s\n", err, respString)
-	}
+	fmt.Println(ts.Ctx.Input.RequestBody)
+	//request := models.ExhibitRequest{}
+	//response := models.Response{}
+	//var json = jsoniter.ConfigCompatibleWithStandardLibrary
+	//if err := json.Unmarshal(ts.Ctx.Input.RequestBody, &request); nil == err {
+	//	models.QueryInfo(&request, &response)
+	//} else {
+	//	// 错误处理
+	//	response.Status = false
+	//	response.Rrror = "请求的 json 解析失败..."
+	//}
+	//if respString, err := json.Marshal(response); nil == err {
+	//	ts.Ctx.WriteString(string(respString))
+	//} else {
+	//	fmt.Printf("\n错误: %s \n %s\n", err, respString)
+	//}
 }

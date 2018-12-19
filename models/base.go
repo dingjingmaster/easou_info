@@ -19,31 +19,35 @@ type Response struct {
 	Lines  []Line // 返回 n 条线
 }
 
-
-
 var mysqlInfo = ""
+
+/* exhibit 相关全局变量 */
 var exhibitMapToNum = map[string]int{
-	"freFee": 1, "chgFee": 2, "monFee": 3, "pubFee": 4, "tfFee": 5, "allFee": 6,
-	"livStmRec": 1, "usrKnnRec": 2, "codBotRec": 3, "popRec": 4, "itemKnnRec": 5, "samCtgRec": 6, "subMdlRec": 7, "redMdlRec": 8, "cotSimRec": 9, "redSimRec": 10, "cat1SimCtgRec": 11, "nerIcfKnn": 13,
-	"shfRecMdl": 1, "freGusMdl": 2, "bakArdMdl": 3, "foeArdMdl": 4, "shfGusMdl": 5, "chsStmMdl": 6, "foeArdMorMdl": 7, "monStmMdl": 8, "foeCtgMdl": 9, "foeAutMdl": 10, "chsFinStmMdl": 11, "chsGilStmMdl": 15, "freMonRecMdl": 12, "chsBoyStmMdl": 13, "chsRakStmMdl": 14, "redRecMdl": 16, "extRecMdl": 17, "chsBDMdl": 18, "chsHRMdl": 19, "freFRMdl": 20, "chsRRCMdl": 21, "chsRRBMdl": 22, "chsCRMdl": 23,
-	"noCmpStau": 1, "cmpStau": 2,
-	"bt0to10Sub": 1, "bt10to1bSub": 2, "bt1bto1kSub": 3, "bt1kto10kSub": 4, "bt10kto100kSub": 5, "bt100kto1000kSub": 6, "bt1000kto10000kSub": 7,
-	"lesMonIn": 1, "bt1mto3mIn": 2, "bt3mto12mIn": 3, "bt12mto99mIn": 4,
-	"lesMonUpd": 1, "bt1mto3mUpd": 2, "bt3mto12mUpd": 3, "bt12mto99mUpd": 4,
-	"boyCfy1": 1, "girlCfy1": 2, "monCfy1": 3, "pshCfy1": 4, "othCfy1": 5,
+	"shfRecMdl": 1, "shfGusMdl": 2, "freRecMdl": 3, "freGusMdl": 4, "monStmMdl": 5, "foeCateRecMdl": 6, "foeRedRedMdl": 7, "foeRedMorMdl": 8, "sehResTopMdl": 9, "sehResGusMdl": 10, "bakRedRedMdl": 11, "chsGilStmMdl": 12, "chsCmpMdl": 13, "chsCmpStmMdl": 14, "chsRakStmMdl": 15, "chsRedRecMdl": 16, "chsRedCatRecMdl": 17, "chsStmMdl": 18, "chsHotRecMdl": 19, "chsBoyStmMdl": 20, "chsChsRedMdl": 21,  "extBlkMdl": 22,
+	"oneArea": 1, "twoArea": 2, "trdArea": 3, "othArea": 4,
+	"regUsrLevel": 1, "sphUsrLevel": 2, "othUsrLevel": 3,
+	"newUsr": 1, "oldUsr": 2, "othUsr": 3,
+	"freFeeUsr": 1, "mybChgFeeUsr": 2, "lgtChgFeeUsr": 3, "mdlChgFeeUsr": 4, "hghChgFeeUsr": 5, "othFeeUsr": 6,
+	"freItmFee": 1, "chgItmFee": 2, "monItmFee": 3, "tfItmFee": 4, "othItmFee": 5,
+	"cat1Rec": 1, "cat2Rec": 2, "cotSimRec": 3, "simAthRec": 4, "catRec": 5, "livStmRec": 6, "popRec": 7, "icfKnnRec": 8, "ucfKnnRec": 9, "nerIcfKnnRec": 10, "othRec": 11,
+	"noCmpStu": 1, "cmpStu": 2, "othStu": 3,
+	"bt0to10Sub": 1, "bt10to1bSub": 2, "bt1bto1kSub": 3, "bt1kto10kSub": 4, "bt10kto100kSub": 5, "bt100kto1000kSub": 6, "bt1000kto10000kSub": 7, "othSub": 8,
+	"lesMonIn": 1, "bt1mto3mIn": 2, "bt3mto12mIn": 3, "bt12mto99mIn": 4, "othIn": 5,
 }
 
 var exhibitMapToString = map[string]string{
-	"clkDsp": "点展比", "subClk": "订点比", "subDsp": "订展比", "redSub": "阅订比", "redDsp": "阅展比", "retent": "留存率", "rteDsp": "留展比",
-	"shfRecMdl": "书架推荐", "freGusMdl": "免费猜你喜欢", "bakArdMdl": "章末页读本书的人还看过", "foeArdMdl": "封面页读本书的人还看过", "shfGusMdl": "书架猜你喜欢", "chsStmMdl": "精选瀑布流", "foeArdMorMdl": "封面页读本书的人还看过更多", "monStmMdl": "包月瀑布流", "foeCtgMdl": "封面页类别推荐", "foeAutMdl": "封面页作者推荐", "chsFinStmMdl": "精选完结瀑布流", "chsGilStmMdl": "精选女频瀑布流", "freMonRecMdl": "免费包月推荐", "chsBoyStmMdl": "精选男频瀑布流", "chsRakStmMdl": "精选排行瀑布流", "redRecMdl": "根据阅读推荐", "extRecMdl": "退出拦截推荐", "chsBDMdl": "精选-精品必读", "chsHRMdl": "精选-热门推荐", "freFRMdl": "免费-免费推荐", "chsRRCMdl": "精选-根据阅读分类推荐", "chsRRBMdl": "精选-根据阅读书籍推荐", "chsCRMdl": "精选-完结佳作",
-	"chgFee": "付费", "freFee": "免费(互联网书)", "monFee": "包月", "pubFee": "公版", "tfFee": "限免", "allFee": "全免(付费书免费读)",
-	"livStmRec": "实时流", "usrKnnRec": "用户协同", "codBotRec": "冷启动", "popRec": "流行度", "itemKnnRec": "物品协同", "samCtgRec": "同分类", "subMdlRec": "订阅模型", "redMdlRec": "阅读模型", "cotSimRec": "内容相似", "redSimRec": "阅读同分类", "cat1SimCtgRec": "1级同分类", "nerIcfKnn": "近期协同",
-	"cmpStau": "完结", "noCmpStau": "连载",
-	"bt0to10Sub": "[0,10)", "bt10to1bSub": "[10,100)", "bt1bto1kSub": "[100,1000)", "bt1kto10kSub": "[1000,10000)", "bt10kto100kSub": "[10000,100000)", "bt100kto1000kSub": "[100000,1000000)", "bt1000kto10000kSub": "[1000000,10000000)",
-	"lesMonIn": "1月内入库", "bt1mto3mIn": "1到3月内入库", "bt3mto12mIn": "3到12月内入库", "bt12mto99mIn": "12到99月内入库",
-	"lesMonUpd": "0到1月未更新", "bt1mto3mUpd": "1到3月未更新", "bt3mto12mUpd": "3到12月未更新", "bt12mto99mUdp": "12到99月未更新",
-	"boyCfy1": "男频", "girlCfy1": "女频", "monCfy1": "包月", "pshCfy1": "出版", "othCfy1": "其他",
-	"dspNum": "展现量", "clkNum": "点击量", "srbNum": "订阅量", "redNum": "阅读量", "rteNum": "留存量",
+	"allMdl": "全模块叠加", "shfRecMdl": "书架推荐", "shfGusMdl": "书架-猜你喜欢", "freRecMdl": "免费-免费推荐", "freGusMdl": "免费-猜你喜欢", "monStmMdl": "包月瀑布流", "foeCateRecMdl": "封面页-类别推荐", "foeRedRedMdl": "封面页-读本书的人还看过", "foeRedMorMdl": "封面页-读本书的人还看过更多", "sehResTopMdl": "搜索结果页-热搜TOP榜", "sehResGusMdl": "搜索结果页-猜你喜欢", "bakRedRedMdl": "章末页-读本书的人还看过", "chsGilStmMdl": "精选-女频瀑布流", "chsCmpMdl": "精选-完结佳作", "chsCmpStmMdl": "精选-完结瀑布流", "chsRakStmMdl": "精选-排行瀑布流", "chsRedRecMdl": "精选-根据阅读书籍推荐", "chsRedCatRecMdl": "精选-根据阅读分类推荐", "chsStmMdl": "精选-瀑布流", "chsHotRecMdl": "精选-热门推荐", "chsBoyStmMdl": "精选-男频瀑布流", "chsChsRedMdl": "精选-精品必读",  "extBlkMdl": "退出拦截推荐",
+	"allArea": "全区域叠加", "oneArea": "一类地区", "twoArea": "二类地区", "trdArea": "三类地区", "othArea": "其它地区",
+	"allUsrLevel": "全用户级别叠加", "regUsrLevel": "普通用户", "sphUsrLevel": "特殊用户", "othUsrLevel": "其它用户级别",
+	"allUsr": "全新旧用户叠加", "newUsr": "新用户", "oldUsr": "老用户", "othUsr": "其它新/老用户",
+	"allFeeUsr": "全付费类型用户叠加", "freFeeUsr": "纯免费用户", "mybChgFeeUsr": "潜在付费用户", "lgtChgFeeUsr": "轻度付费用户", "mdlChgFeeUsr": "中度付费用户", "hghChgFeeUsr": "重度付费用户", "othFeeUsr": "其它付费类型用户",
+	"allItemFee": "全付费类型物品叠加", "freItmFee": "付费物品", "chgItmFee": "免费物品", "monItmFee": "包月物品", "tfItmFee": "限免物品", "othItmFee": "其它付费类型物品",
+	"allRec": "全策略叠加", "cat1Rec": "一级同分类", "cat2Rec": "二级同分类", "cotSimRec": "内容相似", "simAthRec": "同作者", "catRec": "同分类", "livStmRec": "实时流", "popRec": "流行度", "icfKnnRec": "物品协同", "ucfKnnRec": "用户协同", "nerIcfKnnRec": "近期协同", "othRec": "其它策略",
+	"allStu": "全书籍状态叠加", "noCmpStu": "连载", "cmpStu": "完结", "othStu": "其它状态",
+	"allSub": "全订阅级别叠加", "bt0to10Sub": "0~10订阅", "bt10to1bSub": "10~100订阅", "bt1bto1kSub": "100~1千订阅", "bt1kto10kSub": "1千~1万订阅", "bt10kto100kSub": "1万~10万订阅", "bt100kto1000kSub": "10万~1百万订阅", "bt1000kto10000kSub": "1百万~1千万订阅", "othSub": "其它订阅级别",
+	"allIn": "全入库时间叠加", "lesMonIn": "1月内入库", "bt1mto3mIn": "1~3月内入库", "bt3mto12mIn": "3~12月内入库", "bt12mto99mIn": "12~99月内入库", "othIn": "其它入库时间",
+	"dspNum": "推荐量", "clkNum": "点击量", "srbNum": "订阅量", "redNum": "阅读量1", "rteNum": "阅读量2",
+	"clkDsp": "点展比", "subClk": "订点比", "subDsp": "订展比", "redSub": "阅订比1", "redDsp": "阅展比1", "retent": "阅订比2", "rteDsp": "阅展比",
 }
 
 func init() {

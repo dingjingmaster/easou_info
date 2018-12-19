@@ -19,7 +19,7 @@ def execute_sql(cursor, sql):
 # 将模块————汉字转英文
 def module_trans_to_word(mstr):
     res = ''
-    if mstr == '书架推荐':                      # 推荐模块
+    if mstr == '书架推荐':
         res = 'shfRecMdl'
     elif mstr == '书架-猜你喜欢':
         res = 'shfGusMdl'
