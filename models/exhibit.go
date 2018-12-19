@@ -9,232 +9,175 @@ import (
 )
 
 type ExhibitRequest struct {
-	Weidu     string
-	Module    []string
-	Fee       []string
-	Strategy  []string
-	Status    []string
-	Sub       []string
-	Intime    []string
-	Uptime    []string
-	Classify1 []string
-	TimeRange []string
-	Target    []string
+	Module       []string
+	AreaLevel    []string
+	UserLevel    []string
+	UserNewLevel []string
+	UserFeeLevel []string
+	ItemFeeLevel []string
+	Strategy     []string
+	Status       []string
+	Sub          []string
+	Intime       []string
+	Target       []string
+	TimeRange    []string
 }
 
-func getSql(request *ExhibitRequest) ([]SqlInfo, error) {
-	ret := []SqlInfo{}
-	if startTime, err := utils.TimeStringToString(request.TimeRange[0]); nil == err {
-		if stopTime, err := utils.TimeStringToString(request.TimeRange[1]); nil == err {
-			switch request.Weidu {
-			case "summary":
-				for _, tg := range request.Target {
-					msql := "SELECT timeStamp," + tg + " FROM " + "item_exhibit_" + request.Weidu + " WHERE "
-					for _, module := range request.Module {
-						sqlInfo := SqlInfo{}
-						sqlInfo.Sql = msql + "typeCate=" + strconv.Itoa(exhibitMapToNum[module]) +
-							" AND timeStamp>=" + startTime +
-							" AND timeStamp<=" + stopTime
-						sqlInfo.Introduction = exhibitMapToString[module] +
-							"-" + exhibitMapToString[tg]
-						ret = append(ret, sqlInfo)
+func QueryExhibit(req *ExhibitRequest, response *Response) {
+	sqls := make(chan SqlInfo, 10)
+	go func() {
+		if startTime, ok := utils.TimeStringToString(req.TimeRange[0]); nil == ok {
+			if endTime, ok := utils.TimeStringToString(req.TimeRange[1]); nil == ok {
+				mmsql := "SELECT recNum, clkNum, subNum, redNum1, redNum2, timeStamp FROM item_exhibit WHERE timeStamp >= " +
+					startTime + " AND timeStamp <= " + endTime
+				for _, module := range req.Module {
+					if module != "allMdl" {
+						mmsql += " AND module = " + strconv.Itoa(exhibitMapToNum[module])
 					}
-				}
-			case "fee":
-				for _, tg := range request.Target {
-					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_" + request.Weidu + " WHERE "
-					for _, module := range request.Module {
-						for _, fee := range request.Fee {
-							sqlInfo := SqlInfo{}
-							sqlInfo.Sql = msql + "feeCate=" + strconv.Itoa(exhibitMapToNum[fee]) +
-								" AND typeCate=" + strconv.Itoa(exhibitMapToNum[module]) +
-								" AND  timeStamp>=" + startTime +
-								" AND timeStamp<=" + stopTime
-							sqlInfo.Introduction = exhibitMapToString[module] +
-								"-" + exhibitMapToString[fee] +
-								"-" + exhibitMapToString[tg]
-							ret = append(ret, sqlInfo)
+					for _, areaLevel := range req.AreaLevel {
+						if areaLevel != "allArea" {
+							mmsql += " AND areaLevel = " + strconv.Itoa(exhibitMapToNum[areaLevel])
 						}
-					}
-				}
-			case "status":
-				for _, tg := range request.Target {
-					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_" + request.Weidu + " WHERE "
-					for _, module := range request.Module {
-						for _, fee := range request.Fee {
-							for _, status := range request.Status {
-								sqlInfo := SqlInfo{}
-								sqlInfo.Sql = msql + "feeCate=" + strconv.Itoa(exhibitMapToNum[fee]) +
-									" AND statusCate=" + strconv.Itoa(exhibitMapToNum[status]) +
-									" AND typeCate=" + strconv.Itoa(exhibitMapToNum[module]) +
-									" AND timeStamp>=" + startTime +
-									" AND timeStamp<=" + stopTime
-								sqlInfo.Introduction = exhibitMapToString[module] +
-									"-" + exhibitMapToString[fee] +
-									"-" + exhibitMapToString[status] +
-									"-" + exhibitMapToString[tg]
-								ret = append(ret, sqlInfo)
+						for _, userLevel := range req.UserLevel {
+							if userLevel != "allUsrLevel" {
+								mmsql += " AND userLevel = " + strconv.Itoa(exhibitMapToNum[userLevel])
+							}
+							for _, userNewOld := range req.UserNewLevel {
+								if userNewOld != "allUsr" {
+									mmsql += " AND userNewOld = " + strconv.Itoa(exhibitMapToNum[userNewOld])
+								}
+								for _, userFee := range req.UserFeeLevel {
+									if userFee != "allFeeUsr" {
+										mmsql += " AND userFee = " + strconv.Itoa(exhibitMapToNum[userFee])
+									}
+									for _, itemFee := range req.ItemFeeLevel {
+										if itemFee != "allItmFee" {
+											mmsql += " AND itemFee = " + strconv.Itoa(exhibitMapToNum[itemFee])
+										}
+										for _, strategy := range req.Strategy {
+											if strategy != "allRec" {
+												mmsql += " AND strategy = " + strconv.Itoa(exhibitMapToNum[strategy])
+											}
+											for _, status := range req.Status {
+												if status != "allStu" {
+													mmsql += " AND status = " + strconv.Itoa(exhibitMapToNum[status])
+												}
+												for _, view := range req.Sub {
+													if view != "allSub" {
+														mmsql += " AND view = " + strconv.Itoa(exhibitMapToNum[view])
+													}
+													for _, intime := range req.Intime {
+														if intime != "allIn" {
+															mmsql += " AND intime = " + strconv.Itoa(exhibitMapToNum[intime])
+														}
+														msql := SqlInfo{}
+														msql.Introduction = exhibitMapToString[module] + "-" + exhibitMapToString[areaLevel] + "-" +
+															exhibitMapToString[userLevel] + "-" + exhibitMapToString[userNewOld] + "-" +
+															exhibitMapToString[userFee] + "-" + exhibitMapToString[itemFee] + "-" +
+															exhibitMapToString[strategy] + "-" + exhibitMapToString[status] + "-" +
+															exhibitMapToString[view] + "-" + exhibitMapToString[intime]
+														msql.Sql = mmsql
+														sqls <- msql
+													}
+												}
+											}
+										}
+									}
+								}
 							}
 						}
 					}
 				}
-			case "view":
-				for _, tg := range request.Target {
-					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_" + request.Weidu + " WHERE "
-					for _, module := range request.Module {
-						for _, fee := range request.Fee {
-							for _, view := range request.Sub {
-								sqlInfo := SqlInfo{}
-								sqlInfo.Sql = msql + "feeCate=" + strconv.Itoa(exhibitMapToNum[fee]) +
-									" AND viewCate=" + strconv.Itoa(exhibitMapToNum[view]) +
-									" AND typeCate=" + strconv.Itoa(exhibitMapToNum[module]) +
-									" AND timeStamp>=" + startTime +
-									" AND timeStamp<=" + stopTime
-								sqlInfo.Introduction = exhibitMapToString[module] +
-									"-" + exhibitMapToString[fee] +
-									"-" + exhibitMapToString[view] +
-									"-" + exhibitMapToString[tg]
-								ret = append(ret, sqlInfo)
-							}
-						}
-					}
-				}
-			case "intime":
-				for _, tg := range request.Target {
-					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_" + request.Weidu + " WHERE "
-					for _, module := range request.Module {
-						for _, fee := range request.Fee {
-							for _, intime := range request.Intime {
-								sqlInfo := SqlInfo{}
-								sqlInfo.Sql = msql + "feeCate=" + strconv.Itoa(exhibitMapToNum[fee]) +
-									" AND intimeCate=" + strconv.Itoa(exhibitMapToNum[intime]) +
-									" AND typeCate=" + strconv.Itoa(exhibitMapToNum[module]) +
-									" AND timeStamp>=" + startTime +
-									" AND timeStamp<=" + stopTime
-								sqlInfo.Introduction = exhibitMapToString[module] +
-									"-" + exhibitMapToString[fee] +
-									"-" + exhibitMapToString[intime] +
-									"-" + exhibitMapToString[tg]
-								ret = append(ret, sqlInfo)
-							}
-						}
-					}
-				}
-			case "uptime":
-				for _, tg := range request.Target {
-					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_update WHERE "
-					for _, module := range request.Module {
-						for _, fee := range request.Fee {
-							for _, uptime := range request.Uptime {
-								sqlInfo := SqlInfo{}
-								sqlInfo.Sql = msql + "feeCate=" + strconv.Itoa(exhibitMapToNum[fee]) +
-									" AND updateCate=" + strconv.Itoa(exhibitMapToNum[uptime]) +
-									" AND typeCate=" + strconv.Itoa(exhibitMapToNum[module]) +
-									" AND timeStamp>=" + startTime +
-									" AND timeStamp<=" + stopTime
-								sqlInfo.Introduction = exhibitMapToString[module] +
-									"-" + exhibitMapToString[fee] +
-									"-" + exhibitMapToString[uptime] +
-									"-" + exhibitMapToString[tg]
-								ret = append(ret, sqlInfo)
-							}
-						}
-					}
-				}
-			case "classify1":
-				for _, tg := range request.Target {
-					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_" + request.Weidu + " WHERE "
-					for _, module := range request.Module {
-						for _, fee := range request.Fee {
-							for _, classify1 := range request.Classify1 {
-								sqlInfo := SqlInfo{}
-								sqlInfo.Sql = msql + "feeCate=" + strconv.Itoa(exhibitMapToNum[fee]) +
-									" AND classify1Cate=" + strconv.Itoa(exhibitMapToNum[classify1]) +
-									" AND typeCate=" + strconv.Itoa(exhibitMapToNum[module]) +
-									" AND timeStamp>=" + startTime +
-									" AND timeStamp<=" + stopTime
-								sqlInfo.Introduction = exhibitMapToString[module] +
-									"-" + exhibitMapToString[fee] +
-									"-" + exhibitMapToString[classify1] +
-									"-" + exhibitMapToString[tg]
-								ret = append(ret, sqlInfo)
-							}
-						}
-					}
-				}
-			case "strategy":
-				for _, tg := range request.Target {
-					msql := "SELECT timeStamp, " + tg + " FROM " + "item_exhibit_" + request.Weidu + " WHERE "
-					for _, module := range request.Module {
-						for _, fee := range request.Fee {
-							for _, strategy := range request.Strategy {
-								sqlInfo := SqlInfo{}
-								sqlInfo.Sql = msql + "feeCate=" + strconv.Itoa(exhibitMapToNum[fee]) +
-									" AND strategyCate=" + strconv.Itoa(exhibitMapToNum[strategy]) +
-									" AND typeCate=" + strconv.Itoa(exhibitMapToNum[module]) +
-									" AND timeStamp>=" + startTime +
-									" AND timeStamp<=" + stopTime
-								sqlInfo.Introduction = exhibitMapToString[module] +
-									"-" + exhibitMapToString[fee] +
-									"-" + exhibitMapToString[strategy] +
-									"-" + exhibitMapToString[tg]
-								ret = append(ret, sqlInfo)
-							}
-						}
-					}
-				}
+			} else {
+				fmt.Println("结束时间解析出错")
 			}
-			return ret, nil
 		} else {
-			return []SqlInfo{}, err
+			fmt.Println("开始时间解析出错")
 		}
-	} else {
-		return []SqlInfo{}, err
-	}
-}
+		close(sqls)
+	}()
 
-func QueryInfo(request *ExhibitRequest, response *Response) {
-	if exhibit, err := sql.Open("mysql", mysqlInfo+"item_exhibit?charset=utf8"); nil == err {
-		if sqls, err := getSql(request); nil == err {
-			result := []Line{}
-			timeRange := utils.TimeStringRangeToInt(request.TimeRange[0], request.TimeRange[1])
-			for _, sqlInfo := range sqls {
-				if ress, err := exhibit.Query(sqlInfo.Sql); nil == err {
-					line := Line{}
-					line.Introduction = sqlInfo.Introduction
-					tmp := map[int]float64{}
-					for ress.Next() {
-						x := 0
-						y  := 0.0
-						if err = ress.Scan(&x, &y); nil == err {
-							tmp[x] = y
-						} else {
-							// 错误
-							fmt.Println(err)
-						}
-					}
-					for _, itime1 := range timeRange {
-						if y, ok := tmp[itime1]; ok {
-							line.X = append(line.X, utils.TimeIntToString(itime1))
-							line.Y = append(line.Y, y)
-						} else {
-							line.X = append(line.X, utils.TimeIntToString(itime1))
-							line.Y = append(line.Y, 0)
-						}
-					}
-					result = append(result, line)
-				} else {
-					// 错误
-				}
+	if exhibitDB, err := sql.Open("mysql", mysqlInfo+"item_exhibit?charset=utf8"); nil == err {
+		timeDays := utils.TimeStringRangeToInt(req.TimeRange[0], req.TimeRange[1])
+		for mmsql := range sqls {
+			recNum := map[int]int{}  // 推荐量 日期和值的关系
+			clkNum := map[int]int{}  // 点击量 日期和值的关系
+			subNum := map[int]int{}  // 订阅量 日期和值的关系
+			redNum1 := map[int]int{} // 阅读量1 日期和值的关系
+			redNum2 := map[int]int{} // 阅读量2 日期和值的关系
+			for _, tm := range timeDays {
+				recNum[tm] = 0
+				clkNum[tm] = 0
+				subNum[tm] = 0
+				redNum1[tm] = 0
+				redNum2[tm] = 0
 			}
-			response.Status = true
-			response.Lines = result
-		} else {
-			response.Status = false
-			response.Rrror = err.Error()
+			fmt.Println(mmsql.Sql)
+			if ress, err := exhibitDB.Query(mmsql.Sql); nil == err {
+				for ress.Next() {
+					recNumTmp, clkNumTmp, subNumTmp, redNum1Tmp, redNum2Tmp, timeStampTmp := 0, 0, 0, 0, 0, 0
+					if err = ress.Scan(&recNumTmp, &clkNumTmp, &subNumTmp, &redNum1Tmp, &redNum2Tmp, &timeStampTmp); nil == err {
+						recNum[timeStampTmp] += recNumTmp
+						clkNum[timeStampTmp] += clkNumTmp
+						subNum[timeStampTmp] += subNumTmp
+						redNum1[timeStampTmp] += redNum1Tmp
+						redNum2[timeStampTmp] += redNum2Tmp
+					} else {
+						//
+					}
+				}
+				for _, target := range req.Target {
+					line := Line{}
+					line.Introduction = mmsql.Introduction + "-" + exhibitMapToString[target]
+					switch target {
+					case "dspNum":
+						for _, t := range timeDays {
+							line.X = append(line.X, strconv.Itoa(t))
+							line.Y = append(line.Y, recNum[t])
+						}
+						fmt.Println("dspNum")
+						break
+					case "clkNum":
+						for _, t := range timeDays {
+							line.X = append(line.X, strconv.Itoa(t))
+							line.Y = append(line.Y, clkNum[t])
+						}
+						fmt.Println("clkNum")
+						break
+					case "srbNum":
+						for _, t := range timeDays {
+							line.X = append(line.X, strconv.Itoa(t))
+							line.Y = append(line.Y, subNum[t])
+						}
+						fmt.Println("srbNum")
+						break
+					case "redNum1":
+						for _, t := range timeDays {
+							line.X = append(line.X, strconv.Itoa(t))
+							line.Y = append(line.Y, redNum1[t])
+						}
+						fmt.Println("redNum1")
+						break
+					case "redNum2":
+						for _, t := range timeDays {
+							line.X = append(line.X, strconv.Itoa(t))
+							line.Y = append(line.Y, redNum2[t])
+						}
+						fmt.Println("redNum2")
+						break
+					}
+					fmt.Println(target)
+					fmt.Println(line.Y)
+					response.Status = true
+					response.Lines = append(response.Lines, line)
+				}
+			} else {
+				//response.Status = false
+				//response.Rrror = "sql 出错"
+			}
 		}
 	} else {
 		response.Status = false
-		response.Rrror = err.Error()
+		response.Rrror = "MySQL数据库连接失败"
 	}
 }

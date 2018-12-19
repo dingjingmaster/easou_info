@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func TimeStringToString (str string) (string, error) {
+func TimeStringToString(str string) (string, error) {
 	if st, err := time.Parse("2006-01-02", str); nil == err {
 		return st.Format("20060102"), err
 	} else {
@@ -14,7 +14,7 @@ func TimeStringToString (str string) (string, error) {
 	}
 }
 
-func TimeStringToInt (str string) int {
+func TimeStringToInt(str string) int {
 	if str1, err := TimeStringToString(str); nil == err {
 		if tint, err := strconv.Atoi(str1); nil == err {
 			return tint
@@ -26,12 +26,12 @@ func TimeStringToInt (str string) int {
 	}
 }
 
-func TimeStringRangeToInt (str1 string, str2 string) []int {
+func TimeStringRangeToInt(str1 string, str2 string) []int {
 	timetmp := []int{}
-	day1,_ := time.ParseDuration("24h")
-	tm,_ := time.ParseInLocation("2006-01-02", str1, time.Local)
+	day1, _ := time.ParseDuration("24h")
+	tm, _ := time.ParseInLocation("2006-01-02", str1, time.Local)
 	for t1 := TimeStringToInt(str1); t1 <= TimeStringToInt(str2); {
-		tmInt1,_ := strconv.Atoi(tm.Format("20060102"))
+		tmInt1, _ := strconv.Atoi(tm.Format("20060102"))
 		timetmp = append(timetmp, tmInt1)
 		tm = tm.Add(day1)
 		t1 = TimeStringToInt(tm.Format("2006-01-02"))
