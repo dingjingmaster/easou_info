@@ -173,6 +173,12 @@ def strategy_trans_to_word(mstr):
         res = 'ucfKnnRec'
     elif mstr == '近期协同':
         res = 'nerIcfKnnRec'
+    elif mstr == '冷启动':
+        res = 'codRec'
+    elif mstr == '订阅模型':
+        res = 'subMdlRec'
+    elif mstr == '阅读模型':
+        res = 'redMdlRec'
     elif mstr == '其它':
         res = 'othRec'
     return res
@@ -385,8 +391,14 @@ def strategy_trans_to_num(mstr):
         res = 9
     elif mstr == '近期协同':
         res = 10
-    elif mstr == '其它':
+    elif mstr == '冷启动':
         res = 11
+    elif mstr == '订阅模型':
+        res = 12
+    elif mstr == '阅读模型':
+        res = 13
+    elif mstr == '其它':
+        res = 14
     return res
 
 ###
