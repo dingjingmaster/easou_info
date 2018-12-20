@@ -9,6 +9,7 @@ import (
 )
 
 type ExhibitRequest struct {
+	App          []string
 	Module       []string
 	AreaLevel    []string
 	UserLevel    []string
@@ -30,54 +31,60 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 			if endTime, ok := utils.TimeStringToString(req.TimeRange[1]); nil == ok {
 				mmsql := "SELECT recNum, clkNum, subNum, redNum1, redNum2, timeStamp FROM item_exhibit WHERE timeStamp >= " +
 					startTime + " AND timeStamp <= " + endTime
-				for _, module := range req.Module {
-					if module != "allMdl" {
-						mmsql += " AND module = " + strconv.Itoa(exhibitMapToNum[module])
+				for _, app := range req.App {
+					if app != "allApp" {
+						mmsql += " AND app = " + strconv.Itoa(exhibitMapToNum[app])
 					}
-					for _, areaLevel := range req.AreaLevel {
-						if areaLevel != "allArea" {
-							mmsql += " AND areaLevel = " + strconv.Itoa(exhibitMapToNum[areaLevel])
+					for _, module := range req.Module {
+						if module != "allMdl" {
+							mmsql += " AND module = " + strconv.Itoa(exhibitMapToNum[module])
 						}
-						for _, userLevel := range req.UserLevel {
-							if userLevel != "allUsrLevel" {
-								mmsql += " AND userLevel = " + strconv.Itoa(exhibitMapToNum[userLevel])
+						for _, areaLevel := range req.AreaLevel {
+							if areaLevel != "allArea" {
+								mmsql += " AND areaLevel = " + strconv.Itoa(exhibitMapToNum[areaLevel])
 							}
-							for _, userNewOld := range req.UserNewLevel {
-								if userNewOld != "allUsr" {
-									mmsql += " AND userNewOld = " + strconv.Itoa(exhibitMapToNum[userNewOld])
+							for _, userLevel := range req.UserLevel {
+								if userLevel != "allUsrLevel" {
+									mmsql += " AND userLevel = " + strconv.Itoa(exhibitMapToNum[userLevel])
 								}
-								for _, userFee := range req.UserFeeLevel {
-									if userFee != "allFeeUsr" {
-										mmsql += " AND userFee = " + strconv.Itoa(exhibitMapToNum[userFee])
+								for _, userNewOld := range req.UserNewLevel {
+									if userNewOld != "allUsr" {
+										mmsql += " AND userNewOld = " + strconv.Itoa(exhibitMapToNum[userNewOld])
 									}
-									for _, itemFee := range req.ItemFeeLevel {
-										if itemFee != "allItmFee" {
-											mmsql += " AND itemFee = " + strconv.Itoa(exhibitMapToNum[itemFee])
+									for _, userFee := range req.UserFeeLevel {
+										if userFee != "allFeeUsr" {
+											mmsql += " AND userFee = " + strconv.Itoa(exhibitMapToNum[userFee])
 										}
-										for _, strategy := range req.Strategy {
-											if strategy != "allRec" {
-												mmsql += " AND strategy = " + strconv.Itoa(exhibitMapToNum[strategy])
+										for _, itemFee := range req.ItemFeeLevel {
+											if itemFee != "allItmFee" {
+												mmsql += " AND itemFee = " + strconv.Itoa(exhibitMapToNum[itemFee])
 											}
-											for _, status := range req.Status {
-												if status != "allStu" {
-													mmsql += " AND status = " + strconv.Itoa(exhibitMapToNum[status])
+											for _, strategy := range req.Strategy {
+												if strategy != "allRec" {
+													mmsql += " AND strategy = " + strconv.Itoa(exhibitMapToNum[strategy])
 												}
-												for _, view := range req.Sub {
-													if view != "allSub" {
-														mmsql += " AND view = " + strconv.Itoa(exhibitMapToNum[view])
+												for _, status := range req.Status {
+													if status != "allStu" {
+														mmsql += " AND status = " + strconv.Itoa(exhibitMapToNum[status])
 													}
-													for _, intime := range req.Intime {
-														if intime != "allIn" {
-															mmsql += " AND intime = " + strconv.Itoa(exhibitMapToNum[intime])
+													for _, view := range req.Sub {
+														if view != "allSub" {
+															mmsql += " AND view = " + strconv.Itoa(exhibitMapToNum[view])
 														}
-														msql := SqlInfo{}
-														msql.Introduction = exhibitMapToString[module] + "-" + exhibitMapToString[areaLevel] + "-" +
-															exhibitMapToString[userLevel] + "-" + exhibitMapToString[userNewOld] + "-" +
-															exhibitMapToString[userFee] + "-" + exhibitMapToString[itemFee] + "-" +
-															exhibitMapToString[strategy] + "-" + exhibitMapToString[status] + "-" +
-															exhibitMapToString[view] + "-" + exhibitMapToString[intime]
-														msql.Sql = mmsql
-														sqls <- msql
+														for _, intime := range req.Intime {
+															if intime != "allIn" {
+																mmsql += " AND intime = " + strconv.Itoa(exhibitMapToNum[intime])
+															}
+															msql := SqlInfo{}
+															msql.Introduction = exhibitMapToString[app] + "-" + exhibitMapToString[module] + "-" +
+																exhibitMapToString[areaLevel] + "-" + exhibitMapToString[userLevel] + "-" +
+																exhibitMapToString[userNewOld] + "-" + exhibitMapToString[userFee] + "-" +
+																exhibitMapToString[itemFee] + "-" + exhibitMapToString[strategy] + "-" +
+																exhibitMapToString[status] + "-" + exhibitMapToString[view] + "-" +
+																exhibitMapToString[intime]
+															msql.Sql = mmsql
+															sqls <- msql
+														}
 													}
 												}
 											}
@@ -135,35 +142,30 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, recNum[t])
 						}
-						fmt.Println("dspNum")
 						break
 					case "clkNum":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, clkNum[t])
 						}
-						fmt.Println("clkNum")
 						break
 					case "srbNum":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, subNum[t])
 						}
-						fmt.Println("srbNum")
 						break
 					case "redNum1":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, redNum1[t])
 						}
-						fmt.Println("redNum1")
 						break
 					case "redNum2":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, redNum2[t])
 						}
-						fmt.Println("redNum2")
 						break
 					}
 					fmt.Println(target)

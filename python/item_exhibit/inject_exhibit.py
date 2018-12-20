@@ -16,6 +16,18 @@ def execute_sql(cursor, sql):
     return;
 
 ###
+# 将 app————汉字转英文
+def app_trans_to_word(mstr):
+    res = ''
+    if mstr == '宜搜小说':
+        res = 'easouApp'
+    elif mstr == '微卷':
+        res = 'weijuanApp'
+    elif mstr == '其它':
+        res = 'othApp'
+    return res
+
+###
 # 将模块————汉字转英文
 def module_trans_to_word(mstr):
     res = ''
@@ -213,6 +225,18 @@ def intime_trans_to_word(mstr):
         res = 'bt12mto99mIn'
     elif mstr == '其它':
         res = 'othIn'
+    return res
+
+###
+# 将 app————汉字转英文
+def app_trans_to_num(mstr):
+    res = 0
+    if mstr == '宜搜小说':
+        res = 1
+    elif mstr == '微卷':
+        res = 2
+    elif mstr == '其它':
+        res = 3
     return res
 
 ###
@@ -416,29 +440,30 @@ def intime_trans_to_num(mstr):
     return res
 
 def get_sql(arr, timeStamp):
-    id = module_trans_to_word(arr[0]) + \
-            '-' + area_level_trans_to_word(arr[1]) + \
-            '-' + user_level_trans_to_word(arr[2]) + \
-            '-' + user_nd_trans_to_word(arr[3]) + \
-            '-' + user_fee_trans_to_word(arr[4]) + \
-            '-' + item_fee_trans_to_word(arr[5]) + \
-            '-' + strategy_trans_to_word(arr[6]) + \
-            '-' + status_trans_to_word(arr[7]) + \
-            '-' + view_trans_to_word(arr[8]) + \
-            '-' + intime_trans_to_word(arr[9]) + \
+    id = app_trans_to_word(arr[0]) + \
+            '-' + module_trans_to_word(arr[1]) + \
+            '-' + area_level_trans_to_word(arr[2]) + \
+            '-' + user_level_trans_to_word(arr[3]) + \
+            '-' + user_nd_trans_to_word(arr[4]) + \
+            '-' + user_fee_trans_to_word(arr[5]) + \
+            '-' + item_fee_trans_to_word(arr[6]) + \
+            '-' + strategy_trans_to_word(arr[7]) + \
+            '-' + status_trans_to_word(arr[8]) + \
+            '-' + view_trans_to_word(arr[9]) + \
+            '-' + intime_trans_to_word(arr[10]) + \
             '-' + str(timeStamp)
     sql = "INSERT INTO item_exhibit(id,\
-              module, areaLevel, userLevel, userNewOld, userFee, itemFee, \
+              app, module, areaLevel, userLevel, userNewOld, userFee, itemFee, \
               strategy, status, view, intime, \
               recNum, clkNum, subNum, redNum1, redNum2, timeStamp)\
-              VALUES('%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d');" % \
-              (id, \
-              module_trans_to_num(arr[0]), area_level_trans_to_num(arr[1]), \
-              user_level_trans_to_num(arr[2]), user_nd_trans_to_num(arr[3]), \
-              user_fee_trans_to_num(arr[4]), item_fee_trans_to_num(arr[5]), \
-              strategy_trans_to_num(arr[6]), status_trans_to_num(arr[7]), \
-              view_trans_to_num(arr[8]), intime_trans_to_num(arr[9]), \
-              int(arr[10]), int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(timeStamp))
+              VALUES('%d', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d');" % \
+              (id,  app_trans_to_num(arr[0]), \
+              module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]), \
+              user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]), \
+              user_fee_trans_to_num(arr[5]), item_fee_trans_to_num(arr[6]), \
+              strategy_trans_to_num(arr[7]), status_trans_to_num(arr[8]), \
+              view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]), \
+              int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(arr[15]), int(timeStamp))
     return sql
 
 # inject mysql
@@ -448,7 +473,7 @@ def inject_mysql(txtpath, cursor, times):
     for line in fr.readlines():
         line = line.strip('\n')
         arr = line.split("\t")
-        if len(arr) != 15:
+        if len(arr) != 16:
             print ('错误的行: ' + line + '\n')
             continue
         sql = get_sql(arr, timeStamp)
@@ -472,5 +497,5 @@ if __name__ == '__main__':
     db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
     cursor = db.cursor()
     inject_mysql(exhibitPath, cursor, time)
-    db.close()                                                                          # 关闭数据库
+    db.close()
 
