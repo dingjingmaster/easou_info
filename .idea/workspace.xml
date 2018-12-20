@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="458" column="121" selection-start-line="458" selection-start-column="121" selection-end-line="458" selection-end-column="121" />
+            <state relative-caret-position="217">
+              <caret line="458" column="126" selection-start-line="458" selection-start-column="126" selection-end-line="458" selection-end-column="126" />
             </state>
           </provider>
         </entry>
@@ -132,8 +132,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="140" />
-    <option name="y" value="91" />
+    <option name="x" value="101" />
+    <option name="y" value="244" />
     <option name="width" value="1663" />
     <option name="height" value="913" />
   </component>
@@ -215,7 +215,7 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="140" y="91" width="1663" height="913" extended-state="0" />
+    <frame x="101" y="244" width="1663" height="913" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.19026825" />
@@ -223,7 +223,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32884902" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4983407" visible="true" weight="0.2616202" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4983407" visible="true" weight="0.2616202" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39904422" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -238,7 +238,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.14535247" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.14535247" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.21681416" />
@@ -410,8 +410,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="458" column="121" selection-start-line="458" selection-start-column="121" selection-end-line="458" selection-end-column="121" />
+        <state relative-caret-position="217">
+          <caret line="458" column="126" selection-start-line="458" selection-start-column="126" selection-end-line="458" selection-end-column="126" />
         </state>
       </provider>
     </entry>
