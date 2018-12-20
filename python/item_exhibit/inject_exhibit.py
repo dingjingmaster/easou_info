@@ -456,7 +456,7 @@ def get_sql(arr, timeStamp):
               app, module, areaLevel, userLevel, userNewOld, userFee, itemFee, \
               strategy, status, view, intime, \
               recNum, clkNum, subNum, redNum1, redNum2, timeStamp)\
-              VALUES('%s', '%d'. '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d');" % \
+              VALUES('%s', '%d'. '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d');" % \
               (id,  app_trans_to_num(arr[0]), \
               module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]), \
               user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]), \
