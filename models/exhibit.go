@@ -184,36 +184,43 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, float64(clkNum[t]) / float64(recNum[t]))
 						}
+						break
 					case "subClk":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, float64(subNum[t]) / float64(clkNum[t]))
 						}
+						break
 					case "subDsp":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, float64(subNum[t]) / float64(recNum[t]))
 						}
+						break
 					case "redSub":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, float64(redNum1[t]) / float64(subNum[t]))
 						}
+						break
 					case "redDsp":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, float64(redNum1[t]) / float64(recNum[t]))
 						}
+						break
 					case "retent":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, float64(redNum2[t]) / float64(subNum[t]))
 						}
+						break
 					case "rteDsp":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
 							line.Y = append(line.Y, float64(redNum1[t]) / float64(recNum[t]))
 						}
+						break
 					}
 					response.Status = true
 					response.Lines = append(response.Lines, line)
