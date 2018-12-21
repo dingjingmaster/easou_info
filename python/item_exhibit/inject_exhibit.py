@@ -451,7 +451,7 @@ def intime_trans_to_num(mstr):
         res = 5
     return res
 
-def get_sql(arr, timeStamp):
+def get_inject_sql(arr, timeStamp):
     id = app_trans_to_word(arr[0]) + \
             '-' + module_trans_to_word(arr[1]) + \
             '-' + area_level_trans_to_word(arr[2]) + \
@@ -478,36 +478,66 @@ def get_sql(arr, timeStamp):
               int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(arr[15]), int(timeStamp))
     return sql
 
+def get_update_sql(arr, timeStamp):
+    id = app_trans_to_word(arr[0]) + \
+            '-' + module_trans_to_word(arr[1]) + \
+            '-' + area_level_trans_to_word(arr[2]) + \
+            '-' + user_level_trans_to_word(arr[3]) + \
+            '-' + user_nd_trans_to_word(arr[4]) + \
+            '-' + user_fee_trans_to_word(arr[5]) + \
+            '-' + item_fee_trans_to_word(arr[6]) + \
+            '-' + strategy_trans_to_word(arr[7]) + \
+            '-' + status_trans_to_word(arr[8]) + \
+            '-' + view_trans_to_word(arr[9]) + \
+            '-' + intime_trans_to_word(arr[10]) + \
+            '-' + str(timeStamp)
+    sql = "UPDATE item_exhibit SET redNum2 = %d WHERE id = %s;" % \
+              (int(arr[15]), id)
+    return sql
+
 # inject mysql
-def inject_mysql(txtpath, cursor, times):
+def inject_mysql(exhibitPath, exhibitYesterdayPath,  cursor, time, yesterday):
     fr = open(txtpath, "r")
-    timeStamp = int(times)
+    timeStamp = int(time)
     for line in fr.readlines():
         line = line.strip('\n')
         arr = line.split("\t")
         if len(arr) != 16:
             print ('错误的行: ' + line + '\n')
             continue
-        sql = get_sql(arr, timeStamp)
+        sql = get_inject_sql(arr, timeStamp)
         execute_sql(cursor, sql)
     fr.close()
+    fr = open(exhibitYesterdayPath, "r")
+        timeStamp = int(yesterday)
+        for line in fr.readlines():
+            line = line.strip('\n')
+            arr = line.split("\t")
+            if len(arr) != 16:
+                print ('错误的行: ' + line + '\n')
+                continue
+            sql = get_update_sql(arr, timeStamp)
+            execute_sql(cursor, sql)
+        fr.close()
     return
 
 
 if __name__ == '__main__':
 
-    if len(sys.argv) != 6:
+    if len(sys.argv) != 8:
         print ('请输入数据库用户名和密码以及时间 例:"20180101"')
         exit(-1)
     ip = sys.argv[1]
     user = sys.argv[2]
     passwd = sys.argv[3]
     time = sys.argv[4]
-    exhibitPath = sys.argv[5]
+    yesterday = sys.argv[5]
+    exhibitPath = sys.argv[6]
+    exhibitYesterdayPath = sys.argv[7]
 
     #db = MySQLdb.connect(ip, user, passwd, 'item_exhibit');
     db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
     cursor = db.cursor()
-    inject_mysql(exhibitPath, cursor, time)
+    inject_mysql(exhibitPath, exhibitYesterdayPath,  cursor, time, yesterday)
     db.close()
 
