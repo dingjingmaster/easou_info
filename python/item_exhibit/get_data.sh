@@ -15,7 +15,7 @@ hadoop fs -cat "${exhibitBaset}/*" > ${infot}
 hadoop fs -cat "${exhibitBasey}/*" > ${infoy}
 
 cd ${workDir}/
-python inject_exhibit.py "127.0.0.1" "root" "123456" "${nowTime}" "${yesterday}" "${infot}" "${infoy}"
+python inject_exhibit.py "127.0.0.1" "root" "123456" "${nowTime}" "${infot}" "${infoy}"
 
 
 
