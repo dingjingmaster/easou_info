@@ -31,68 +31,86 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 			if endTime, ok := utils.TimeStringToString(req.TimeRange[1]); nil == ok {
 				mmsql := "SELECT recNum, clkNum, subNum, redNum1, redNum2, timeStamp FROM item_exhibit WHERE timeStamp >= " +
 					startTime + " AND timeStamp <= " + endTime
+				intro := ""
 				for _, app := range req.App {
 					mmsql1 := mmsql
+					intro1 := intro
 					if app != "allApp" {
 						mmsql1 = mmsql + " AND app = " + strconv.Itoa(exhibitMapToNum[app])
+						intro1 = intro + exhibitMapToString[app]
 					}
 					for _, module := range req.Module {
 						mmsql2 := mmsql1
+						intro2 := intro1
 						if module != "allMdl" {
 							mmsql2 = mmsql1 + " AND module = " + strconv.Itoa(exhibitMapToNum[module])
+							intro2 = intr1 + exhibitMapToString[module]
 						}
 						for _, areaLevel := range req.AreaLevel {
 							mmsql3 := mmsql2
+							intro3 := intro2
 							if areaLevel != "allArea" {
 								mmsql3 = mmsql2 + " AND areaLevel = " + strconv.Itoa(exhibitMapToNum[areaLevel])
+								intro3 = intro2 + exhibitMapToString[areaLevel]
 							}
 							for _, userLevel := range req.UserLevel {
 								mmsql4 := mmsql3
+								intro4 := intro3
 								if userLevel != "allUsrLevel" {
 									mmsql4 = mmsql3 + " AND userLevel = " + strconv.Itoa(exhibitMapToNum[userLevel])
+									intro4 = intro3 + exhibitMapToString[userLevel]
 								}
 								for _, userNewOld := range req.UserNewLevel {
 									mmsql5 := mmsql4
+									intro5 := intro4
 									if userNewOld != "allUsr" {
 										mmsql5 = mmsql4 + " AND userNewOld = " + strconv.Itoa(exhibitMapToNum[userNewOld])
+										intro5 = intro4 + exhibitMapToString[userNewOld]
 									}
 									for _, userFee := range req.UserFeeLevel {
 										mmsql6 := mmsql5
+										intro6 := intro5
 										if userFee != "allFeeUsr" {
 											mmsql6 = mmsql5 + " AND userFee = " + strconv.Itoa(exhibitMapToNum[userFee])
+											intro6 = intro5 + exhibitMapToString[userFee]
 										}
 										for _, itemFee := range req.ItemFeeLevel {
 											mmsql7 := mmsql6
+											intro7 := intro6
 											if itemFee != "allItmFee" {
 												mmsql7 = mmsql6 + " AND itemFee = " + strconv.Itoa(exhibitMapToNum[itemFee])
+												intro7 = intro6 + exhibitMapToString[itemFee]
 											}
 											for _, strategy := range req.Strategy {
 												mmsql8 := mmsql7
+												intro8 := intro7
 												if strategy != "allRec" {
 													mmsql8 = mmsql7 + " AND strategy = " + strconv.Itoa(exhibitMapToNum[strategy])
+													intro8 = intro7 + exhibitMapToString[strategy]
 												}
 												for _, status := range req.Status {
 													mmsql9 := mmsql8
+													intro9 := intro8
 													if status != "allStu" {
 														mmsql9 = mmsql8 + " AND status = " + strconv.Itoa(exhibitMapToNum[status])
+														intro9 = intro8 + exhibitMapToString[status]
 													}
 													for _, view := range req.Sub {
 														mmsql10 := mmsql9
+														intro10 := intro9
 														if view != "allSub" {
 															mmsql10 = mmsql9 + " AND view = " + strconv.Itoa(exhibitMapToNum[view])
+															intro10 = intro9 + exhibitMapToString[view]
 														}
 														for _, intime := range req.Intime {
 															mmsql11 := mmsql10
+															intro11 := intro10
 															if intime != "allIn" {
 																mmsql11 = mmsql10 + " AND intime = " + strconv.Itoa(exhibitMapToNum[intime])
+																intro11 = intro10 + exhibitMapToString[intime]
 															}
 															msql := SqlInfo{}
-															msql.Introduction = exhibitMapToString[app] + "-" + exhibitMapToString[module] + "-" +
-																exhibitMapToString[areaLevel] + "-" + exhibitMapToString[userLevel] + "-" +
-																exhibitMapToString[userNewOld] + "-" + exhibitMapToString[userFee] + "-" +
-																exhibitMapToString[itemFee] + "-" + exhibitMapToString[strategy] + "-" +
-																exhibitMapToString[status] + "-" + exhibitMapToString[view] + "-" +
-																exhibitMapToString[intime]
+															msql.Introduction = intro11
 															msql.Sql = mmsql11
 															sqls <- msql
 														}
