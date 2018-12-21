@@ -10,7 +10,7 @@ type SqlInfo struct {
 type Line struct {
 	Introduction string
 	X            []string
-	Y            []int
+	Y            []float64
 }
 
 type Response struct {

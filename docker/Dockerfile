@@ -33,4 +33,4 @@ RUN cd $WEB \
     && main > /dev/null
 
 CMD ["mysqld"]
-
+EXPOSE 32000
