@@ -182,43 +182,43 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 					case "clkDsp":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(clkNum[t]) / float64(recNum[t]))
+							line.Y = append(line.Y, float64(clkNum[t]) / float64(recNum[t]) * 100)
 						}
 						break
 					case "subClk":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(subNum[t]) / float64(clkNum[t]))
+							line.Y = append(line.Y, float64(subNum[t]) / float64(clkNum[t]) * 100)
 						}
 						break
 					case "subDsp":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(subNum[t]) / float64(recNum[t]))
+							line.Y = append(line.Y, float64(subNum[t]) / float64(recNum[t]) * 100)
 						}
 						break
 					case "redSub":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(redNum1[t]) / float64(subNum[t]))
+							line.Y = append(line.Y, float64(redNum1[t]) / float64(subNum[t]) * 100)
 						}
 						break
 					case "redDsp":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(redNum1[t]) / float64(recNum[t]))
+							line.Y = append(line.Y, float64(redNum1[t]) / float64(recNum[t]) * 100)
 						}
 						break
 					case "retent":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(redNum2[t]) / float64(subNum[t]))
+							line.Y = append(line.Y, float64(redNum2[t]) / float64(subNum[t]) * 100)
 						}
 						break
 					case "rteDsp":
 						for _, t := range timeDays {
 							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(redNum1[t]) / float64(recNum[t]))
+							line.Y = append(line.Y, float64(redNum1[t]) / float64(recNum[t]) * 100)
 						}
 						break
 					}
