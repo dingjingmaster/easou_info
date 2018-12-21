@@ -1,4 +1,4 @@
-FROM mysql:5.7.24
+FROM ubuntu:18.04
 
 ENV GOROOT /data/env/go
 ENV WEB /data/release/web/
@@ -26,11 +26,7 @@ RUN mkdir /data/env/go -p \
 
 COPY go/conf /data/release/web/conf
 COPY go/main /data/release/web/main
- 
-###
-# 复制源码
-RUN cd $WEB \
-    && main > /dev/null
+COPY go/dist /data/release/web/dist
 
-CMD ["mysqld"]
-EXPOSE 32000
+CMD ["/data/release/web/main"]
+EXPOSE 80
