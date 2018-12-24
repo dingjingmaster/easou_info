@@ -37,7 +37,7 @@ var exhibitMapToNum = map[string]int{
 }
 
 var exhibitMapToString = map[string]string{
-	"allApp": "全部app叠加", "easouApp": "宜搜app", "weijuanapp": "微卷app", "othapp": "其它app",
+	"allApp": "全部app叠加", "easouApp": "宜搜app", "weijuanApp": "微卷app", "othApp": "其它app",
 	"allMdl": "全模块叠加", "shfRecMdl": "书架推荐", "shfGusMdl": "书架 猜你喜欢", "freRecMdl": "免费 免费推荐", "freGusMdl": "免费猜你喜欢", "monStmMdl": "包月瀑布流", "foeCateRecMdl": "封面页类别推荐", "foeRedRedMdl": "封面页读本书的人还看过", "foeRedMorMdl": "封面页读本书的人还看过更多", "sehResTopMdl": "搜索结果页 热搜TOP榜", "sehResGusMdl": "搜索结果页 猜你喜欢", "bakRedRedMdl": "章末页 读本书的人还看过", "chsGilStmMdl": "精选 女频瀑布流", "chsCmpMdl": "精选 完结佳作", "chsCmpStmMdl": "精选 完结瀑布流", "chsRakStmMdl": "精选 排行瀑布流", "chsRedRecMdl": "精选 根据阅读书籍推荐", "chsRedCatRecMdl": "精选 根据阅读分类推荐", "chsStmMdl": "精选 瀑布流", "chsHotRecMdl": "精选 热门推荐", "chsBoyStmMdl": "精选 男频瀑布流", "chsChsRedMdl": "精选 精品必读", "extBlkMdl": "退出拦截推荐",
 	"allArea": "全区域叠加", "oneArea": "一类地区", "twoArea": "二类地区", "trdArea": "三类地区", "othArea": "其它地区",
 	"allUsrLevel": "全用户级别叠加", "regUsrLevel": "普通用户", "sphUsrLevel": "特殊用户", "othUsrLevel": "其它用户级别",
