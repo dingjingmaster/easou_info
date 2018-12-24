@@ -75,6 +75,12 @@ def module_trans_to_word(mstr):
         res = 'chsChsRedMdl'
     elif mstr == '退出拦截推荐':
         res = 'extBlkMdl'
+    elif mstr == '免费-包月推荐':
+        res = 'freByRecMdl'
+    elif mstr == '七日限免':
+        res = 'fre7TfMdl'
+    elif mstr == '封面页-作者推荐':
+        res = 'foeAutRecMdl'
     return res
 
 ###
@@ -89,6 +95,8 @@ def area_level_trans_to_word(mstr):
         res = 'trdArea'
     elif mstr == '其它':
         res = 'othArea'
+    elif mstr == '四类地区':
+        res = 'fthArea'
     return res
 
 ###
@@ -147,6 +155,8 @@ def item_fee_trans_to_word(mstr):
         res = 'tfItmFee'
     elif mstr == '其它':
         res = 'othItmFee'
+    elif mstr == '互联网':
+        res = 'allFreItmFee'
     return res
 
 ###
@@ -293,6 +303,12 @@ def module_trans_to_num(mstr):
         res = 21
     elif mstr == '退出拦截推荐':
         res = 22
+    elif mstr == '免费-包月推荐':
+        res = 23
+    elif mstr == '七日限免':
+        res = 24
+    elif mstr == '封面页-作者推荐':
+        res = 25
     return res
 
 ###
@@ -307,6 +323,8 @@ def area_level_trans_to_num(mstr):
         res = 3
     elif mstr == '其它':
         res = 4
+    elif mstr == '四类地区':
+        res = 5
     return res
 
 ###
@@ -365,6 +383,8 @@ def item_fee_trans_to_num(mstr):
         res = 4
     elif mstr == '其它':
         res = 5
+    elif mstr == '互联网':
+        res = 6
     return res
 
 ###
