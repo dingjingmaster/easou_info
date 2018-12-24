@@ -5,6 +5,7 @@ import (
 	"easou_info/utils"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"math"
 	"strconv"
 )
 
@@ -151,6 +152,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 			//fmt.Println(mmsql.Sql)
 			if ress, err := exhibitDB.Query(mmsql.Sql); nil == err {
 				for ress.Next() {
+					// recNum, clkNum, subNum, redNum1, redNum2, timeStamp
 					recNumTmp, clkNumTmp, subNumTmp, redNum1Tmp, redNum2Tmp, timeStampTmp := 0, 0, 0, 0, 0, 0
 					if err = ress.Scan(&recNumTmp, &clkNumTmp, &subNumTmp, &redNum1Tmp, &redNum2Tmp, &timeStampTmp); nil == err {
 						recNum[timeStampTmp] += recNumTmp
@@ -201,7 +203,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						for _, t := range timeDays {
 							if recNum[t] > 0 {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, float64(clkNum[t])/float64(recNum[t])*100)
+								line.Y = append(line.Y, math.Trunc(float64(clkNum[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
 							} else {
 								line.X = append(line.X, strconv.Itoa(t))
 								line.Y = append(line.Y, 0)
@@ -212,7 +214,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						for _, t := range timeDays {
 							if clkNum[t] > 0 {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, float64(subNum[t])/float64(clkNum[t])*100)
+								line.Y = append(line.Y, math.Trunc(float64(subNum[t])/float64(clkNum[t])*100 * 1e3 + 0.5) * 1e-3)
 							} else {
 								line.X = append(line.X, strconv.Itoa(t))
 								line.Y = append(line.Y, 0)
@@ -223,7 +225,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						for _, t := range timeDays {
 							if recNum[t] > 0 {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, float64(subNum[t])/float64(recNum[t])*100)
+								line.Y = append(line.Y, math.Trunc(float64(subNum[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
 							} else {
 								line.X = append(line.X, strconv.Itoa(t))
 								line.Y = append(line.Y, 0)
@@ -234,7 +236,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						for _, t := range timeDays {
 							if redNum1[t] > 0 {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, float64(redNum1[t])/float64(subNum[t])*100)
+								line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(subNum[t])*100 * 1e3 + 0.5) * 1e-3)
 							} else {
 								line.X = append(line.X, strconv.Itoa(t))
 								line.Y = append(line.Y, 0)
@@ -245,7 +247,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						for _, t := range timeDays {
 							if redNum1[t] > 0 {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, float64(redNum1[t])/float64(recNum[t])*100)
+								line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
 							} else {
 								line.X = append(line.X, strconv.Itoa(t))
 								line.Y = append(line.Y, 0)
@@ -256,7 +258,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						for _, t := range timeDays {
 							if subNum[t] > 0 {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, float64(redNum2[t])/float64(subNum[t])*100)
+								line.Y = append(line.Y, math.Trunc(float64(redNum2[t])/float64(subNum[t])*100 * 1e3 + 0.5) * 1e-3)
 							} else {
 								line.X = append(line.X, strconv.Itoa(t))
 								line.Y = append(line.Y, 0)
@@ -267,7 +269,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						for _, t := range timeDays {
 							if redNum1[t] > 0 {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, float64(redNum1[t])/float64(recNum[t])*100)
+								line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
 							} else {
 								line.X = append(line.X, strconv.Itoa(t))
 								line.Y = append(line.Y, 0)

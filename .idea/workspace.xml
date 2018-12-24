@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eaf0bfe-a5d0-4929-a94e-f950dad852d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/exhibit.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/exhibit.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,10 +54,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py">
+        <entry file="file://$PROJECT_DIR$/models/exhibit.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="517" column="32" selection-start-line="517" selection-start-column="32" selection-end-line="517" selection-end-column="32" />
+            <state relative-caret-position="493">
+              <caret line="275" column="29" lean-forward="true" selection-start-line="275" selection-start-column="29" selection-end-line="275" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -105,14 +106,14 @@
         <option value="$PROJECT_DIR$/conf/app.conf" />
         <option value="$PROJECT_DIR$/docker/Dockerfile" />
         <option value="$PROJECT_DIR$/python/item_exhibit/get_data.sh" />
-        <option value="$PROJECT_DIR$/models/exhibit.go" />
         <option value="$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py" />
+        <option value="$PROJECT_DIR$/models/exhibit.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="399" />
-    <option name="y" value="35" />
+    <option name="x" value="238" />
+    <option name="y" value="36" />
     <option name="width" value="1663" />
     <option name="height" value="900" />
   </component>
@@ -136,17 +137,6 @@
               <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
               <item name="easou_info" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
-              <item name="easou_info" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
-              <item name="easou_info" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="item_exhibit" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
@@ -204,7 +194,7 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="399" y="35" width="1663" height="900" extended-state="0" />
+    <frame x="238" y="36" width="1663" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.2077355" />
@@ -227,7 +217,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.14535247" />
+      <window_info anchor="right" id="Database" order="3" weight="0.14535247" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.21681416" />
@@ -376,13 +366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/exhibit.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-243">
-          <caret line="136" column="35" lean-forward="true" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/base.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -401,6 +384,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="517" column="32" selection-start-line="517" selection-start-column="32" selection-end-line="517" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/exhibit.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="275" column="29" lean-forward="true" selection-start-line="275" selection-start-column="29" selection-end-line="275" selection-end-column="29" />
         </state>
       </provider>
     </entry>
