@@ -496,9 +496,10 @@ def get_update_sql(arr, timeStamp):
     return sql
 
 # inject mysql
-def inject_mysql(exhibitPath, exhibitYesterdayPath,  cursor, time):
-    fr = open(txtpath, "r")
-    timeStamp = int(time)
+#def inject_mysql(exhibitPath, exhibitYesterdayPath,  cursor, time):
+def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor):
+    fr = open(exhibitToday, "r")
+    timeStamp = int(today)
     for line in fr.readlines():
         line = line.strip('\n')
         arr = line.split("\t")
@@ -508,8 +509,8 @@ def inject_mysql(exhibitPath, exhibitYesterdayPath,  cursor, time):
         sql = get_inject_sql(arr, timeStamp)
         execute_sql(cursor, sql)
     fr.close()
-    fr = open(exhibitYesterdayPath, "r")
-        timeStamp = int(time)
+    fr = open(exhibitYesterday, "r")
+        timeStamp = int(yesterday)
         for line in fr.readlines():
             line = line.strip('\n')
             arr = line.split("\t")
@@ -524,19 +525,20 @@ def inject_mysql(exhibitPath, exhibitYesterdayPath,  cursor, time):
 
 if __name__ == '__main__':
 
-    if len(sys.argv) != 7:
+    if len(sys.argv) != 8:
         print ('请输入数据库用户名和密码以及时间 例:"20180101"')
         exit(-1)
     ip = sys.argv[1]
     user = sys.argv[2]
     passwd = sys.argv[3]
-    time = sys.argv[4]
-    exhibitPath = sys.argv[5]
-    exhibitYesterdayPath = sys.argv[6]
+    today = sys.argv[4]
+    yesterday = sys.argv[5]
+    exhibitToday = sys.argv[6]
+    exhibitYesterday = sys.argv[7]
 
     #db = MySQLdb.connect(ip, user, passwd, 'item_exhibit');
     db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
     cursor = db.cursor()
-    inject_mysql(exhibitPath, exhibitYesterdayPath,  cursor, time)
+    inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor)
     db.close()
 
