@@ -491,7 +491,7 @@ def get_update_sql(arr, timeStamp):
             '-' + view_trans_to_word(arr[9]) + \
             '-' + intime_trans_to_word(arr[10]) + \
             '-' + str(timeStamp)
-    sql = "UPDATE item_exhibit SET redNum2 = %d WHERE id = %s;" % \
+    sql = "UPDATE item_exhibit SET redNum2 = '%d' WHERE id = '%s';" % \
               (int(arr[15]), id)
     return sql
 
