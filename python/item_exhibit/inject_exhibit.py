@@ -510,16 +510,16 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor):
         execute_sql(cursor, sql)
     fr.close()
     fr = open(exhibitYesterday, "r")
-        timeStamp = int(yesterday)
-        for line in fr.readlines():
-            line = line.strip('\n')
-            arr = line.split("\t")
-            if len(arr) != 16:
-                print ('错误的行: ' + line + '\n')
-                continue
-            sql = get_update_sql(arr, timeStamp)
-            execute_sql(cursor, sql)
-        fr.close()
+    timeStamp = int(yesterday)
+    for line in fr.readlines():
+        line = line.strip('\n')
+        arr = line.split("\t")
+        if len(arr) != 16:
+            print ('错误的行: ' + line + '\n')
+            continue
+        sql = get_update_sql(arr, timeStamp)
+        execute_sql(cursor, sql)
+    fr.close()
     return
 
 
