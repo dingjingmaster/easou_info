@@ -43,7 +43,7 @@ var exhibitMapToString = map[string]string{
 	"allUsrLevel": "全用户级别叠加", "regUsrLevel": "普通用户", "sphUsrLevel": "特殊用户", "othUsrLevel": "其它用户级别",
 	"allUsr": "全新旧用户叠加", "newUsr": "新用户", "oldUsr": "老用户", "othUsr": "其它新/老用户",
 	"allFeeUsr": "全付费类型用户叠加", "freFeeUsr": "纯免费用户", "mybChgFeeUsr": "潜在付费用户", "lgtChgFeeUsr": "轻度付费用户", "mdlChgFeeUsr": "中度付费用户", "hghChgFeeUsr": "重度付费用户", "othFeeUsr": "其它付费类型用户",
-	"allItemFee": "全付费类型物品叠加", "freItmFee": "付费物品", "chgItmFee": "免费物品", "monItmFee": "包月物品", "tfItmFee": "限免物品", "othItmFee": "其它付费类型物品", "allFreItmFee":"互联网",
+	"allItemFee": "全付费类型物品叠加", "freItmFee": "免费物品", "chgItmFee": "付费物品", "monItmFee": "包月物品", "tfItmFee": "限免物品", "othItmFee": "其它付费类型物品", "allFreItmFee":"互联网",
 	"allRec": "全策略叠加", "cat1Rec": "一级同分类", "cat2Rec": "二级同分类", "cotSimRec": "内容相似", "simAthRec": "同作者", "catRec": "同分类", "livStmRec": "实时流", "popRec": "流行度", "icfKnnRec": "物品协同", "ucfKnnRec": "用户协同", "nerIcfKnnRec": "近期协同", "codRec": "冷启动", "subMdlRec": "订阅模型", "redMdlSub": "阅读模型", "othRec": "其它策略",
 	"allStu": "全书籍状态叠加", "noCmpStu": "连载", "cmpStu": "完结", "othStu": "其它状态",
 	"allSub": "全订阅级别叠加", "bt0to10Sub": "0~10订阅", "bt10to1bSub": "10~100订阅", "bt1bto1kSub": "100~1千订阅", "bt1kto10kSub": "1千~1万订阅", "bt10kto100kSub": "1万~10万订阅", "bt100kto1000kSub": "10万~1百万订阅", "bt1000kto10000kSub": "1百万~1千万订阅", "othSub": "其它订阅级别",
