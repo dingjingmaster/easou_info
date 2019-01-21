@@ -536,6 +536,7 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor):
         sql = get_inject_sql(arr, timeStamp)
         execute_sql(cursor, sql)
     fr.close()
+    db.commit()
     fr = open(exhibitYesterday, "r")
     timeStamp = int(yesterday)
     for line in fr.readlines():
@@ -547,6 +548,11 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor):
         sql = get_update_sql(arr, timeStamp)
         execute_sql(cursor, sql)
     fr.close()
+    try:
+        db.commit()
+    except Exception, e:
+        db.rollback()
+        print ('sql 事务执行错误：' + e)
     return
 
 
@@ -566,13 +572,6 @@ if __name__ == '__main__':
     #db = MySQLdb.connect(ip, user, passwd, 'item_exhibit');
     db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
     cursor = db.cursor()
-
     inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor)
-
-    try:
-        db.commit()
-    except Exception, e:
-        db.rollback()
-        print ('sql 事务执行错误')
     db.close()
 
