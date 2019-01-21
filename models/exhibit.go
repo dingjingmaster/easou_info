@@ -7,6 +7,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"math"
 	"strconv"
+	"sync"
 )
 
 type ExhibitRequest struct {
@@ -136,6 +137,9 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 
 	if exhibitDB, err := sql.Open("mysql", mysqlInfo+"item_exhibit?charset=utf8"); nil == err {
 		timeDays := utils.TimeStringRangeToInt(req.TimeRange[0], req.TimeRange[1])
+
+		// sqls 多线程查询
+
 		for mmsql := range sqls {
 			recNum := map[int]int{}  // 推荐量 日期和值的关系
 			clkNum := map[int]int{}  // 点击量 日期和值的关系
@@ -149,10 +153,8 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 				redNum1[tm] = 0
 				redNum2[tm] = 0
 			}
-			//fmt.Println(mmsql.Sql)
 			if ress, err := exhibitDB.Query(mmsql.Sql); nil == err {
 				for ress.Next() {
-					// recNum, clkNum, subNum, redNum1, redNum2, timeStamp
 					recNumTmp, clkNumTmp, subNumTmp, redNum1Tmp, redNum2Tmp, timeStampTmp := 0, 0, 0, 0, 0, 0
 					if err = ress.Scan(&recNumTmp, &clkNumTmp, &subNumTmp, &redNum1Tmp, &redNum2Tmp, &timeStampTmp); nil == err {
 						recNum[timeStampTmp] += recNumTmp
@@ -160,125 +162,130 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						subNum[timeStampTmp] += subNumTmp
 						redNum1[timeStampTmp] += redNum1Tmp
 						redNum2[timeStampTmp] += redNum2Tmp
-					} else {
-						//
 					}
 				}
+
+				ta := sync.WaitGroup{}
 				for _, target := range req.Target {
-					line := Line{}
-					line.Introduction = mmsql.Introduction + "-" + exhibitMapToString[target]
-					switch target {
-					case "dspNum":
-						for _, t := range timeDays {
-							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(recNum[t]))
-						}
-						break
-					case "clkNum":
-						for _, t := range timeDays {
-							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(clkNum[t]))
-						}
-						break
-					case "srbNum":
-						for _, t := range timeDays {
-							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(subNum[t]))
-						}
-						break
-					case "redNum1":
-						for _, t := range timeDays {
-							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(redNum1[t]))
-						}
-						break
-					case "redNum2":
-						for _, t := range timeDays {
-							line.X = append(line.X, strconv.Itoa(t))
-							line.Y = append(line.Y, float64(redNum2[t]))
-						}
-						break
-						// 比例
-					case "clkDsp":
-						for _, t := range timeDays {
-							if recNum[t] > 0 {
+					ta.Add(1)
+					go func() {
+						line := Line{}
+						line.Introduction = mmsql.Introduction + "-" + exhibitMapToString[target]
+						switch target {
+						case "dspNum":
+							for _, t := range timeDays {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, math.Trunc(float64(clkNum[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
-							} else {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, 0)
+								line.Y = append(line.Y, float64(recNum[t]))
 							}
-						}
-						break
-					case "subClk":
-						for _, t := range timeDays {
-							if clkNum[t] > 0 {
+							break
+						case "clkNum":
+							for _, t := range timeDays {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, math.Trunc(float64(subNum[t])/float64(clkNum[t])*100 * 1e3 + 0.5) * 1e-3)
-							} else {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, 0)
+								line.Y = append(line.Y, float64(clkNum[t]))
 							}
-						}
-						break
-					case "subDsp":
-						for _, t := range timeDays {
-							if recNum[t] > 0 {
+							break
+						case "srbNum":
+							for _, t := range timeDays {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, math.Trunc(float64(subNum[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
-							} else {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, 0)
+								line.Y = append(line.Y, float64(subNum[t]))
 							}
-						}
-						break
-					case "redSub":
-						for _, t := range timeDays {
-							if redNum1[t] > 0 {
+							break
+						case "redNum1":
+							for _, t := range timeDays {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(subNum[t])*100 * 1e3 + 0.5) * 1e-3)
-							} else {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, 0)
+								line.Y = append(line.Y, float64(redNum1[t]))
 							}
-						}
-						break
-					case "redDsp":
-						for _, t := range timeDays {
-							if redNum1[t] > 0 {
+							break
+						case "redNum2":
+							for _, t := range timeDays {
 								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
-							} else {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, 0)
+								line.Y = append(line.Y, float64(redNum2[t]))
 							}
-						}
-						break
-					case "retent":
-						for _, t := range timeDays {
-							if subNum[t] > 0 {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, math.Trunc(float64(redNum2[t])/float64(subNum[t])*100 * 1e3 + 0.5) * 1e-3)
-							} else {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, 0)
+							break
+							// 比例
+						case "clkDsp":
+							for _, t := range timeDays {
+								if recNum[t] > 0 {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, math.Trunc(float64(clkNum[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
+								} else {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, 0)
+								}
 							}
-						}
-						break
-					case "rteDsp":
-						for _, t := range timeDays {
-							if redNum1[t] > 0 {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
-							} else {
-								line.X = append(line.X, strconv.Itoa(t))
-								line.Y = append(line.Y, 0)
+							break
+						case "subClk":
+							for _, t := range timeDays {
+								if clkNum[t] > 0 {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, math.Trunc(float64(subNum[t])/float64(clkNum[t])*100 * 1e3 + 0.5) * 1e-3)
+								} else {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, 0)
+								}
 							}
+							break
+						case "subDsp":
+							for _, t := range timeDays {
+								if recNum[t] > 0 {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, math.Trunc(float64(subNum[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
+								} else {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, 0)
+								}
+							}
+							break
+						case "redSub":
+							for _, t := range timeDays {
+								if redNum1[t] > 0 {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(subNum[t])*100 * 1e3 + 0.5) * 1e-3)
+								} else {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, 0)
+								}
+							}
+							break
+						case "redDsp":
+							for _, t := range timeDays {
+								if redNum1[t] > 0 {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
+								} else {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, 0)
+								}
+							}
+							break
+						case "retent":
+							for _, t := range timeDays {
+								if subNum[t] > 0 {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, math.Trunc(float64(redNum2[t])/float64(subNum[t])*100 * 1e3 + 0.5) * 1e-3)
+								} else {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, 0)
+								}
+							}
+							break
+						case "rteDsp":
+							for _, t := range timeDays {
+								if redNum1[t] > 0 {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
+								} else {
+									line.X = append(line.X, strconv.Itoa(t))
+									line.Y = append(line.Y, 0)
+								}
+							}
+							break
 						}
-						break
-					}
-					response.Status = true
-					response.Lines = append(response.Lines, line)
+						response.Status = true
+						response.Lines = append(response.Lines, line)
+						ta.Done()
+					}()
+					ta.Wait()
 				}
 			} else {
 				//response.Status = false

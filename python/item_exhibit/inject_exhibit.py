@@ -9,11 +9,9 @@ import datetime
 def execute_sql(cursor, sql):
     try:
         cursor.execute(sql)
-        db.commit()
     except:
         print "sql:" + sql + "\t 执行错误"
-        db.rollback()
-    return;
+    return
 
 ###
 # 将 app————汉字转英文
@@ -511,8 +509,17 @@ def get_update_sql(arr, timeStamp):
             '-' + view_trans_to_word(arr[9]) + \
             '-' + intime_trans_to_word(arr[10]) + \
             '-' + str(timeStamp)
-    sql = "UPDATE item_exhibit SET redNum2 = '%d' WHERE id = '%s';" % \
-              (int(arr[15]), id)
+    sql = "UPDATE item_exhibit SET app = '%d' module = '%d' areaLevel = '%d', userLevel = '%d'" \
+          "userNewOld = '%d' userFee = '%d' itemFee = '%d' strategy = '%d' status = '%d' view = '%d'" \
+          "intime = '%d' recNum = '%d' clkNum = '%d' subNum = '%d' redNum1 = '%d' redNum2 = '%d' timeStamp = '%d' WHERE id = '%s';" %\
+          (app_trans_to_num(arr[0]), \
+            module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]), \
+            user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]), \
+            user_fee_trans_to_num(arr[5]), item_fee_trans_to_num(arr[6]), \
+            strategy_trans_to_num(arr[7]), status_trans_to_num(arr[8]), \
+            view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]), \
+            int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(arr[15]), int(timeStamp), id)
+
     return sql
 
 # inject mysql
@@ -559,6 +566,13 @@ if __name__ == '__main__':
     #db = MySQLdb.connect(ip, user, passwd, 'item_exhibit');
     db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
     cursor = db.cursor()
+
     inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor)
+
+    try:
+        db.commit()
+    except Exception, e:
+        db.rollback()
+        print ('sql 事务执行错误')
     db.close()
 
