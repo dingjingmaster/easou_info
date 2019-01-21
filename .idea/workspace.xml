@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="573" column="24" selection-start-line="573" selection-start-column="24" selection-end-line="573" selection-end-column="24" />
+            <state relative-caret-position="227">
+              <caret line="513" column="134" selection-start-line="513" selection-start-column="134" selection-end-line="513" selection-end-column="134" />
             </state>
           </provider>
         </entry>
@@ -128,8 +128,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="387" />
-    <option name="y" value="82" />
+    <option name="x" value="44" />
+    <option name="y" value="165" />
     <option name="width" value="1474" />
     <option name="height" value="956" />
   </component>
@@ -141,7 +141,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,6 +168,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -216,10 +216,10 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="387" y="82" width="1474" height="956" extended-state="0" />
+    <frame x="44" y="165" width="1474" height="956" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.1308345" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.13224894" />
       <window_info id="Structure" order="1" sideWeight="0.5011236" side_tool="true" weight="0.259012" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -408,8 +408,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="573" column="24" selection-start-line="573" selection-start-column="24" selection-end-line="573" selection-end-column="24" />
+        <state relative-caret-position="227">
+          <caret line="513" column="134" selection-start-line="513" selection-start-column="134" selection-end-line="513" selection-end-column="134" />
         </state>
       </provider>
     </entry>

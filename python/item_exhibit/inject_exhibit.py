@@ -509,9 +509,9 @@ def get_update_sql(arr, timeStamp):
             '-' + view_trans_to_word(arr[9]) + \
             '-' + intime_trans_to_word(arr[10]) + \
             '-' + str(timeStamp)
-    sql = "UPDATE item_exhibit SET app = '%d' module = '%d' areaLevel = '%d', userLevel = '%d'" \
-          "userNewOld = '%d' userFee = '%d' itemFee = '%d' strategy = '%d' status = '%d' view = '%d'" \
-          "intime = '%d' recNum = '%d' clkNum = '%d' subNum = '%d' redNum1 = '%d' redNum2 = '%d' timeStamp = '%d' WHERE id = '%s';" %\
+    sql = "UPDATE item_exhibit SET app = '%d', module = '%d', areaLevel = '%d', userLevel = '%d', \
+          userNewOld = '%d', userFee = '%d', itemFee = '%d', strategy = '%d', status = '%d', view = '%d', \
+          intime = '%d', recNum = '%d', clkNum = '%d', subNum = '%d', redNum1 = '%d', redNum2 = '%d', timeStamp = '%d' WHERE id = '%s';" %\
           (app_trans_to_num(arr[0]), \
             module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]), \
             user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]), \
