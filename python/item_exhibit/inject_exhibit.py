@@ -537,6 +537,20 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor):
         execute_sql(cursor, sql)
     fr.close()
     db.commit()
+
+    fr = open(exhibitYesterday, "r")
+    timeStamp = int(yesterday)
+    for line in fr.readlines():
+        line = line.strip('\n')
+        arr = line.split("\t")
+        if len(arr) != 16:
+            print ('错误的行: ' + line + '\n')
+            continue
+        sql = get_inject_sql(arr, timeStamp)
+        execute_sql(cursor, sql)
+    fr.close()
+    db.commit()
+
     fr = open(exhibitYesterday, "r")
     timeStamp = int(yesterday)
     for line in fr.readlines():
@@ -553,6 +567,8 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor):
     except Exception, e:
         db.rollback()
         print ('sql 事务执行错误：' + e)
+
+
     return
 
 
