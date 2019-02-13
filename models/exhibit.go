@@ -236,7 +236,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 								}
 							}
 							break
-						case "redSub":
+						case "redSub1":
 							for _, t := range timeDays {
 								if redNum1[t] > 0 {
 									line.X = append(line.X, strconv.Itoa(t))
@@ -247,7 +247,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 								}
 							}
 							break
-						case "redDsp":
+						case "redDsp1":
 							for _, t := range timeDays {
 								if redNum1[t] > 0 {
 									line.X = append(line.X, strconv.Itoa(t))
@@ -258,7 +258,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 								}
 							}
 							break
-						case "retent":
+						case "redSub2":
 							for _, t := range timeDays {
 								if subNum[t] > 0 {
 									line.X = append(line.X, strconv.Itoa(t))
@@ -269,11 +269,11 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 								}
 							}
 							break
-						case "rteDsp":
+						case "redDsp2":
 							for _, t := range timeDays {
 								if redNum1[t] > 0 {
 									line.X = append(line.X, strconv.Itoa(t))
-									line.Y = append(line.Y, math.Trunc(float64(redNum1[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
+									line.Y = append(line.Y, math.Trunc(float64(redNum2[t])/float64(recNum[t])*100 * 1e3 + 0.5) * 1e-3)
 								} else {
 									line.X = append(line.X, strconv.Itoa(t))
 									line.Y = append(line.Y, 0)

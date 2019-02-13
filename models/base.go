@@ -49,7 +49,7 @@ var exhibitMapToString = map[string]string{
 	"allSub": "全订阅级别叠加", "bt0to10Sub": "0~10订阅", "bt10to1bSub": "10~100订阅", "bt1bto1kSub": "100~1千订阅", "bt1kto10kSub": "1千~1万订阅", "bt10kto100kSub": "1万~10万订阅", "bt100kto1000kSub": "10万~1百万订阅", "bt1000kto10000kSub": "1百万~1千万订阅", "othSub": "其它订阅级别",
 	"allIn": "全入库时间叠加", "lesMonIn": "1月内入库", "bt1mto3mIn": "1~3月内入库", "bt3mto12mIn": "3~12月内入库", "bt12mto99mIn": "12~99月内入库", "othIn": "其它入库时间",
 	"dspNum": "推荐量", "clkNum": "点击量", "srbNum": "订阅量", "redNum1": "阅读量1", "redNum2": "阅读量2",
-	"clkDsp": "点展比", "subClk": "订点比", "subDsp": "订展比", "redSub": "阅订比1", "redDsp": "阅展比1", "retent": "阅订比2", "rteDsp": "阅展比",
+	"clkDsp": "点展比", "subClk": "订点比", "subDsp": "订展比", "redSub1": "阅订比1", "redDsp1": "阅展比1", "redSub2": "阅订比2", "redDsp2": "阅展比2",
 }
 
 func init() {
