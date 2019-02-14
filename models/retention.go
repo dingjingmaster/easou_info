@@ -29,7 +29,7 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 			if endTime, ok := utils.TimeStringToString(req.TimeRange[1]); nil == ok {
 				switch req.Weidu {
 				case "limitfree":
-					mmsql := "SELECT remain, retent, timeStamp FROM item_retent_limitfree WHERE timeStamp >= " +
+					mmsql := "SELECT remain, last, retent, timeStamp FROM item_retent_limitfree WHERE timeStamp >= " +
 						startTime + " AND timeStamp <= " + endTime
 					for _, tf := range req.Limitfree {
 						msql := SqlInfo{
@@ -39,7 +39,7 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 						sqls <- msql
 					}
 				case "fee":
-					mmsql := "SELECT remain, retent, timeStamp FROM item_retent_fee WHERE timeStamp >= " +
+					mmsql := "SELECT remain, last, retent, timeStamp FROM item_retent_fee WHERE timeStamp >= " +
 						startTime + " AND timeStamp <= " + endTime
 					for _, fee := range req.Fee {
 						for _, tar := range req.Target {
@@ -51,7 +51,7 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 						}
 					}
 				case "status":
-					mmsql := "SELECT remain, retent, timeStamp FROM item_retent_status WHERE timeStamp >= " +
+					mmsql := "SELECT remain, last, retent, timeStamp FROM item_retent_status WHERE timeStamp >= " +
 						startTime + " AND timeStamp <= " + endTime
 					for _, fee := range req.Fee {
 						for _, status := range req.Status {
@@ -65,7 +65,7 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 						}
 					}
 				case "viewCount":
-					mmsql := "SELECT remain, retent, timeStamp FROM item_retent_viewcount WHERE timeStamp >= " +
+					mmsql := "SELECT remain, last, retent, timeStamp FROM item_retent_viewcount WHERE timeStamp >= " +
 						startTime + " AND timeStamp <= " + endTime
 					for _, fee := range req.Fee {
 						for _, viewcount := range req.ViewCount {
@@ -79,7 +79,7 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 						}
 					}
 				case "intime":
-					mmsql := "SELECT remain, retent, timeStamp FROM item_retent_intime WHERE timeStamp >= " +
+					mmsql := "SELECT remain, last, retent, timeStamp FROM item_retent_intime WHERE timeStamp >= " +
 						startTime + " AND timeStamp <= " + endTime
 					for _, fee := range req.Fee {
 						for _, intime := range req.Intime {
@@ -93,7 +93,7 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 						}
 					}
 				case "uptime":
-					mmsql := "SELECT remain, retent, timeStamp FROM item_retent_update WHERE timeStamp >= " +
+					mmsql := "SELECT remain, last, retent, timeStamp FROM item_retent_update WHERE timeStamp >= " +
 						startTime + " AND timeStamp <= " + endTime
 					for _, fee := range req.Fee {
 						for _, uptime := range req.Uptime {
@@ -107,7 +107,7 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 						}
 					}
 				case "classify1":
-					mmsql := "SELECT remain, retent, timeStamp FROM item_retent_classify1 WHERE timeStamp >= " +
+					mmsql := "SELECT remain, last, retent, timeStamp FROM item_retent_classify1 WHERE timeStamp >= " +
 						startTime + " AND timeStamp <= " + endTime
 					for _, fee := range req.Fee {
 						for _, classify1 := range req.Classify1 {
@@ -130,21 +130,24 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 		timeDays := utils.TimeStringRangeToInt(req.TimeRange[0], req.TimeRange[1])
 		for mmsql := range sqls {
 			retent := map[int]float64{}
+			last := map[int]int{}
 			remain := map[int]int{}
 			
 			for _, tm := range timeDays {
 				retent[tm] = 0.0
 				remain[tm] = 0
+				last[tm] = 0
 			}
 			
 			// fmt.Println(mmsql.Sql)
 			
 			if ress, err := retentionDB.Query(mmsql.Sql); nil == err {
 				for ress.Next() {
-					retentt, remaint, timeStampt := 0.0, 0, 0
-					if err = ress.Scan(&remaint, &retentt, &timeStampt); nil == err {
+					remaint, lastt, retentt, timeStampt := 0, 0, 0.0, 0
+					if err = ress.Scan(&remaint, &lastt, &retentt, &timeStampt); nil == err {
 						retent[timeStampt] = retentt
 						remain[timeStampt] = remaint
+						last[timeStampt] = lastt
 					}
 				}
 				
@@ -161,6 +164,11 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 					for _, t := range timeDays {
 						line.X = append(line.X, strconv.Itoa(t))
 						line.Y = append(line.Y, float64(retent[t]))
+					}
+				case "lastNum":
+					for _, t := range timeDays {
+						line.X = append(line.X, strconv.Itoa(t))
+						line.Y = append(line.Y, float64(last[t]))
 					}
 				}
 				
