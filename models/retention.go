@@ -139,8 +139,6 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 				last[tm] = 0
 			}
 			
-			// fmt.Println(mmsql.Sql)
-			
 			if ress, err := retentionDB.Query(mmsql.Sql); nil == err {
 				for ress.Next() {
 					remaint, lastt, retentt, timeStampt := 0, 0, 0.0, 0

@@ -3,6 +3,8 @@ package main
 import (
 	_ "easou_info/routers"
 	"github.com/astaxie/beego"
+	"os"
+	"path/filepath"
 )
 
 func main() {
@@ -12,8 +14,9 @@ func main() {
 		beego.AppPath = "E:/GO/src/easou_info/"
 		beego.SetStaticPath("/", "E:/easou-web/dist/")
 	} else {
-		beego.AppPath = "/data/release/web/"
-		beego.SetStaticPath("/", "/data/release/web/dist/")
+		dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
+		beego.AppPath = dir
+		beego.SetStaticPath("/", dir + "/dist/")
 	}
 
 	beego.BConfig.RouterCaseSensitive = true  // 是否开启区分大小写
