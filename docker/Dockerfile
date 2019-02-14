@@ -29,4 +29,4 @@ COPY go/main /data/release/web/main
 COPY go/dist /data/release/web/dist
 
 CMD ["/data/release/web/main"]
-EXPOSE 80
+EXPOSE 32000

@@ -35,7 +35,6 @@ var exhibitMapToNum = map[string]int{
 	"bt0to10Sub": 1, "bt10to1bSub": 2, "bt1bto1kSub": 3, "bt1kto10kSub": 4, "bt10kto100kSub": 5, "bt100kto1000kSub": 6, "bt1000kto10000kSub": 7, "othSub": 8,
 	"lesMonIn": 1, "bt1mto3mIn": 2, "bt3mto12mIn": 3, "bt12mto99mIn": 4, "othIn": 5,
 }
-
 var exhibitMapToString = map[string]string{
 	"allApp": "全部app叠加", "easouApp": "宜搜小说", "weijuanApp": "微卷", "othApp": "其它app",
 	"allMdl": "全模块叠加", "shfRecMdl": "书架推荐", "shfGusMdl": "书架 猜你喜欢", "freRecMdl": "免费 免费推荐", "freGusMdl": "免费猜你喜欢", "monStmMdl": "包月瀑布流", "foeCateRecMdl": "封面页类别推荐", "foeRedRedMdl": "封面页读本书的人还看过", "foeRedMorMdl": "封面页读本书的人还看过更多", "sehResTopMdl": "搜索结果页 热搜TOP榜", "sehResGusMdl": "搜索结果页 猜你喜欢", "bakRedRedMdl": "章末页 读本书的人还看过", "chsGilStmMdl": "精选 女频瀑布流", "chsCmpMdl": "精选 完结佳作", "chsCmpStmMdl": "精选 完结瀑布流", "chsRakStmMdl": "精选 排行瀑布流", "chsRedRecMdl": "精选 根据阅读书籍推荐", "chsRedCatRecMdl": "精选 根据阅读分类推荐", "chsStmMdl": "精选 瀑布流", "chsHotRecMdl": "精选 热门推荐", "chsBoyStmMdl": "精选 男频瀑布流", "chsChsRedMdl": "精选 精品必读", "extBlkMdl": "退出拦截推荐", "freByRecMdl": "免费包月推荐", "fre7TfMdl": "七日限免", "foeAutRecMdl": "封面页-作者推荐",
@@ -51,6 +50,31 @@ var exhibitMapToString = map[string]string{
 	"dspNum": "推荐量", "clkNum": "点击量", "srbNum": "订阅量", "redNum1": "阅读量1", "redNum2": "阅读量2",
 	"clkDsp": "点展比", "subClk": "订点比", "subDsp": "订展比", "redSub1": "阅订比1", "redDsp1": "阅展比1", "redSub2": "阅订比2", "redDsp2": "阅展比2",
 }
+
+/* retention 相关全局变量 */
+var retentionMapToNum = map[string]int {
+	"freFee" : 1, "chgFee" : 2, "monFee" : 3, "pubFee" : 4, "tfFee" : 5, "allFee":6,
+	"rteDay" : 1, "rteWeek" : 2, "rteWk7" : 3,
+	"valDay" : 1, "valWeek" : 2, "valWk7" : 3,
+	"limfe1" : 1, "limfe2" : 2, "limfe3" : 3, "limfe4" : 4,
+	"unfinish" : 1, "finish" : 2,
+	"bt0to1b" : 1, "bt1bto1k" : 2, "bt1kto1w" : 3, "bt1wto10w" : 4, "gt10w" : 5,
+	"lesMonIn" : 1, "bt1mto3mIn" : 2, "bt3mto12mIn" : 3, "gt1yIn" : 4,
+	"lesMonUpd" : 1, "bt1mto3mUpd" : 2, "bt3mto12mUpd" : 3, "gt1yUpd" : 4,
+	"boyCfy1" : 1, "girlCfy1" : 2, "pshCfy1" : 3, "othCfy1" : 4,
+}
+var retentionMapToString = map[string]string{
+	"freFee" : "免费(互联网书)", "chgFee" : "付费", "monFee" : "包月", "pubFee":"公版", "tfFee":"限免", "allFee":"全免(付费书免费读)",
+	"rteDay" : "天留存", "rteWeek":"周留存", "rteWk7":"七日留存",
+	"valDay" : "天阅读量", "valWeek":"周阅读量", "valWk7":"七日阅读量",
+	"limfe1" : "第一批限免", "limfe2" : "第二批限免", "limfe3" : "第三批限免", "limfe4" : "第四批限免",
+	"finish" : "完结", "unfinish" : "连载",
+	"bt0to1b" : "1到1百", "bt1bto1k" : "1百到1千", "bt1kto1w" : "1千到1万", "bt1wto10w" : "1万到10万", "gt10w" : "大于10万",
+	"lesMonIn" : "少于1月入库", "bt1mto3mIn" : "1月到3月入库", "bt3mto12mIn" : "3月到12月入库", "gt1yIn" : "大于1年入库",
+	"lesMonUpd" : "少于1月更新", "bt1mto3mUpd" : "1月到3月更新", "bt3mto12mUpd" : "3月到12月更新", "gt1yUpd" : "大于1年更新",
+	"boyCfy1" : "男频", "girlCfy1" : "女频", "pshCfy1" : "出版", "othCfy1" : "其它",
+}
+
 
 func init() {
 	host := beego.AppConfig.String("mysql::host") 
