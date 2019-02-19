@@ -9,7 +9,7 @@ from function import get_inject_sql
 from function import execute_sql
 from function import commit_sql
 
-def inject_mysql(dataTime, dataPath, cursor):
+def inject_mysql(dataTime, dataPath, cursor, db):
     timeStamp = int(dataTime)
     with open(dataPath, 'r') as fr:
         for line in fr.readlines():
@@ -19,7 +19,7 @@ def inject_mysql(dataTime, dataPath, cursor):
                 print ('错误行: ' + line + '\n')
         sql = get_inject_sql(arr, timeStamp)
         execute_sql(cursor, sql)
-    commit_sql(cursor)
+    commit_sql(db)
 
 if __name__ == '__main__':
     if len(sys.argv) != 5:
@@ -34,6 +34,6 @@ if __name__ == '__main__':
 
     db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock')
     cursor = db.cursor()
-    delete_sdy(cursor, dataTime)
-    inject_mysql(dataTime, exhibitData, cursor)
+    delete_sdy(cursor, db, dataTime)
+    inject_mysql(dataTime, exhibitData, cursor, db)
     db.close()

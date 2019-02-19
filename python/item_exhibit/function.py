@@ -489,6 +489,31 @@ def get_inject_sql(arr, timeStamp):
            int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(arr[15]), int(timeStamp))
     return sql
 
+def get_update_sql(arr, timeStamp):
+    id = app_trans_to_word(arr[0]) + \
+         '-' + module_trans_to_word(arr[1]) + \
+         '-' + area_level_trans_to_word(arr[2]) + \
+         '-' + user_level_trans_to_word(arr[3]) + \
+         '-' + user_nd_trans_to_word(arr[4]) + \
+         '-' + user_fee_trans_to_word(arr[5]) + \
+         '-' + item_fee_trans_to_word(arr[6]) + \
+         '-' + strategy_trans_to_word(arr[7]) + \
+         '-' + status_trans_to_word(arr[8]) + \
+         '-' + view_trans_to_word(arr[9]) + \
+         '-' + intime_trans_to_word(arr[10]) + \
+         '-' + str(timeStamp)
+    sql = "UPDATE item_exhibit SET app = '%d', module = '%d', areaLevel = '%d', userLevel = '%d', \
+          userNewOld = '%d', userFee = '%d', itemFee = '%d', strategy = '%d', status = '%d', view = '%d', \
+          intime = '%d', recNum = '%d', clkNum = '%d', subNum = '%d', redNum1 = '%d', redNum2 = '%d', timeStamp = '%d' WHERE id = '%s';" % \
+          (app_trans_to_num(arr[0]), \
+           module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]), \
+           user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]), \
+           user_fee_trans_to_num(arr[5]), item_fee_trans_to_num(arr[6]), \
+           strategy_trans_to_num(arr[7]), status_trans_to_num(arr[8]), \
+           view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]), \
+           int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(arr[15]), int(timeStamp), id)
+    return sql
+
 def execute_sql(cursor, sql):
     try:
         cursor.execute(sql)
@@ -496,7 +521,7 @@ def execute_sql(cursor, sql):
         print "sql:" + sql + "\t 执行错误"
     return
 
-def commit_sql(cursor):
+def commit_sql(db):
     try:
         db.commit()
     except Exception, e:
@@ -504,7 +529,7 @@ def commit_sql(cursor):
         print ('sql 事务执行失败! 错误: ' + e)
     return
 
-def delete_sdy(cursor, tim):
+def delete_sdy(cursor, db, tim):
     msql = 'DELETE FROM item_exhibit WHERE timeStamp = ' + tim + ';'
     execute_sql(cursor, msql)
-    commit_sql(cursor)
+    commit_sql(db)
