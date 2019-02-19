@@ -32,9 +32,23 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor, db):
             if len(arr) != 16:
                 print ('错误行: ' + line + '\n')
                 continue
+            sql = get_inject_sql(arr, timeStamp)
+            execute_sql(cursor, sql)
+    commit_sql(db)
+    print ('昨天数据注入 MySQL 完成！！！')
+
+    with open(exhibitYesterday, 'r') as fr:
+        timeStamp = int(yesterday)
+        for line in fr.readlines():
+            line = line.strip('\n')
+            arr = line.split('\t')
+            if len(arr) != 16:
+                print ('错误行: ' + line + '\n')
+                continue
             sql = get_update_sql(arr, timeStamp)
             execute_sql(cursor, sql)
     commit_sql(db)
+    print ('昨天数据更细 MySQL 完成！！！')
     return
 
 

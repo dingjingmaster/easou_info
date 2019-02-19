@@ -518,7 +518,8 @@ def execute_sql(cursor, sql):
     try:
         cursor.execute(sql)
     except:
-        print "sql:" + sql + "\t 执行错误"
+        pass
+        #print "sql:" + sql + "\t 执行错误"
     return
 
 def commit_sql(db):
