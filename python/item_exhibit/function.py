@@ -504,6 +504,7 @@ def commit_sql(cursor):
         print ('sql 事务执行失败! 错误: ' + e)
     return
 
-def delete_sdy(db, tim):
+def delete_sdy(cursor, tim):
     msql = 'DELETE FROM item_exhibit WHERE timeStamp = ' + tim + ';'
-    execute_sql(db, msql)
+    execute_sql(cursor, msql)
+    commit_sql(cursor)
