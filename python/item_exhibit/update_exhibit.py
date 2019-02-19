@@ -22,7 +22,7 @@ def inject_mysql(dataTime, dataPath, cursor, db):
     commit_sql(db)
 
 if __name__ == '__main__':
-    if len(sys.argv) != 5:
+    if len(sys.argv) != 6:
         print ("请输入手动更新的时间")
         exit(-1)
 
