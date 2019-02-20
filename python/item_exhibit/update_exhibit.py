@@ -17,9 +17,11 @@ def inject_mysql(dataTime, dataPath, cursor, db):
             arr = line.split('\t')
             if len(arr) != 16:
                 print ('错误行: ' + line + '\n')
-        sql = get_inject_sql(arr, timeStamp)
-        execute_sql(cursor, sql)
-    commit_sql(db)
+            msql = ''
+            sql = get_inject_sql(arr, timeStamp)
+            execute_sql(cursor, sql)
+        commit_sql(db)
+    return
 
 if __name__ == '__main__':
     if len(sys.argv) != 6:

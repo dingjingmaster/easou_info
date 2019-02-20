@@ -19,8 +19,9 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor, db):
             if len(arr) != 16:
                 print('错误行: ' + line + '\n')
                 continue
-            sql = get_inject_sql(arr, timeStamp)
-            execute_sql(cursor, sql)
+            msql = ''
+            msql = get_inject_sql(arr, timeStamp)
+            execute_sql(cursor, msql)
     commit_sql(db)
     print ('当天数据注入 MySQL 完成！！！')
 
@@ -32,8 +33,9 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor, db):
             if len(arr) != 16:
                 print ('错误行: ' + line + '\n')
                 continue
-            sql = get_inject_sql(arr, timeStamp)
-            execute_sql(cursor, sql)
+            msql = ''
+            msql = get_inject_sql(arr, timeStamp)
+            execute_sql(cursor, msql)
     commit_sql(db)
     print ('昨天数据注入 MySQL 完成！！！')
 
@@ -42,11 +44,12 @@ def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor, db):
         for line in fr.readlines():
             line = line.strip('\n')
             arr = line.split('\t')
+            msql = ''
             if len(arr) != 16:
                 print ('错误行: ' + line + '\n')
                 continue
-            sql = get_update_sql(arr, timeStamp)
-            execute_sql(cursor, sql)
+            msql = get_update_sql(arr, timeStamp)
+            execute_sql(cursor, msql)
     commit_sql(db)
     print ('昨天数据更细 MySQL 完成！！！')
     return
@@ -68,6 +71,6 @@ if __name__ == '__main__':
     #db = MySQLdb.connect(ip, user, passwd, 'item_exhibit');
     db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
     cursor = db.cursor()
-    inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor)
+    inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor, db)
     db.close()
 
