@@ -69,7 +69,7 @@ if __name__ == '__main__':
     exhibitYesterday = sys.argv[7]
 
     #db = MySQLdb.connect(ip, user, passwd, 'item_exhibit');
-    db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
+    db = MySQLdb.connect(ip, user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock')
     cursor = db.cursor()
     inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor, db)
     db.close()
