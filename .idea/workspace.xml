@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eaf0bfe-a5d0-4929-a94e-f950dad852d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/item_info/inject_item.sh" beforeDir="false" afterPath="$PROJECT_DIR$/python/item_info/inject_item.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/item_info/item_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/item_info/item_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/item_info.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/item_info.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/item_info/item_info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="225" column="1" selection-start-line="225" selection-start-column="1" selection-end-line="225" selection-end-column="1" />
+            <state relative-caret-position="-238">
+              <caret line="224" column="157" lean-forward="true" selection-start-line="224" selection-start-column="157" selection-end-line="224" selection-end-column="157" />
             </state>
           </provider>
         </entry>
@@ -484,8 +480,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/item_info/item_info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="225" column="1" selection-start-line="225" selection-start-column="1" selection-end-line="225" selection-end-column="1" />
+        <state relative-caret-position="-238">
+          <caret line="224" column="157" lean-forward="true" selection-start-line="224" selection-start-column="157" selection-end-line="224" selection-end-column="157" />
         </state>
       </provider>
     </entry>

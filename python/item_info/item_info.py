@@ -222,7 +222,7 @@ def update_gid_sql (arr, tim):
     msql = "UPDATE item_info SET `name` = '%s', `author` = '%s'," \
            "`norm_name` = '%s', `norm_author` = '%s', `norm_series` = '%s', `rank` = '%f', `tag1` = '%s', `tag2` = '%s'," \
            "`view_count` = '%d', `status` = '%d', `fee_flag` = '%s', `ncp` = '%s', `intime_stamp` = '%d', `chapter_uptime` = '%d', " \
-           "`mask_level` = '%s', `by` = '%s', `tf` = '%s', `rn_d` = '%d', `rt_d` = '%f', `rn_w` = '%d', `rt_w` = '%f', `update_time` = '%s' WHERE `gid` = %s;" % \
+           "`mask_level` = '%s', `by` = '%s', `tf` = '%s', `rn_d` = '%d', `rt_d` = '%f', `rn_w` = '%d', `rt_w` = '%f', `update_time` = '%s' WHERE `gid` = '%s';" % \
            (name, author, normName, normAuthor, normSeries, rank, tag1, tag2,
             viewCount, status, feeFlag, ncp, intimeStamp, chapterUptime,
             makeLevel, by, tf, rnd, rtd, rnw, rtw, tim, gid)
