@@ -11,4 +11,4 @@ cd ${workDir} && rm -fr data && mkdir data
 hadoop fs -cat "${itemInfoPath}" > "${itemInfoLocal}"
 
 cd ${workDir}
-python inject_item.py "127.0.0.1" "root" "123456" "${itemInfoLocal}" "${updateTime}"
+python item_info.py "127.0.0.1" "root" "123456" "${itemInfoLocal}" "${updateTime}"
