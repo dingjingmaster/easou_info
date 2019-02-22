@@ -238,7 +238,7 @@ if __name__ == '__main__':
     itemInfo = sys.argv[4]
     updateTime = sys.argv[5]
 
-    db = MySQLdb.connect(ip, user, passwd, 'item_info', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock')
+    db = MySQLdb.connect(ip, user, passwd, 'item_info', charset='utf8', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock')
     cursor = db.cursor()
     with open(itemInfo, 'r') as fr:
         for line in fr.readlines():

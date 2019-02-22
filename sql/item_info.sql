@@ -1,7 +1,6 @@
 -- 书籍信息查询表
-alter database item_info default character set utf8;
 use item_info;
-
+alter database item_info default character set utf8;
 CREATE TABLE IF NOT EXISTS `item_info` (
   `gid`                 VARCHAR(32) NOT NULL                            COMMENT '主键 书籍ID',
   `name`                VARCHAR(256) NOT NULL                           COMMENT '书名',
@@ -27,13 +26,13 @@ CREATE TABLE IF NOT EXISTS `item_info` (
   `rt_w`                DOUBLE NOT NULL                                 COMMENT '周留存率',
   `update_time`         VARCHAR(120) NOT NULL                           COMMENT '啥时候更新的 我自己加的',
   PRIMARY KEY (`gid`)
-);
+) DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `item_option` (
   `key`                 VARCHAR(1024) NOT NULL                          COMMENT '键',
   `value`               VARCHAR(1024) NOT NULL                          COMMENT '值',
   PRIMARY KEY (`key`)
-);
+) DEFAULT CHARSET=utf8;
 
 alter table `item_info` default character set utf8;
 alter table `item_option` default character set utf8;
