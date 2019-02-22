@@ -4,11 +4,31 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"time"
 )
 
 type ItemInfoRequest struct {
 	ReqType                     string                      // gid name author
 	Value                       []string                    // 要查询的值
+}
+
+func If (c bool, a string, b string) string {
+	if c {
+		return a
+	}
+	return b
+}
+
+func FeeFlag (tp string) string {
+	switch tp {
+	case "1":
+		return "付费"
+	case "10":
+		return "公版"
+	case "0":
+		return "免费"
+	}
+	return "未知类型"
 }
 
 func QueryItemInfo(req *ItemInfoRequest, response *Response) {
@@ -37,8 +57,8 @@ func QueryItemInfo(req *ItemInfoRequest, response *Response) {
 						&viewCount, &status, &feeFlag, &ncp, &intimeStamp, &chapterUptime, &maskLevel, &by, &tf,
 						&rnd, &rtd, &rnw, &rtw, &updateTime); nil == err {
 						obj := map[string]string {
-							"gid" : gid,
-							"name" : name,
+							"gid": gid,
+							"name": name,
 							"author": author,
 							"norm_name": normName,
 							"norm_author": normAuthor,
@@ -47,14 +67,14 @@ func QueryItemInfo(req *ItemInfoRequest, response *Response) {
 							"tag1": tag1,
 							"tag2": tag2,
 							"view_count": fmt.Sprintf("%d", viewCount),
-							"status": fmt.Sprintf("%d", status),
-							"fee_flag": feeFlag,
+							"status": fmt.Sprintf("%s", If(status == 2, "完结", "连载")),
+							"fee_flag": FeeFlag(feeFlag),
 							"ncp": ncp,
-							"intime_stamp": fmt.Sprintf("%d", intimeStamp),
-							"chapter_uptime": fmt.Sprintf("%d", chapterUptime),
+							"intime_stamp": fmt.Sprintf("%s", time.Unix(int64(intimeStamp), 0).Format("2006-01-02 03:04:05")),
+							"chapter_uptime": fmt.Sprintf("%s", time.Unix(int64(chapterUptime), 0).Format("2006-01-02 03:04:05")),
 							"mask_level": maskLevel,
 							"by": by,
-							"tf":tf,
+							"tf": tf,
 							"rn_d": fmt.Sprintf("%d", rnd),
 							"rt_d": fmt.Sprintf("%.3f", rtd),
 							"rn_w": fmt.Sprintf("%d", rnw),
