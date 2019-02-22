@@ -252,7 +252,11 @@ if __name__ == '__main__':
                 cursor.execute(msql1)
                 db.commit()
             except Exception, e:
-                cursor.execute(msql2)
-                db.commit()
+                try:
+                    cursor.execute(msql2)
+                    db.commit()
+                except Exception, e:
+                    print (e)
+                    print (msql2)
                 pass
     db.close()
