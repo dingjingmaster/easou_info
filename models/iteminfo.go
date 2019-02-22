@@ -76,9 +76,9 @@ func QueryItemInfo(req *ItemInfoRequest, response *Response) {
 							"by": by,
 							"tf": tf,
 							"rn_d": fmt.Sprintf("%d", rnd),
-							"rt_d": fmt.Sprintf("%.3f", rtd),
+							"rt_d": fmt.Sprintf("%.3f%%", rtd * 100),
 							"rn_w": fmt.Sprintf("%d", rnw),
-							"rt_w": fmt.Sprintf("%.3f", rtw),
+							"rt_w": fmt.Sprintf("%.3f%%", rtw * 100),
 							"update_time": updateTime,
 						}
 						response.Status = true
