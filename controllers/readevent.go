@@ -19,11 +19,11 @@ type ReadEventSelectControl struct {
  *		4. 返回数据
  */
 func (ts *ReadEventSelectControl) Post() {
-	request := models.ExhibitRequest{}
+	request := models.ReadEventRequest{}
 	response := models.Response{}
 	var json = jsoniter.ConfigCompatibleWithStandardLibrary
 	if err := json.Unmarshal(ts.Ctx.Input.RequestBody, &request); nil == err {
-		models.QueryExhibit(&request, &response)
+		models.QueryReadEvent(&request, &response)
 	} else {
 		// 错误处理
 		response.Status = false
