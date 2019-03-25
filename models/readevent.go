@@ -34,7 +34,7 @@ func QueryReadEvent(req *ReadEventRequest, response *Response) {
 					mmsql1 := mmsql
 					intro1 := intro
 					if app != "allApp" {
-						mmsql1 = mmsql + " AND app = " + strconv.Itoa(exhibitMapToNum[app])
+						mmsql1 = mmsql + " AND app = " + strconv.Itoa(readeventMapToNum[app])
 						intro1 = intro + readeventMapToString[app]
 					}
 					for _, module := range req.UserLevel {

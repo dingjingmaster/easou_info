@@ -244,7 +244,7 @@ def get_inject_sql(arr, timeStamp):
          '-' + status_trans_word(arr[6]) + \
          '-' + category_trans_word(arr[7]) + \
          '-' + str(timeStamp)
-    sql = "INSERT INTO item_exhibit(id, app, \
+    sql = "INSERT INTO read_event(id, app, \
               userLevel, userNewOld, ismonth, userFee, areaLevel, \
               status, cate, \
               gidNum, usrNum, chgNum, freNum, tfNum, sumNum, timeStamp)\

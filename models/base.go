@@ -96,6 +96,7 @@ var readeventMapToString = map[string]string {
 	"allArea": "全部地区", "oneArea": "一类地区", "twoArea": "二类地区", "trdArea": "三类地区", "fthArea": "四类地区", "othArea": "其它地区",
 	"allBookStu": "全部状态", "cmpBookStu": "完结", "noCmpBookStu": "连载", "othBookStu": "其它状态",
 	"allItmCate": "全部书籍类型", "tchgItmCate": "按章计费", "monItmCate": "包月", "unMonItmCate": "非包月", "tfItmCate": "限免", "yzItmCate": "一折书籍", "mcpItmCate": "免费CP书", "tfreItmCate": "免费互联网书", "brkItmCate": "断更", "genItmCate": "普通", "gveItmCate": "赠书", "othItmCate": "其它书籍类型",
+	"itmTag": "书籍量", "usrTag": "用户量", "chgTag": "付费章节量", "freTag": "免费章节量", "tfTag": "限免章节量", "sumTag": "总章节量",
 }
 
 func init() {
