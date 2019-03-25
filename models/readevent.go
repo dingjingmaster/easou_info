@@ -107,11 +107,9 @@ func QueryReadEvent(req *ReadEventRequest, response *Response) {
 		close(sqls)
 	}()
 
-	if exhibitDB, err := sql.Open("mysql", mysqlInfo+"item_exhibit?charset=utf8"); nil == err {
+	if exhibitDB, err := sql.Open("mysql", mysqlInfo+"read_event?charset=utf8"); nil == err {
 		timeDays := utils.TimeStringRangeToInt(req.TimeRange[0], req.TimeRange[1])
-
 		// sqls 多线程查询
-
 		for mmsql := range sqls {
 			gidNum := map[int]int{}
 			usrNum := map[int]int{}
