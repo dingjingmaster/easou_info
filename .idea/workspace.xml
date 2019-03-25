@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eaf0bfe-a5d0-4929-a94e-f950dad852d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/readevent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/itemexhibit.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/read_event/function.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/read_event/inject.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/read_event/inject.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/read_event/inject_manual.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/read_event/update_exhibit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/read_event.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/read_event_index.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a93047c9-d25f-4ab7-aa96-f8170516fb04.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a93047c9-d25f-4ab7-aa96-f8170516fb04.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/iteminfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/iteminfo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,51 +38,64 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="item_exhibit@10.26.24.87" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="item_info@10.26.24.87" type="feb32156:DbDataSourceImpl" />
+        <item name="read_event@10.26.24.87" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
     <select />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/sql/read_event.sql">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="475">
+                    <caret line="25" selection-start-line="25" selection-end-line="25" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetDialog">
     <checked>
-      <node key="a93047c9-d25f-4ab7-aa96-f8170516fb04">
-        <node key="item_info" />
-      </node>
+      <node key="9128ff4b-9803-4b7f-bba7-093f5803beb2" />
     </checked>
     <expanded>
       <node key="5a54a64c-0d20-41aa-8041-be69952c6add" />
-      <node key="a93047c9-d25f-4ab7-aa96-f8170516fb04" />
+      <node key="9128ff4b-9803-4b7f-bba7-093f5803beb2" />
     </expanded>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/iteminfo.go">
+        <entry file="file://$PROJECT_DIR$/python/read_event/inject.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="28" selection-start-line="28" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/iteminfo.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="80" column="67" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+            <state relative-caret-position="247">
+              <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/base.go">
+        <entry file="file://$PROJECT_DIR$/python/read_event/inject.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state relative-caret-position="437">
+              <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/python/read_event/function.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="314" column="34" selection-start-line="314" selection-start-column="34" selection-end-line="314" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -129,20 +155,31 @@
         <option value="$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py" />
         <option value="$PROJECT_DIR$/python/item_info/inject_item.sh" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a93047c9-d25f-4ab7-aa96-f8170516fb04/console.sql" />
-        <option value="$PROJECT_DIR$/models/base.go" />
-        <option value="$PROJECT_DIR$/routers/router.go" />
         <option value="$PROJECT_DIR$/controllers/iteminfo.go" />
         <option value="$PROJECT_DIR$/sql/item_info.sql" />
         <option value="$PROJECT_DIR$/python/item_info/item_info.py" />
         <option value="$PROJECT_DIR$/models/iteminfo.go" />
+        <option value="$PROJECT_DIR$/controllers/itemexhibit.go" />
+        <option value="$PROJECT_DIR$/models/itemexhibit.go" />
+        <option value="$PROJECT_DIR$/sql/item_read.sql" />
+        <option value="$PROJECT_DIR$/controllers/readevent.go" />
+        <option value="$PROJECT_DIR$/routers/router.go" />
+        <option value="$PROJECT_DIR$/models/base.go" />
+        <option value="$PROJECT_DIR$/sql/read_event_index.sql" />
+        <option value="$PROJECT_DIR$/python/read_event/get_data.sh" />
+        <option value="$PROJECT_DIR$/sql/read_event.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9128ff4b-9803-4b7f-bba7-093f5803beb2/console.sql" />
+        <option value="$PROJECT_DIR$/python/read_event/inject.sh" />
+        <option value="$PROJECT_DIR$/python/read_event/inject.py" />
+        <option value="$PROJECT_DIR$/python/read_event/function.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="77" />
-    <option name="y" value="71" />
+    <option name="x" value="149" />
+    <option name="y" value="26" />
     <option name="width" value="1599" />
-    <option name="height" value="896" />
+    <option name="height" value="1068" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -152,6 +189,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -162,19 +200,33 @@
             <path>
               <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
               <item name="easou_info" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easou_info" type="462c0819:PsiDirectoryNode" />
               <item name="python" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
               <item name="easou_info" type="462c0819:PsiDirectoryNode" />
               <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="item_info" type="462c0819:PsiDirectoryNode" />
+              <item name="read_event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easou_info" type="462c0819:PsiDirectoryNode" />
+              <item name="routers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easou_info" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easou_info" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,6 +248,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GO\src\easou_info\python" />
+      <recent name="E:\GO\src\easou_info\sql" />
+      <recent name="E:\GO\src\easou_info\controllers" />
       <recent name="E:\GO\src\easou_info\models" />
     </key>
   </component>
@@ -228,15 +283,15 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="77" y="71" width="1599" height="896" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.19753087" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.1684435" />
       <window_info id="Structure" order="1" sideWeight="0.5011236" side_tool="true" weight="0.259012" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32884902" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4969834" weight="0.08460634" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4969834" visible="true" weight="0.23178808" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39904422" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -246,12 +301,12 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.16726404" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5030166" side_tool="true" weight="0.39643347" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Console" order="12" weight="0.28802994" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.28714108" />
       <window_info anchor="bottom" id="SQL Generator" order="13" weight="0.3297491" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.16959064" />
+      <window_info anchor="right" id="Database" order="3" weight="0.17218973" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.179987" />
@@ -401,13 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/item_exhibit_index.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/python/item_exhibit/update_exhibit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -457,20 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routers/router.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql/item_exhibit.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" selection-start-line="6" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/retention.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="37">
@@ -499,6 +533,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/iteminfo.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1072">
+          <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/iteminfo.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
@@ -506,17 +547,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/base.go">
+    <entry file="file://$PROJECT_DIR$/sql/item_exhibit.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/iteminfo.go">
+    <entry file="file://$PROJECT_DIR$/routers/router.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="80" column="67" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+        <state relative-caret-position="190">
+          <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/item_exhibit_index.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="120" selection-start-line="2" selection-start-column="120" selection-end-line="2" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/itemexhibit.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/readevent.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/read_event/inject_manual.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/base.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/read_event_index.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/read_event.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9128ff4b-9803-4b7f-bba7-093f5803beb2/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/read_event/inject.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/read_event/inject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/read_event/function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="314" column="34" selection-start-line="314" selection-start-column="34" selection-end-line="314" selection-end-column="34" />
         </state>
       </provider>
     </entry>

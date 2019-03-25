@@ -76,6 +76,27 @@ var retentionMapToString = map[string]string{
 	"boyCfy1" : "男频", "girlCfy1" : "女频", "pshCfy1" : "出版", "othCfy1" : "其它",
 }
 
+/* 阅读事件相关查询 */
+var readeventMapToNum = map[string]int {
+	"easouApp": 1, "weijuanApp": 2, "othApp": 3,
+	"regUsrLevel": 1, "sphUsrLevel": 2, "othUsrLevel": 3,
+	"newUsrNew": 1, "oldUsrNew": 2, "othUsrNew": 3,
+	"monUsrMon": 1, "unMonUsrMon": 2, "othUsrMon": 3,
+	"freUsrFee": 1, "mybChgUsrFee": 2, "lgtChgUsrFee": 3, "mdlChgUsrFee": 4, "hghChgUsrFee": 5, "othUsrFee": 6,
+	"oneArea": 1, "twoArea": 2, "trdArea": 3, "fthArea": 4, "othArea": 5,
+	"cmpBookStu": 1, "noCmpBookStu": 2, "othBookStu": 3,
+	"tchgItmCate": 1, "monItmCate": 2, "unMonItmCate": 3, "tfItmCate": 4, "yzItmCate": 5, "mcpItmCate": 6, "tfreItmCate": 7, "brkItmCate": 8, "genItmCate": 9, "gveItmCate": 10, "othItmCate": 11,
+}
+var readeventMapToString = map[string]string {
+	"allApp": "全部app", "easouApp": "宜搜小说", "weijuanApp": "微卷", "othApp": "其它",
+	"allUsrLevel": "全部用户级别", "regUsrLevel": "普通用户", "sphUsrLevel": "特殊用户", "othUsrLevel": "其它用户级别",
+	"allUsrNew": "全部新旧用户", "newUsrNew": "新用户", "oldUsrNew": "老用户", "othUsrNew": "其他用户",
+	"allUsrMon": "全部包月非包月用户", "monUsrMon": "包月用户", "unMonUsrMon": "非包月用户", "othUsrMon": "其它包月非包月用户",
+	"allUsrFee": "全部付费级别", "freUsrFee": "纯免费", "mybChgUsrFee": "潜在付费", "lgtChgUsrFee": "轻度付费", "mdlChgUsrFee": "中度付费", "hghChgUsrFee": "重度付费", "othUsrFee": "其它付费",
+	"allArea": "全部地区", "oneArea": "一类地区", "twoArea": "二类地区", "trdArea": "三类地区", "fthArea": "四类地区", "othArea": "其它地区",
+	"allBookStu": "全部状态", "cmpBookStu": "完结", "noCmpBookStu": "连载", "othBookStu": "其它状态",
+	"allItmCate": "全部书籍类型", "tchgItmCate": "按章计费", "monItmCate": "包月", "unMonItmCate": "非包月", "tfItmCate": "限免", "yzItmCate": "一折书籍", "mcpItmCate": "免费CP书", "tfreItmCate": "免费互联网书", "brkItmCate": "断更", "genItmCate": "普通", "gveItmCate": "赠书", "othItmCate": "其它书籍类型",
+}
 
 func init() {
 	host := beego.AppConfig.String("mysql::host") 
