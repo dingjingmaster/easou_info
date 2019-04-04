@@ -10,7 +10,7 @@ from function import execute_sql
 from function import commit_sql
 
 # inject mysql
-def inject_mysql(today, dataPath, cursor, db):
+def inject_chapter_mysql(today, dataPath, cursor, db):
     with open(dataPath, 'r') as fr:
         timeStamp = int(today)
         for line in fr.readlines():
@@ -29,17 +29,19 @@ def inject_mysql(today, dataPath, cursor, db):
 
 if __name__ == '__main__':
 
-    if len(sys.argv) != 6:
+    if len(sys.argv) != 8:
         print ('请输入数据库用户名和密码以及时间 例:"20180101"')
         exit(-1)
     ip = sys.argv[1]
     user = sys.argv[2]
     passwd = sys.argv[3]
     today = sys.argv[4]
-    dataPath = sys.argv[5]
+    dataChapterPath = sys.argv[5]
+    dataUserPath = sys.argv[6]
+    dataBookPath = sys.argv[7]
 
     db = MySQLdb.connect(ip, user, passwd, 'read_event', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock')
     cursor = db.cursor()
-    inject_mysql(today, dataPath, cursor, db)
+    inject_chapter_mysql(today, dataChapterPath, cursor, db)
     db.close()
 

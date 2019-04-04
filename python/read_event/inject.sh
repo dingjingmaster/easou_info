@@ -16,14 +16,20 @@ fi
 #nowTime="20190320"
 #datestr="2019-03-20"
 
-readEventPath="hdfs://10.26.26.145:8020/rs/dingjing/static/read_day/${datestr}/"
-infoToday="data/read_event.txt"
+readEventChapterPath="hdfs://10.26.26.145:8020/rs/dingjing/static/read_day/chapter/${datestr}/"
+readEventUserPath="hdfs://10.26.26.145:8020/rs/dingjing/static/read_day/user/${datestr}/"
+readEventBookPath="hdfs://10.26.26.145:8020/rs/dingjing/static/read_day/book/${datestr}/"
+infoChapterToday="data/read_event_chapter.txt"
+infoUserToday="data/read_event_user.txt"
+infoBookToday="data/read_event_book.txt"
 
 cd ${workDir} && rm -fr data && mkdir data
-hadoop fs -cat "${readEventPath}/*" > ${infoToday}
+hadoop fs -cat "${readEventChapterPath}/*" > ${infoChapterToday}
+hadoop fs -cat "${readEventUserPath}/*" > ${infoUserToday}
+hadoop fs -cat "${readEventBookPath}/*" > ${infoBookToday}
 
 cd ${workDir}/
-python inject.py "127.0.0.1" "root" "123456" "${nowTime}" "${infoToday}"
+python inject.py "127.0.0.1" "root" "123456" "${nowTime}" "${infoChapterToday}" "${infoUserToday}" "${infoBookToday}"
 
 
 

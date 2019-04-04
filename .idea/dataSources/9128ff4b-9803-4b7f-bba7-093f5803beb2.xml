@@ -934,14 +934,17 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="236" parent="10" name="read_event"/>
-    <column id="237" parent="236" name="id">
+    <table id="237" parent="10" name="read_event_b"/>
+    <table id="238" parent="10" name="read_event_c"/>
+    <table id="239" parent="10" name="read_event_u"/>
+    <column id="240" parent="236" name="id">
       <Position>1</Position>
       <Comment>主键，包含所有信息的简写</Comment>
       <DataType>varchar(1024)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="238" parent="236" name="app">
+    <column id="241" parent="236" name="app">
       <Position>2</Position>
       <Comment>1.宜搜 2.微卷 3.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -949,7 +952,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="236" name="userLevel">
+    <column id="242" parent="236" name="userLevel">
       <Position>3</Position>
       <Comment>1.普通用户 2.特殊用户 3.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -957,7 +960,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="236" name="userNewOld">
+    <column id="243" parent="236" name="userNewOld">
       <Position>4</Position>
       <Comment>1.新用户 2.老用户 3.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -965,7 +968,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="236" name="ismonth">
+    <column id="244" parent="236" name="ismonth">
       <Position>5</Position>
       <Comment>1.包月 2.非包月 3.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -973,7 +976,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="236" name="userFee">
+    <column id="245" parent="236" name="userFee">
       <Position>6</Position>
       <Comment>1.纯免费 2.潜在付费 3.轻度付费 4.中度付费 5.重度付费 6.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -981,7 +984,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="236" name="areaLevel">
+    <column id="246" parent="236" name="areaLevel">
       <Position>7</Position>
       <Comment>1.一类地区 2.二类地区 3.三类地区 4.四类地区 5.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -989,7 +992,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="236" name="status">
+    <column id="247" parent="236" name="status">
       <Position>8</Position>
       <Comment>1.连载 2.完结 3.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -997,7 +1000,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="236" name="cate">
+    <column id="248" parent="236" name="cate">
       <Position>9</Position>
       <Comment>1.按章计费 2.包月 3.非包月 4.限免 5.一折书籍 6.免费CP书 7.免费互联网书 8.断更 9.普通 10.赠书 11.其它</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1005,7 +1008,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="236" name="gidNum">
+    <column id="249" parent="236" name="gidNum">
       <Position>10</Position>
       <Comment>书籍量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1013,7 +1016,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="236" name="usrNum">
+    <column id="250" parent="236" name="usrNum">
       <Position>11</Position>
       <Comment>用户量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1021,7 +1024,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="236" name="chgNum">
+    <column id="251" parent="236" name="chgNum">
       <Position>12</Position>
       <Comment>付费章节量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1029,7 +1032,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="236" name="freNum">
+    <column id="252" parent="236" name="freNum">
       <Position>13</Position>
       <Comment>免费章节量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1037,7 +1040,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="236" name="tfNum">
+    <column id="253" parent="236" name="tfNum">
       <Position>14</Position>
       <Comment>限免章节量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1045,7 +1048,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="236" name="sumNum">
+    <column id="254" parent="236" name="sumNum">
       <Position>15</Position>
       <Comment>总章节量</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1053,7 +1056,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="236" name="timeStamp">
+    <column id="255" parent="236" name="timeStamp">
       <Position>16</Position>
       <Comment>时间戳</Comment>
       <DataType>int(12)|0s</DataType>
@@ -1061,7 +1064,267 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="253" parent="236" name="PRIMARY">
+    <key id="256" parent="236" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="257" parent="237" name="id">
+      <Position>1</Position>
+      <Comment>主键，包含所有信息的简写</Comment>
+      <DataType>varchar(1024)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="258" parent="237" name="app">
+      <Position>2</Position>
+      <Comment>1.宜搜 2.微卷 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="237" name="status">
+      <Position>3</Position>
+      <Comment>1.连载 2.完结 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="237" name="cate">
+      <Position>4</Position>
+      <Comment>1.按章计费 2.包月 3.非包月 4.限免 5.一折书籍 6.免费CP书 7.免费互联网书 8.断更 9.普通 10.赠书 11.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="261" parent="237" name="gidNum">
+      <Position>5</Position>
+      <Comment>书籍量</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="262" parent="237" name="timeStamp">
+      <Position>6</Position>
+      <Comment>时间戳</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="263" parent="237" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="264" parent="238" name="id">
+      <Position>1</Position>
+      <Comment>主键，包含所有信息的简写</Comment>
+      <DataType>varchar(1024)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="265" parent="238" name="app">
+      <Position>2</Position>
+      <Comment>1.宜搜 2.微卷 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="266" parent="238" name="userLevel">
+      <Position>3</Position>
+      <Comment>1.普通用户 2.特殊用户 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="267" parent="238" name="userNewOld">
+      <Position>4</Position>
+      <Comment>1.新用户 2.老用户 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="268" parent="238" name="ismonth">
+      <Position>5</Position>
+      <Comment>1.包月 2.非包月 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="269" parent="238" name="userFee">
+      <Position>6</Position>
+      <Comment>1.纯免费 2.潜在付费 3.轻度付费 4.中度付费 5.重度付费 6.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="270" parent="238" name="areaLevel">
+      <Position>7</Position>
+      <Comment>1.一类地区 2.二类地区 3.三类地区 4.四类地区 5.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="271" parent="238" name="status">
+      <Position>8</Position>
+      <Comment>1.连载 2.完结 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="272" parent="238" name="cate">
+      <Position>9</Position>
+      <Comment>1.按章计费 2.包月 3.非包月 4.限免 5.一折书籍 6.免费CP书 7.免费互联网书 8.断更 9.普通 10.赠书 11.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="273" parent="238" name="gidNum">
+      <Position>10</Position>
+      <Comment>书籍量</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="274" parent="238" name="usrNum">
+      <Position>11</Position>
+      <Comment>用户量</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="275" parent="238" name="chgNum">
+      <Position>12</Position>
+      <Comment>付费章节量</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="276" parent="238" name="freNum">
+      <Position>13</Position>
+      <Comment>免费章节量</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="277" parent="238" name="tfNum">
+      <Position>14</Position>
+      <Comment>限免章节量</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="278" parent="238" name="sumNum">
+      <Position>15</Position>
+      <Comment>总章节量</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="279" parent="238" name="timeStamp">
+      <Position>16</Position>
+      <Comment>时间戳</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="280" parent="238" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="281" parent="239" name="id">
+      <Position>1</Position>
+      <Comment>主键，包含所有信息的简写</Comment>
+      <DataType>varchar(1024)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="282" parent="239" name="app">
+      <Position>2</Position>
+      <Comment>1.宜搜 2.微卷 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="283" parent="239" name="userLevel">
+      <Position>3</Position>
+      <Comment>1.普通用户 2.特殊用户 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="284" parent="239" name="areaLevel">
+      <Position>4</Position>
+      <Comment>1.一类地区 2.二类地区 3.三类地区 4.四类地区 5.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="285" parent="239" name="ismonth">
+      <Position>5</Position>
+      <Comment>1.包月 2.非包月 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="286" parent="239" name="userFee">
+      <Position>6</Position>
+      <Comment>1.纯免费 2.潜在付费 3.轻度付费 4.中度付费 5.重度付费 6.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="287" parent="239" name="userNewOld">
+      <Position>7</Position>
+      <Comment>1.新用户 2.老用户 3.其它</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="288" parent="239" name="usrNum">
+      <Position>8</Position>
+      <Comment>用户量</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="289" parent="239" name="timeStamp">
+      <Position>9</Position>
+      <Comment>时间戳</Comment>
+      <DataType>int(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="290" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
