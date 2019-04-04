@@ -134,12 +134,9 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 		}
 		close(sqls)
 	}()
-
 	if exhibitDB, err := sql.Open("mysql", mysqlInfo+"item_exhibit?charset=utf8"); nil == err {
 		timeDays := utils.TimeStringRangeToInt(req.TimeRange[0], req.TimeRange[1])
-
 		// sqls 多线程查询
-
 		for mmsql := range sqls {
 			recNum := map[int]int{}  // 推荐量 日期和值的关系
 			clkNum := map[int]int{}  // 点击量 日期和值的关系
@@ -164,7 +161,6 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 						redNum2[timeStampTmp] += redNum2Tmp
 					}
 				}
-
 				ta := sync.WaitGroup{}
 				for _, target := range req.Target {
 					ta.Add(1)
