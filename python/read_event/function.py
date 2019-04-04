@@ -234,7 +234,7 @@ def category_trans_num(mstr):
         res = 11
     return res
 
-def get_inject_sql(arr, timeStamp):
+def get_inject_chapter_sql(arr, timeStamp):
     id = app_trans_to_word(arr[0]) + \
          '-' + user_level_trans_to_word(arr[1]) + \
          '-' + user_area_trans_word(arr[2]) + \
@@ -257,6 +257,42 @@ def get_inject_sql(arr, timeStamp):
            user_fee_trans_to_num(arr[4]), user_new_old_trans_to_num(arr[5]), \
            status_trans_num(arr[6]), category_trans_num(arr[7]), \
            int(arr[8]), int(arr[9]), int(arr[10]), int(arr[11]), int(arr[12]), int(arr[13]), int(timeStamp))
+    return sql
+
+def get_inject_user_sql(arr, timeStamp):
+    id = app_trans_to_word(arr[0]) + \
+         '-' + user_level_trans_to_word(arr[1]) + \
+         '-' + user_area_trans_word(arr[2]) + \
+         '-' + user_month_trans_to_word(arr[3]) + \
+         '-' + user_fee_trans_to_word(arr[4]) + \
+         '-' + user_new_old_trans_to_word(arr[5]) + \
+         '-' + str(timeStamp)
+    sql = "INSERT INTO read_event_u(id, app, \
+              userLevel, userNewOld, ismonth, userFee, areaLevel, \
+              usrNum, timeStamp)\
+              VALUES('%s', '%d', \
+                '%d', '%d', '%d', '%d', '%d', \
+                '%d', '%d');" % \
+          (id,  app_trans_to_num(arr[0]), user_level_trans_to_num(arr[1]), \
+           user_area_trans_num(arr[2]), user_month_trans_to_num(arr[3]), \
+           user_fee_trans_to_num(arr[4]), user_new_old_trans_to_num(arr[5]), \
+           int(arr[6]), int(timeStamp))
+    return sql
+
+def get_inject_book_sql(arr, timeStamp):
+    id = app_trans_to_word(arr[0]) + \
+         '-' + status_trans_word(arr[1]) + \
+         '-' + category_trans_word(arr[2]) + \
+         '-' + str(timeStamp)
+    sql = "INSERT INTO read_event(id, app, \
+              status, cate, \
+              gidNum, timeStamp)\
+              VALUES('%s', '%d', \
+                '%d', '%d', \
+                '%d', '%d');" % \
+          (id,  app_trans_to_num(arr[0]),\
+           status_trans_num(arr[1]), category_trans_num(arr[2]), \
+           int(arr[3]), int(timeStamp))
     return sql
 
 def get_update_sql(arr, timeStamp):

@@ -4,7 +4,9 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 import MySQLdb
-from function import get_inject_sql
+from function import get_inject_user_sql
+from function import get_inject_book_sql
+from function import get_inject_chapter_sql
 from function import get_update_sql
 from function import execute_sql
 from function import commit_sql
@@ -20,7 +22,39 @@ def inject_chapter_mysql(today, dataPath, cursor, db):
                 print('错误行: ' + line + '\n')
                 continue
             msql = ''
-            msql = get_inject_sql(arr, timeStamp)
+            msql = get_inject_chapter_sql(arr, timeStamp)
+            execute_sql(cursor, msql)
+    commit_sql(db)
+    print ('当天数据注入 MySQL 完成！！！')
+    return
+
+def inject_user_mysql(today, dataPath, cursor, db):
+    with open(dataPath, 'r') as fr:
+        timeStamp = int(today)
+        for line in fr.readlines():
+            line = line.strip('\n')
+            arr = line.split('\t')
+            if len(arr) != 7:
+                print('错误行: ' + line + '\n')
+                continue
+            msql = ''
+            msql = get_inject_user_sql(arr, timeStamp)
+            execute_sql(cursor, msql)
+    commit_sql(db)
+    print ('当天数据注入 MySQL 完成！！！')
+    return
+
+def inject_book_mysql(today, dataPath, cursor, db):
+    with open(dataPath, 'r') as fr:
+        timeStamp = int(today)
+        for line in fr.readlines():
+            line = line.strip('\n')
+            arr = line.split('\t')
+            if len(arr) != 4:
+                print('错误行: ' + line + '\n')
+                continue
+            msql = ''
+            msql = get_inject_book_sql(arr, timeStamp)
             execute_sql(cursor, msql)
     commit_sql(db)
     print ('当天数据注入 MySQL 完成！！！')
@@ -43,5 +77,7 @@ if __name__ == '__main__':
     db = MySQLdb.connect(ip, user, passwd, 'read_event', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock')
     cursor = db.cursor()
     inject_chapter_mysql(today, dataChapterPath, cursor, db)
+    inject_user_mysql(today, dataChapterPath, cursor, db)
+    inject_book_mysql(today, dataChapterPath, cursor, db)
     db.close()
 
