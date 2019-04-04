@@ -7,7 +7,7 @@ import (
 	"github.com/json-iterator/go"
 )
 
-type ReadEventSelectControl struct {
+type ReadEventCSelectControl struct {
 	beego.Controller
 }
 
@@ -18,12 +18,12 @@ type ReadEventSelectControl struct {
  *		3. json 打包
  *		4. 返回数据
  */
-func (ts *ReadEventSelectControl) Post() {
-	request := models.ReadEventRequest{}
+func (ts *ReadEventCSelectControl) Post() {
+	request := models.ReadEventCRequest{}
 	response := models.Response{}
 	var json = jsoniter.ConfigCompatibleWithStandardLibrary
 	if err := json.Unmarshal(ts.Ctx.Input.RequestBody, &request); nil == err {
-		models.QueryReadEvent(&request, &response)
+		models.QueryReadEventC(&request, &response)
 	} else {
 		// 错误处理
 		response.Status = false
