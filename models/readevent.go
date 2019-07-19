@@ -206,12 +206,12 @@ func QueryReadEventC(req *ReadEventCRequest, response *Response) {
 				}
 			} else {
 				//response.Status = false
-				//response.Rrror = "sql 出错"
+				//response.Error = "sql 出错"
 			}
 		}
 	} else {
 		response.Status = false
-		response.Rrror = "MySQL数据库连接失败"
+		response.Error = "MySQL数据库连接失败"
 	}
 }
 
@@ -330,7 +330,7 @@ func QueryReadEventU(req *ReadEventURequest, response *Response) {
 		}
 	} else {
 		response.Status = false
-		response.Rrror = "MySQL数据库连接失败"
+		response.Error = "MySQL数据库连接失败"
 	}
 }
 
@@ -422,6 +422,6 @@ func QueryReadEventB(req *ReadEventBRequest, response *Response) {
 		}
 	} else {
 		response.Status = false
-		response.Rrror = "MySQL数据库连接失败"
+		response.Error = "MySQL数据库连接失败"
 	}
 }

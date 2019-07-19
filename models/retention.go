@@ -176,6 +176,6 @@ func QueryRetention(req *RetentionRequest, response *Response) {
 		}
 	} else {
 		response.Status = false
-		response.Rrror = "mysql连接失败"
+		response.Error = "mysql连接失败"
 	}
 }

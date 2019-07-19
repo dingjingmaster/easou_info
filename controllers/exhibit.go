@@ -27,7 +27,7 @@ func (ts *ExhibitSelectControl) Post() {
 	} else {
 		// 错误处理
 		response.Status = false
-		response.Rrror = "请求的 json 解析失败..."
+		response.Error = "请求的 json 解析失败..."
 	}
 	if respString, err := json.Marshal(response); nil == err {
 		ts.Ctx.WriteString(string(respString))

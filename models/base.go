@@ -15,7 +15,7 @@ type Line struct {
 
 type Response struct {
 	Status          bool                    // 成功或失败
-	Rrror           string                  // 失败说明
+	Error           string                  // 失败说明
 	Lines           []Line                  // 返回 n 条线
 	Data            []map[string]string     // 返回 json 字符串
 }

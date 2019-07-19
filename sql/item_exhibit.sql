@@ -3,7 +3,7 @@ alter database item_exhibit default character set utf8;
 use item_exhibit;
 
 CREATE TABLE IF NOT EXISTS `item_exhibit` (
-  `id` VARCHAR(1024) NOT NULL             COMMENT '主键，包含所有信息的简写',
+  `id` VARCHAR(320) NOT NULL              COMMENT '主键，包含所有信息的简写',
   `app` INT(12) DEFAULT 0 NOT NULL        COMMENT '1.宜搜 2.微卷 3.其它',
   `module` INT(12) DEFAULT 0 NOT NULL     COMMENT '1.书架推荐 2.书架-猜你喜欢 3.免费-免费推荐 4.免费-猜你喜欢 5.包月瀑布流 6.封面页-类别推荐 7.封面页-读本书的人还看过 8.封面页-读本书的人还看过更多 9.搜索结果页-热搜TOP榜 10.搜索结果页-猜你喜欢 11.章末页-读本书的人还看过 12.精选-女频瀑布流 13.精选-完结佳作 14.精选-完结瀑布流 15.精选-排行瀑布流 16.精选-根据阅读书籍推荐 17.精选-根据阅读分类推荐 18.精选-瀑布流 19.精选-热门推荐 20.精选-男频瀑布流 21.精选-精品必读 22.退出拦截推荐',
   `areaLevel` INT(12) DEFAULT 0 NOT NULL  COMMENT '1.一类地区 2.二类地区 3.三类地区 4.其它',
@@ -23,5 +23,22 @@ CREATE TABLE IF NOT EXISTS `item_exhibit` (
   `timeStamp` INT(12) DEFAULT 0 NOT NULL  COMMENT '时间戳',
   PRIMARY KEY (`id`)
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 alter table item_exhibit default character set utf8;
