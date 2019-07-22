@@ -19,6 +19,8 @@ func main() {
 		beego.AppPath = dir
 		beego.SetViewsPath(dir + "/dist/")
 		beego.SetStaticPath("/static", dir + "/dist/static/")
+		beego.Info("web dir: %s", dir)
+		beego.Info("html dir: %s", dir + "/dist/")
 	}
 
 	beego.SetLevel(beego.LevelDebug)
