@@ -18,27 +18,30 @@ CREATE TABLE IF NOT EXISTS `item_exhibit` (
   `recNum` INT(12) DEFAULT 0 NOT NULL     COMMENT '推荐量',
   `clkNum` INT(12) DEFAULT 0 NOT NULL     COMMENT '点击量',
   `subNum` INT(12) DEFAULT 0 NOT NULL     COMMENT '订阅量',
-  `redNum1` INT(12) DEFAULT 0 NOT NULL    COMMENT '阅读量1(订阅后次日阅读量)',
-  `redNum2` INT(12) DEFAULT 0 NOT NULL    COMMENT '阅读量2(订阅后第二日阅读量)',
+  `redNum1` INT(12) DEFAULT 0 NOT NULL    COMMENT '订阅后次日阅读量',
+  `redNum7` INT(12) DEFAULT 0 NOT NULL    COMMENT '',
+  `redNum30` INT(12) DEFAULT 0 NOT NULL   COMMENT '',
+  `redChap1` INT(12) DEFAULT 0 NOT NULL   COMMENT '',
+  `redChap7` INT(12) DEFAULT 0 NOT NULL   COMMENT '',
+  `redChap30` INT(12) DEFAULT 0 NOT NULL  COMMENT '',
+  `value1` INT(12) DEFAULT 0 NOT NULL     COMMENT '',
+  `value7` INT(12) DEFAULT 0 NOT NULL     COMMENT '',
+  `value30` INT(12) DEFAULT 0 NOT NULL    COMMENT '',
   `timeStamp` INT(12) DEFAULT 0 NOT NULL  COMMENT '时间戳',
   PRIMARY KEY (`id`)
 );
 
+-- 删除了旧的
+--alter table `item_exhibit` drop column `redNum2`;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- 增加新的列
+--alter table `item_exhibit` add column `redNum7` INT(12) default 0;
+--alter table `item_exhibit` add column `redNum30` INT(12) default 0;
+--alter table `item_exhibit` add column `redChap1` INT(12) default 0;
+--alter table `item_exhibit` add column `redChap7` INT(12) default 0;
+--alter table `item_exhibit` add column `redChap30` INT(12) default 0;
+--alter table `item_exhibit` add column `value1` INT(12) default 0;
+--alter table `item_exhibit` add column `value7` INT(12) default 0;
+--alter table `item_exhibit` add column `value30` INT(12) default 0;
 
 alter table item_exhibit default character set utf8;

@@ -9,6 +9,7 @@ from function import get_update_sql
 from function import execute_sql
 from function import commit_sql
 
+
 # inject mysql
 def inject_mysql(today, yesterday, exhibitToday, exhibitYesterday,  cursor, db):
     with open(exhibitToday, 'r') as fr:

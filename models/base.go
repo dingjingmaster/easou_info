@@ -48,8 +48,8 @@ var exhibitMapToString = map[string]string{
 	"allStu": "全书籍状态叠加", "noCmpStu": "连载", "cmpStu": "完结", "othStu": "其它状态",
 	"allSub": "全订阅级别叠加", "bt0to10Sub": "0~10订阅", "bt10to1bSub": "10~100订阅", "bt1bto1kSub": "100~1千订阅", "bt1kto10kSub": "1千~1万订阅", "bt10kto100kSub": "1万~10万订阅", "bt100kto1000kSub": "10万~1百万订阅", "bt1000kto10000kSub": "1百万~1千万订阅", "othSub": "其它订阅级别",
 	"allIn": "全入库时间叠加", "lesMonIn": "1月内入库", "bt1mto3mIn": "1~3月内入库", "bt3mto12mIn": "3~12月内入库", "bt12mto99mIn": "12~99月内入库", "othIn": "其它入库时间",
-	"dspNum": "推荐量", "clkNum": "点击量", "srbNum": "订阅量", "redNum1": "阅读量1", "redNum2": "阅读量2",
-	"clkDsp": "点展比", "subClk": "订点比", "subDsp": "订展比", "redSub1": "阅订比1", "redDsp1": "阅展比1", "redSub2": "阅订比2", "redDsp2": "阅展比2",
+	"dspNum": "推荐量", "clkNum": "点击量", "srbNum": "订阅量", "redNum1": "阅读量1", "redNum2": "阅读量2", "redNum7": "周阅读量", "redNum30": "月阅读量", "redChap1": "天阅读章节量", "redChap7": "周阅读章节量", "redChap30": "月阅读章节两", "value1": "天收益", "value7": "周收益", "value30": "月收益",
+	"clkDsp": "点展比", "subClk": "订点比", "subDsp": "订展比", "redSub1": "阅订比1", "redDsp1": "阅展比1", "redSub2": "阅订比2", "redDsp2": "阅展比2", "redDsp7": "周阅读展现比", "redDsp30": "月阅读展现比", "redcDsp1": "天阅读章节展现比", "redcDsp7": "周阅读展现比", "redcDsp30": "月阅读章节展现比", "valDsp1": "天价值展现比", "valDsp7": "周价值展现比", "valDsp30": "月价值展现比",
 }
 
 /* retention 相关全局变量 */
