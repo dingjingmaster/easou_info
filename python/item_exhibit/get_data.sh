@@ -13,7 +13,7 @@ tmpFile="${workDir}/.${nowTime}.txt"
 exhibitToday="${HADOOP}/rs/stat/${nowTime}/recsubs/*"
 
 cd ${workDir} && rm -fr data && mkdir data
-rm -fr "${workDir}/${yesterday}.txt"
+rm -fr "${workDir}/.${yesterday}.txt"
 hadoop fs -get ${exhibitToday} data/
 
 cd ${workDir}/
