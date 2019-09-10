@@ -30,7 +30,6 @@ def inject_mysql(exhibitPath, today, cursor, db):
                 cursor.execute(msql)
             except:
                 pass
-    commit_sql(db)
     print('当天数据注入 MySQL 完成！！！')
 
 
@@ -61,7 +60,9 @@ if __name__ == '__main__':
 
     # 获取要注入的文件
     for path in os.listdir(exhibitToday):
-        injectList.append(path)
+        print(path)
+        if os.path.exists(exhibitToday + '/' + path.strip() + '/' + '_SUCCESS'):
+            injectList.append(path)
 
     # 去除历史注入的文件
     for his in historyList:
