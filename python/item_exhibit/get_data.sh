@@ -17,7 +17,7 @@ rm -fr "${workDir}/.${yesterday}.txt"
 hadoop fs -get ${exhibitToday} data/
 
 cd ${workDir}/
-python inject_exhibit.py "127.0.0.1" "root" "123456" "${tmpFile}" "${infoTodayPath}"
+python inject_exhibit.py "10.26.24.87" "root" "123456" "${tmpFile}" "${infoTodayPath}"
 
 
 

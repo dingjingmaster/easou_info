@@ -497,7 +497,7 @@ def get_inject_sql(arr, timeStamp):
                 '%d', '%d', '%d',\
                 '%d', '%d', '%d',\
                 '%d', '%d', '%d',\
-                '%d', '%d', '%d',\
+                '%f', '%f', '%f',\
                 '%d');" % \
           (id,  app_trans_to_num(arr[0]), \
 
@@ -511,7 +511,7 @@ def get_inject_sql(arr, timeStamp):
            int(arr[11]), int(arr[12]), int(arr[13]),
            int(arr[14]), int(arr[15]), int(arr[16]),
            int(arr[17]), int(arr[18]), int(arr[19]),
-           int(arr[20]), int(arr[21]), int(arr[22]),
+           float(arr[20]), float(arr[21]), float(arr[22]),
            int(timeStamp))
     return sql
 
@@ -535,7 +535,7 @@ def get_update_sql(arr, timeStamp):
           recNum = '%d', clkNum = '%d', subNum = '%d',\
           redNum1 = '%d', redChap1 = '%d', value1 = '%d', \
           redNum7 = '%d', redChap7 = '%d', value7 = '%d', \
-          redNum30 = '%d', redChap30 = '%d', value30 = '%d', \
+          redNum30 = '%f', redChap30 = '%f', value30 = '%f', \
           timeStamp = '%d' WHERE id = '%s';" % \
           (app_trans_to_num(arr[0]),
 
@@ -549,7 +549,7 @@ def get_update_sql(arr, timeStamp):
            int(arr[11]), int(arr[12]), int(arr[13]),
            int(arr[14]), int(arr[15]), int(arr[16]),
            int(arr[17]), int(arr[18]), int(arr[18]),
-           int(arr[19]), int(arr[20]), int(arr[21]),
+           float(arr[19]), float(arr[20]), float(arr[21]),
            int(timeStamp), id)
     return sql
 

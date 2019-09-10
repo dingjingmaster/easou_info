@@ -146,9 +146,9 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 			redChap1 := map[int]int{}
 			redChap7 := map[int]int{}
 			redChap30 := map[int]int{}
-			value1 := map[int]int{}
-			value7 := map[int]int{}
-			value30 := map[int]int{}
+			value1 := map[int]float64{}
+			value7 := map[int]float64{}
+			value30 := map[int]float64{}
 			for _, tm := range timeDays {
 				recNum[tm] = 0
 				clkNum[tm] = 0
@@ -171,7 +171,7 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 				}
 				for ress.Next() {
 					recNumTmp, clkNumTmp, subNumTmp, redNum1Tmp, redNum2Tmp, redNum7Tmp, redNum30Tmp, redChap1Tmp, redChap7Tmp,
-					redChap30Tmp, value1Tmp, value7Tmp, value30Tmp, timeStampTmp := 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+					redChap30Tmp, value1Tmp, value7Tmp, value30Tmp, timeStampTmp := 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0
 					if err = ress.Scan(&recNumTmp, &clkNumTmp, &subNumTmp, &redNum1Tmp, &redNum2Tmp, &timeStampTmp); nil == err {
 						recNum[timeStampTmp] += recNumTmp
 						clkNum[timeStampTmp] += clkNumTmp

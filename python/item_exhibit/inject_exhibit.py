@@ -4,7 +4,7 @@ import os
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-# import MySQLdb
+import MySQLdb
 from function import get_path_time
 from function import get_inject_sql
 from function import get_update_sql
