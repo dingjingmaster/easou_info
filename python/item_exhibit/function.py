@@ -6,7 +6,14 @@ sys.setdefaultencoding('utf8')
 import MySQLdb
 import datetime
 
-###
+
+def get_path_time(path):
+    arr = path.split('.')
+    if len(arr) != 2:
+        return None
+    return arr[1]
+
+
 # 将 app————汉字转英文
 def app_trans_to_word(mstr):
     res = ''
@@ -18,7 +25,7 @@ def app_trans_to_word(mstr):
         res = 'othApp'
     return res
 
-###
+
 # 将模块————汉字转英文
 def module_trans_to_word(mstr):
     res = ''
@@ -74,7 +81,7 @@ def module_trans_to_word(mstr):
         res = 'foeAutRecMdl'
     return res
 
-###
+
 # 地区级别————汉字转英文
 def area_level_trans_to_word(mstr):
     res = ''
@@ -90,7 +97,7 @@ def area_level_trans_to_word(mstr):
         res = 'fthArea'
     return res
 
-###
+
 # 用户级别————汉字转英文
 def user_level_trans_to_word(mstr):
     res = ''
@@ -102,7 +109,7 @@ def user_level_trans_to_word(mstr):
         res = 'othUsrLevel'
     return res
 
-###
+
 # 新旧用户————汉字转英文
 def user_nd_trans_to_word(mstr):
     res = ''
@@ -114,7 +121,7 @@ def user_nd_trans_to_word(mstr):
         res = 'othUsr'
     return res
 
-###
+
 # 用户付费类型————汉字转英文
 def user_fee_trans_to_word(mstr):
     res = ''
@@ -132,7 +139,7 @@ def user_fee_trans_to_word(mstr):
         res = 'othFeeUsr'
     return res
 
-###
+
 # 物品付费类型————汉字转英文
 def item_fee_trans_to_word(mstr):
     res = ''
@@ -150,7 +157,7 @@ def item_fee_trans_to_word(mstr):
         res = 'allFreItmFee'
     return res
 
-###
+
 # 推荐策略————汉字转英文
 def strategy_trans_to_word(mstr):
     res = ''
@@ -184,7 +191,7 @@ def strategy_trans_to_word(mstr):
         res = 'othRec'
     return res
 
-###
+
 # 连载/完结状态————汉字转英文
 def status_trans_to_word(mstr):
     res = ''
@@ -196,7 +203,7 @@ def status_trans_to_word(mstr):
         res = 'othStu'
     return res
 
-###
+
 # 订阅级别————汉字转英文
 def view_trans_to_word(mstr):
     res = ''
@@ -218,7 +225,7 @@ def view_trans_to_word(mstr):
         res = 'othSub'
     return res
 
-###
+
 # 入库时间————汉字转英文
 def intime_trans_to_word(mstr):
     res = ''
@@ -234,7 +241,7 @@ def intime_trans_to_word(mstr):
         res = 'othIn'
     return res
 
-###
+
 # 将 app————汉字转英文
 def app_trans_to_num(mstr):
     res = 0
@@ -246,7 +253,7 @@ def app_trans_to_num(mstr):
         res = 3
     return res
 
-###
+
 # 将模块————汉字转数字
 def module_trans_to_num(mstr):
     res = 0
@@ -302,7 +309,7 @@ def module_trans_to_num(mstr):
         res = 25
     return res
 
-###
+
 # 地区级别————汉字转数字
 def area_level_trans_to_num(mstr):
     res = 0
@@ -318,7 +325,7 @@ def area_level_trans_to_num(mstr):
         res = 5
     return res
 
-###
+
 # 用户级别————汉字转数字
 def user_level_trans_to_num(mstr):
     res = 0
@@ -330,7 +337,7 @@ def user_level_trans_to_num(mstr):
         res = 3
     return res
 
-###
+
 # 新旧用户————汉字转数字
 def user_nd_trans_to_num(mstr):
     res = 0
@@ -342,7 +349,7 @@ def user_nd_trans_to_num(mstr):
         res = 3
     return res
 
-###
+
 # 用户付费类型————汉字转数字
 def user_fee_trans_to_num(mstr):
     res = 0
@@ -360,7 +367,7 @@ def user_fee_trans_to_num(mstr):
         res = 6
     return res
 
-###
+
 # 物品付费类型————汉字转数字
 def item_fee_trans_to_num(mstr):
     res = 0
@@ -378,7 +385,7 @@ def item_fee_trans_to_num(mstr):
         res = 6
     return res
 
-###
+
 # 推荐策略————汉字转数字
 def strategy_trans_to_num(mstr):
     res = 0
@@ -412,7 +419,7 @@ def strategy_trans_to_num(mstr):
         res = 14
     return res
 
-###
+
 # 连载/完结状态————汉字转数字
 def status_trans_to_num(mstr):
     res = 0
@@ -424,7 +431,7 @@ def status_trans_to_num(mstr):
         res = 3
     return res
 
-###
+
 # 订阅级别————汉字转数字
 def view_trans_to_num(mstr):
     res = 0
@@ -462,6 +469,7 @@ def intime_trans_to_num(mstr):
         res = 5
     return res
 
+
 def get_inject_sql(arr, timeStamp):
     id = app_trans_to_word(arr[0]) + \
          '-' + module_trans_to_word(arr[1]) + \
@@ -478,16 +486,35 @@ def get_inject_sql(arr, timeStamp):
     sql = "INSERT INTO item_exhibit(id, app, \
               module, areaLevel, userLevel, userNewOld, userFee, itemFee, \
               strategy, status, view, intime, \
-              recNum, clkNum, subNum, redNum1, redNum2, timeStamp)\
-              VALUES('%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d');" % \
+              recNum, clkNum, subNum, \
+              redNum1, redChap1, value1, \
+              redNum7, redChap7, value7, \
+              redNum30, redChap30, value30, \
+              timeStamp) VALUES \
+               ('%s', '%d',\
+                '%d', '%d', '%d', '%d', '%d', '%d',\
+                '%d', '%d', '%d', '%d',\
+                '%d', '%d', '%d',\
+                '%d', '%d', '%d',\
+                '%d', '%d', '%d',\
+                '%d', '%d', '%d',\
+                '%d');" % \
           (id,  app_trans_to_num(arr[0]), \
-           module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]), \
-           user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]), \
-           user_fee_trans_to_num(arr[5]), item_fee_trans_to_num(arr[6]), \
-           strategy_trans_to_num(arr[7]), status_trans_to_num(arr[8]), \
-           view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]), \
-           int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(arr[15]), int(timeStamp))
+
+           module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]),
+           user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]),
+           user_fee_trans_to_num(arr[5]), item_fee_trans_to_num(arr[6]),
+
+           strategy_trans_to_num(arr[7]), status_trans_to_num(arr[8]),
+           view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]),
+
+           int(arr[11]), int(arr[12]), int(arr[13]),
+           int(arr[14]), int(arr[15]), int(arr[16]),
+           int(arr[17]), int(arr[18]), int(arr[19]),
+           int(arr[20]), int(arr[21]), int(arr[22]),
+           int(timeStamp))
     return sql
+
 
 def get_update_sql(arr, timeStamp):
     id = app_trans_to_word(arr[0]) + \
@@ -502,35 +529,34 @@ def get_update_sql(arr, timeStamp):
          '-' + view_trans_to_word(arr[9]) + \
          '-' + intime_trans_to_word(arr[10]) + \
          '-' + str(timeStamp)
-    sql = "UPDATE item_exhibit SET app = '%d', module = '%d', areaLevel = '%d', userLevel = '%d', \
-          userNewOld = '%d', userFee = '%d', itemFee = '%d', strategy = '%d', status = '%d', view = '%d', \
-          intime = '%d', recNum = '%d', clkNum = '%d', subNum = '%d', redNum1 = '%d', redNum2 = '%d', timeStamp = '%d' WHERE id = '%s';" % \
-          (app_trans_to_num(arr[0]), \
-           module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]), \
-           user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]), \
-           user_fee_trans_to_num(arr[5]), item_fee_trans_to_num(arr[6]), \
-           strategy_trans_to_num(arr[7]), status_trans_to_num(arr[8]), \
-           view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]), \
-           int(arr[11]), int(arr[12]), int(arr[13]), int(arr[14]), int(arr[15]), int(timeStamp), id)
+    sql = "UPDATE item_exhibit SET app = '%d',\
+          module = '%d', areaLevel = '%d', userLevel = '%d', userNewOld = '%d', userFee = '%d', itemFee = '%d', \
+          strategy = '%d', status = '%d', view = '%d', intime = '%d', \
+          recNum = '%d', clkNum = '%d', subNum = '%d',\
+          redNum1 = '%d', redChap1 = '%d', value1 = '%d', \
+          redNum7 = '%d', redChap7 = '%d', value7 = '%d', \
+          redNum30 = '%d', redChap30 = '%d', value30 = '%d', \
+          timeStamp = '%d' WHERE id = '%s';" % \
+          (app_trans_to_num(arr[0]),
+
+           module_trans_to_num(arr[1]), area_level_trans_to_num(arr[2]),
+           user_level_trans_to_num(arr[3]), user_nd_trans_to_num(arr[4]),
+           user_fee_trans_to_num(arr[5]), item_fee_trans_to_num(arr[6]),
+
+           strategy_trans_to_num(arr[7]), status_trans_to_num(arr[8]),
+           view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]),
+
+           int(arr[11]), int(arr[12]), int(arr[13]),
+           int(arr[14]), int(arr[15]), int(arr[16]),
+           int(arr[17]), int(arr[18]), int(arr[18]),
+           int(arr[19]), int(arr[20]), int(arr[21]),
+           int(timeStamp), id)
     return sql
+
 
 def execute_sql(cursor, sql):
     try:
         cursor.execute(sql)
-    except:
-        pass
-        #print "sql:" + sql + "\t 执行错误"
+    except Exception as e:
+        print("sql:" + sql + "\t 执行错误:" + str(e))
     return
-
-def commit_sql(db):
-    try:
-        db.commit()
-    except Exception, e:
-        db.rollback()
-        print ('sql 事务执行失败! 错误: ' + e)
-    return
-
-def delete_sdy(cursor, db, tim):
-    msql = 'DELETE FROM item_exhibit WHERE timeStamp = ' + tim + ';'
-    execute_sql(cursor, msql)
-    commit_sql(db)

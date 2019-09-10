@@ -164,7 +164,6 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 				value7[tm] = 0
 				value30[tm] = 0
 			}
-			fmt.Println("select sql: " + mmsql.Sql)
 			if ress, err := exhibitDB.Query(mmsql.Sql); nil == err {
 				if ress.Next() {
 					fmt.Println(mmsql.Sql)
