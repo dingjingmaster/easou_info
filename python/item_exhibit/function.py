@@ -548,8 +548,8 @@ def get_update_sql(arr, timeStamp):
 
            int(arr[11]), int(arr[12]), int(arr[13]),
            int(arr[14]), int(arr[15]), float(arr[16]),
-           int(arr[17]), int(arr[18]), float(arr[18]),
-           int(arr[19]), int(arr[20]), float(arr[21]),
+           int(arr[17]), int(arr[18]), float(arr[19]),
+           int(arr[20]), int(arr[21]), float(arr[22]),
            int(timeStamp), id)
     return sql
 
