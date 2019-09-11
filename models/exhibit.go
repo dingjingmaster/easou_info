@@ -30,7 +30,8 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 	go func() {
 		if startTime, ok := utils.TimeStringToString(req.TimeRange[0]); nil == ok {
 			if endTime, ok := utils.TimeStringToString(req.TimeRange[1]); nil == ok {
-				mmsql := "SELECT recNum, clkNum, subNum, redNum1, redNum2, timeStamp FROM item_exhibit WHERE "
+				mmsql := "SELECT recNum, clkNum, subNum, redNum1, redNum7, redNum30," +
+					" redChap1, redChap7, redChap30, value1, value7, value30, timeStamp FROM item_exhibit WHERE "
 				intro := ""
 				for _, app := range req.App {
 					mmsql1 := mmsql
@@ -154,7 +155,6 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 				clkNum[tm] = 0
 				subNum[tm] = 0
 				redNum1[tm] = 0
-				redNum2[tm] = 0
 				redNum7[tm] = 0
 				redNum30[tm] = 0
 				redChap1[tm] = 0
@@ -170,14 +170,15 @@ func QueryExhibit(req *ExhibitRequest, response *Response) {
 					fmt.Println("请求完成！！！")
 				}
 				for ress.Next() {
-					recNumTmp, clkNumTmp, subNumTmp, redNum1Tmp, redNum2Tmp, redNum7Tmp, redNum30Tmp, redChap1Tmp, redChap7Tmp,
-					redChap30Tmp, value1Tmp, value7Tmp, value30Tmp, timeStampTmp := 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0
-					if err = ress.Scan(&recNumTmp, &clkNumTmp, &subNumTmp, &redNum1Tmp, &redNum2Tmp, &timeStampTmp); nil == err {
+					recNumTmp, clkNumTmp, subNumTmp, redNum1Tmp, redNum7Tmp, redNum30Tmp, redChap1Tmp, redChap7Tmp,
+					redChap30Tmp, value1Tmp, value7Tmp, value30Tmp, timeStampTmp := 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0
+					if err = ress.Scan(&recNumTmp, &clkNumTmp, &subNumTmp, &redNum1Tmp, &redNum7Tmp, &redNum30Tmp,
+						&redChap1Tmp, &redChap7Tmp, &redChap30Tmp,
+						&value1Tmp, &value7Tmp, &value30Tmp, &timeStampTmp); nil == err {
 						recNum[timeStampTmp] += recNumTmp
 						clkNum[timeStampTmp] += clkNumTmp
 						subNum[timeStampTmp] += subNumTmp
 						redNum1[timeStampTmp] += redNum1Tmp
-						redNum2[timeStampTmp] += redNum2Tmp
 						redNum7[timeStampTmp] += redNum7Tmp
 						redNum30[timeStampTmp] += redNum30Tmp
 						redChap1[timeStampTmp] += redChap1Tmp
