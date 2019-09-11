@@ -21,22 +21,14 @@ def inject_mysql(exhibitPath, today, cursor, db):
                 print('错误行: ' + line + '\n')
                 continue
             msql = get_inject_sql(arr, timeStamp)
-            cursor.execute(msql)
-    try:
-        db.commit()
-    except:
-        db.rollback()
-        with open(exhibitPath, 'r') as fr:
-            timeStamp = int(today)
-            for line in fr.readlines():
-                line = line.strip('\n')
-                arr = line.split('\t')
-                if len(arr) != 23:
-                    print('错误行: ' + line + '\n')
-                    continue
+            try:
+                cursor.execute(msql)
+                db.commit()
+            except:
+                db.rollback()
                 msql = get_update_sql(arr, timeStamp)
                 cursor.execute(msql)
-        db.commit()
+                db.commit()
     print('当天数据注入 MySQL 完成！！！')
 
 
