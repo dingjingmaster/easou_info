@@ -495,9 +495,9 @@ def get_inject_sql(arr, timeStamp):
                 '%d', '%d', '%d', '%d', '%d', '%d',\
                 '%d', '%d', '%d', '%d',\
                 '%d', '%d', '%d',\
-                '%d', '%d', '%d',\
-                '%d', '%d', '%d',\
-                '%f', '%f', '%f',\
+                '%d', '%d', '%f',\
+                '%d', '%d', '%f',\
+                '%d', '%d', '%f',\
                 '%d');" % \
           (id,  app_trans_to_num(arr[0]), \
 
@@ -509,9 +509,9 @@ def get_inject_sql(arr, timeStamp):
            view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]),
 
            int(arr[11]), int(arr[12]), int(arr[13]),
-           int(arr[14]), int(arr[15]), int(arr[16]),
-           int(arr[17]), int(arr[18]), int(arr[19]),
-           float(arr[20]), float(arr[21]), float(arr[22]),
+           int(arr[14]), int(arr[15]), float(arr[16]),
+           int(arr[17]), int(arr[18]), float(arr[19]),
+           int(arr[20]), int(arr[21]), float(arr[22]),
            int(timeStamp))
     return sql
 
@@ -533,9 +533,9 @@ def get_update_sql(arr, timeStamp):
           module = '%d', areaLevel = '%d', userLevel = '%d', userNewOld = '%d', userFee = '%d', itemFee = '%d', \
           strategy = '%d', status = '%d', view = '%d', intime = '%d', \
           recNum = '%d', clkNum = '%d', subNum = '%d',\
-          redNum1 = '%d', redChap1 = '%d', value1 = '%d', \
-          redNum7 = '%d', redChap7 = '%d', value7 = '%d', \
-          redNum30 = '%f', redChap30 = '%f', value30 = '%f', \
+          redNum1 = '%d', redChap1 = '%d', value1 = '%f', \
+          redNum7 = '%d', redChap7 = '%d', value7 = '%f', \
+          redNum30 = '%d', redChap30 = '%d', value30 = '%f', \
           timeStamp = '%d' WHERE id = '%s';" % \
           (app_trans_to_num(arr[0]),
 
@@ -547,9 +547,9 @@ def get_update_sql(arr, timeStamp):
            view_trans_to_num(arr[9]), intime_trans_to_num(arr[10]),
 
            int(arr[11]), int(arr[12]), int(arr[13]),
-           int(arr[14]), int(arr[15]), int(arr[16]),
-           int(arr[17]), int(arr[18]), int(arr[18]),
-           float(arr[19]), float(arr[20]), float(arr[21]),
+           int(arr[14]), int(arr[15]), float(arr[16]),
+           int(arr[17]), int(arr[18]), float(arr[18]),
+           int(arr[19]), int(arr[20]), float(arr[21]),
            int(timeStamp), id)
     return sql
 
